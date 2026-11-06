@@ -1,3 +1,13 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+*.translation
+.DS_Store
+builds/
+exports/
+.env
+.env.*
+!.env.example
+export_credentials.cfg
+tests/captures/
