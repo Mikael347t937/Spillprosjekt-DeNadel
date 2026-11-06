@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c8cst455c5x13"]
+
+[ext_resource type="Texture2D" uid="uid://bgi7tre4i12qc" path="res://tanks-simple.png" id="1_g2tbl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_to8yd"]
+size = Vector2(54, 54)
+
+[node name="Box" type="StaticBody2D" unique_id=249545296]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1440179180]
+texture = ExtResource("1_g2tbl")
+region_enabled = true
+region_rect = Rect2(15, 99, 56, 56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1589857402]
+shape = SubResource("RectangleShape2D_to8yd")

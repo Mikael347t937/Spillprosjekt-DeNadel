@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://do0tvdf3yun3t"]
+
+[ext_resource type="Script" uid="uid://bfpwvn0nr7o6t" path="res://tanks.gd" id="1_5d6rj"]
+[ext_resource type="Texture2D" uid="uid://bgi7tre4i12qc" path="res://tanks-simple.png" id="1_em04d"]
+[ext_resource type="Script" uid="uid://d20xp30lgnxix" path="res://barell.gd" id="3_l3p2y"]
+[ext_resource type="Texture2D" uid="uid://bm3xj245acwke" path="res://specialBarrel6.png" id="3_shslj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejol1"]
+size = Vector2(59, 73)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=767207002]
+script = ExtResource("1_5d6rj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=969391952]
+texture = ExtResource("1_em04d")
+region_enabled = true
+region_rect = Rect2(85, 87, 84, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1616944039]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_ejol1")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1951531738]
+script = ExtResource("3_l3p2y")
+
+[node name="SpecialBarrel6" type="Sprite2D" parent="Node2D" unique_id=40478100]
+position = Vector2(17, -8)
+rotation = -4.7211156
+scale = Vector2(1.725, 1.725)
+texture = ExtResource("3_shslj")
