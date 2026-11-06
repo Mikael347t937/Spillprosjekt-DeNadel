@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://bb8s7ma2yrrjy"]
+
+[ext_resource type="Script" uid="uid://8jg3sjfes1lf" path="res://scripts/prologue.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://daw5uo5tglrps" path="res://assets/art/title_background.png" id="2"]
+[ext_resource type="Theme" path="res://assets/menu_theme.tres" id="3"]
+[ext_resource type="FontFile" uid="uid://bx7o3md0weu0l" path="res://assets/fonts/Anton-Regular.ttf" id="4"]
+[ext_resource type="Script" uid="uid://cmaqakwxxeib0" path="res://scripts/atmosphere.gd" id="5"]
+
+[node name="Prologue" type="Control" unique_id=1783017430]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3")
+script = ExtResource("1")
+
+[node name="Background" type="TextureRect" parent="." unique_id=381798354]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Shade" type="ColorRect" parent="." unique_id=815215125]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.025, 0.025, 0.025, 0.78)
+
+[node name="Atmosphere" type="Control" parent="." unique_id=1539318225]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5")
+
+[node name="Content" type="VBoxContainer" parent="." unique_id=1565951095]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -370.0
+offset_top = -245.0
+offset_right = 370.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 22
+
+[node name="Chapter" type="Label" parent="Content" unique_id=1761672492]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.73, 0.35, 0.28, 1)
+theme_override_font_sizes/font_size = 19
+text = "PROLOG  /  EN BY UTEN STEMME"
+
+[node name="Title" type="Label" parent="Content" unique_id=785651330]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 72
+text = "DET BEGYNNER
+MED ET NEI."
+
+[node name="Story" type="Label" parent="Content" unique_id=29892768]
+layout_mode = 2
+theme_override_font_sizes/font_size = 27
+text = "Over hustakene vandrer lyset fra vakttårnene.
+Under dem venter en by som har lært å tie.
+
+Men noen har ennå ikke gitt opp."
+autowrap_mode = 3
+
+[node name="Note" type="Label" parent="Content" unique_id=1826510252]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.59, 0.56, 0.51, 1)
+theme_override_font_sizes/font_size = 20
+text = "Historien fortsetter i første kapittel."
+
+[node name="Back" type="Button" parent="Content" unique_id=1856837828]
+custom_minimum_size = Vector2(340, 52)
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_default_cursor_shape = 2
+text = "Til hovedmenyen"
+
+[node name="Fade" type="ColorRect" parent="." unique_id=18265464]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.015, 0.015, 0.015, 0)
