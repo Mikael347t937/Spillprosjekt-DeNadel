@@ -54,6 +54,3 @@ position = Vector2(320, 180)
 
 [node name="Enemy2" parent="." instance=ExtResource("4_enemy")]
 position = Vector2(940, 460)
-
-[node name="bush" parent="." unique_id=1510643449 instance=ExtResource("4_wkftn")]
-position = Vector2(262, 222)
