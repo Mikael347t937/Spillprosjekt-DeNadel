@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://qp7jsd7iketg" path="res://tanks-terrain.png" id="1_2nifc"]
 [ext_resource type="PackedScene" uid="uid://do0tvdf3yun3t" path="res://tanks.tscn" id="2_wkftn"]
 [ext_resource type="PackedScene" uid="uid://c8cst455c5x13" path="res://box.tscn" id="3_q4iis"]
-[ext_resource type="PackedScene" uid="uid://e3fr5ao50f71" path="res://bush.tscn" id="4_wkftn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m3clv"]
 texture = ExtResource("1_2nifc")
@@ -47,6 +46,3 @@ position = Vector2(371, 445)
 
 [node name="Box4" parent="." unique_id=1754816045 instance=ExtResource("3_q4iis")]
 position = Vector2(511, 386)
-
-[node name="bush" parent="." unique_id=1510643449 instance=ExtResource("4_wkftn")]
-position = Vector2(262, 222)
