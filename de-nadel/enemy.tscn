@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://e3fr5ao50f71"]
+
+[ext_resource type="Script" uid="uid://dv3nbaetbyyn0" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://bgi7tre4i12qc" path="res://tanks-simple.png" id="1_7k104"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ok0oa"]
+radius = 37.12142
+
+[node name="enemy" type="CharacterBody2D" unique_id=1510643449]
+script = ExtResource("1_4gyqm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=816626559]
+texture = ExtResource("1_7k104")
+region_enabled = true
+region_rect = Rect2(169, 169, 84, 84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1685423310]
+shape = SubResource("CircleShape2D_ok0oa")
