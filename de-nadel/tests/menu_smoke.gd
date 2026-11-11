@@ -28,7 +28,12 @@ func run() -> void:
 	original_values = [settings.volume, settings.fullscreen, settings.reduced_motion]
 	settings.config_path = "user://menu-test-settings.cfg"
 	root.size = Vector2i(1600, 900)
-	var menu = load("res://scenes/main_menu.tscn").instantiate()
+	var menu_scene = load("res://scenes/main_menu.tscn") as PackedScene
+	if menu_scene == null:
+		push_error("Main menu or a referenced level could not be loaded.")
+		quit(1)
+		return
+	var menu = menu_scene.instantiate()
 	root.add_child(menu)
 	current_scene = menu
 	await process_frame
@@ -69,13 +74,13 @@ func run() -> void:
 	menu.buttons.get_child(0).pressed.emit()
 	await process_frame
 	await process_frame
-	check(current_scene.name == "Prologue", "Start spill opens prologue scene")
+	check(current_scene.scene_file_path == "res://Level.tscn", "Start spill opens gameplay level")
 	await create_timer(0.1).timeout
-	await take_capture("prologue.png")
-	current_scene.return_to_menu()
+	await take_capture("level.png")
+	change_scene_to_file("res://scenes/main_menu.tscn")
 	await process_frame
 	await process_frame
-	check(current_scene.name == "MainMenu", "prologue returns to main menu")
+	check(current_scene.name == "MainMenu", "menu can load again after gameplay")
 	settings.volume = original_values[0]
 	settings.fullscreen = original_values[1]
 	settings.reduced_motion = original_values[2]
