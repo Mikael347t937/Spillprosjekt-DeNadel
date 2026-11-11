@@ -74,7 +74,14 @@ func run() -> void:
 	menu.buttons.get_child(0).pressed.emit()
 	await process_frame
 	await process_frame
-	check(current_scene.scene_file_path == "res://Level.tscn", "Start spill opens gameplay level")
+	check(current_scene.scene_file_path == "res://scenes/level_select.tscn", "Start spill opens level selection")
+	check(current_scene.get_node("Panel/Content/Level2").disabled, "level two is clearly unavailable")
+	check(current_scene.get_node("Panel/Content/Level3").disabled, "level three is clearly unavailable")
+	await take_capture("level-select.png")
+	current_scene.open_level_one()
+	await process_frame
+	await process_frame
+	check(current_scene.scene_file_path == "res://Level.tscn", "level one opens the existing gameplay scene")
 	await create_timer(0.1).timeout
 	await take_capture("level.png")
 	change_scene_to_file("res://scenes/main_menu.tscn")

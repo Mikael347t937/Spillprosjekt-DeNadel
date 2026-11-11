@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://c8cst455c5x13" path="res://box.tscn" id="3_q4iis"]
 [ext_resource type="PackedScene" path="res://scenes/enemy.tscn" id="4_enemy"]
 
+[ext_resource type="PackedScene" path="res://scenes/game_hud.tscn" id="hud"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m3clv"]
 texture = ExtResource("1_2nifc")
 texture_region_size = Vector2i(128, 128)
@@ -53,3 +55,5 @@ position = Vector2(320, 180)
 
 [node name="Enemy2" parent="." unique_id=2043142194 instance=ExtResource("4_enemy")]
 position = Vector2(940, 460)
+
+[node name="GameHUD" parent="." instance=ExtResource("hud")]

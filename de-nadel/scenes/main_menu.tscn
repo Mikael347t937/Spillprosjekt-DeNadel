@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://cmaqakwxxeib0" path="res://scripts/atmosphere.gd" id="8"]
 [ext_resource type="AudioStream" uid="uid://ioajjh6u8dbc" path="res://assets/audio/city_drone.wav" id="9"]
 [ext_resource type="AudioStream" uid="uid://cyb2etfbltbo3" path="res://assets/audio/menu_click.wav" id="10"]
-[ext_resource type="PackedScene" uid="uid://d1mq3yn0px4tt" path="res://Level.tscn" id="11_level"]
+[ext_resource type="PackedScene" path="res://scenes/level_select.tscn" id="11_level"]
 
 [sub_resource type="ShaderMaterial" id="Film"]
 shader = ExtResource("6")
