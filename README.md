@@ -6,7 +6,7 @@
 2. I Godot 4.7.2: velg **Import**, og åpne **`de-nadel/project.godot`** fra dette repositoriet.
 3. Trykk **F5**. Hovedscenen er `de-nadel/scenes/main_menu.tscn`.
 
-Startmenyen har **Start spill**, **Innstillinger**, **Om spillet** og **Avslutt**. Bruk mus eller piltastene og Enter. Esc går tilbake. Lydnivå, fullskjerm og redusert bevegelse lagres lokalt. **Start spill** åpner nivåvelgeren. **Nivå 1** er den eksisterende `de-nadel/Level.tscn`. Nivå 2 og 3 er merket «Kommer senere» og kan ikke velges ennå. Hovedmenyen er fortsatt prosjektets hovedscene; bruk **Run Current Scene** for å teste et nivå direkte.
+Startmenyen har **Start spill**, **Innstillinger**, **Om spillet** og **Avslutt**. Bruk mus eller piltastene og Enter. Esc går tilbake. Lydnivå, fullskjerm og redusert bevegelse lagres lokalt. **Start spill** åpner nivåvelgeren. **Nivå 1** er den eksisterende `de-nadel/Level.tscn`. **Nivå 2 — Lagerplassen** og **Nivå 3 — Kontrollposten** kan også velges. Hovedmenyen er fortsatt prosjektets hovedscene; bruk **Run Current Scene** for å teste et nivå direkte.
 
 Alle spillressurser ligger inne i `de-nadel/`. Bakgrunn, lyd og fonter følger med, og fontlisensene ligger i `de-nadel/assets/fonts/`. Bakgrunnens kildebeskrivelse er i `de-nadel/docs/art-direction.md`.
 
@@ -21,11 +21,11 @@ Alle spillressurser ligger inne i `de-nadel/`. Bakgrunn, lyd og fonter følger m
 
 Endre `Max Health`, `Speed` og `Acceleration` på spilleren i Inspector. Fiendens `Max Health`, `Attack Damage` og `Attack Interval` kan også endres der. `Level.tscn` er beholdt på samme sted, og den eksisterende banen og tankgrafikken er beholdt.
 
-For å lage nivå 2 og 3 senere: lag ekte nivåscener, legg dem til i `scripts/level_select.gd`, og aktiver de tilhørende knappene i `scenes/level_select.tscn`. De tomme plassene er foreløpig bare plassholdere, ikke kopier av nivå 1.
+Nivå 2 (`Level-2.tscn`) bygger videre på lagets eksisterende nivåutkast: to rekker med kasser og tre fiender. Nivå 3 (`Level-3.tscn`) har flere grupper med kasser, fire fiender og en annen startposisjon. De bruker samme bakke, spiller, fiender, liv og pausemeny som nivå 1. Nivå 1 beholder lagets bølgesystem; nivå 2 og 3 har foreløpig et fast antall fiender og ingen egen seiersskjerm. Flytt instansene direkte i Godot for å justere banene.
 
 ## Kilder og hjelpemidler
 
-Helse, nivåvelger og pausemeny er skrevet og tilpasset dette prosjektet med hjelp fra Codex/AI. Koden er ikke hentet fra et annet spill. Dokumentasjonen under er brukt som referanse for Godot-funksjonene:
+Helse, nivåvelger, pausemeny og oppsettet av nivå 2 og 3 er skrevet og tilpasset dette prosjektet med hjelp fra Codex/AI. Koden er ikke hentet fra et annet spill. Dokumentasjonen under er brukt som referanse for Godot-funksjonene:
 
 - [Godot: Using signals](https://docs.godotengine.org/en/stable/getting_started/step_by_step/signals.html) — koblingen mellom skade, liv og grensesnitt.
 - [Godot: ProgressBar](https://docs.godotengine.org/en/stable/classes/class_progressbar.html) — livsmålere med `value` og `max_value`.
@@ -51,6 +51,7 @@ godot --headless --path de-nadel --script res://tests/resource_smoke.gd
 godot --headless --path de-nadel --script res://tests/menu_smoke.gd
 godot --headless --path de-nadel --script res://tests/enemy_smoke.gd
 godot --headless --path de-nadel --script res://tests/health_smoke.gd
+godot --headless --path de-nadel --script res://tests/levels_smoke.gd
 ```
 
 `resource_smoke.gd` forsøker å laste alle scener og ressursfiler. Det avdekker blant annet en nivåinstans som peker til en slettet scene. `.godot/` er en lokal hurtigbuffer og skal ikke deles gjennom Git. Bruk nøyaktig navnet `scenes` (små bokstaver) i både mapper og ressursstier, også på Mac.

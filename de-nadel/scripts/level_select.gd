@@ -1,18 +1,31 @@
 extends Control
 
 @export var level_one: PackedScene = preload("res://Level.tscn")
+@export var level_two: PackedScene = preload("res://Level-2.tscn")
+@export var level_three: PackedScene = preload("res://Level-3.tscn")
 var opening = false
 
 func _ready() -> void:
 	get_tree().paused = false
 	$Panel/Content/Level1.pressed.connect(open_level_one)
+	$Panel/Content/Level2.pressed.connect(open_level_two)
+	$Panel/Content/Level3.pressed.connect(open_level_three)
 	$Panel/Content/Back.pressed.connect(back_to_menu)
 	$Panel/Content/Level1.grab_focus()
 
 func open_level_one() -> void:
+	open_level(level_one)
+
+func open_level_two() -> void:
+	open_level(level_two)
+
+func open_level_three() -> void:
+	open_level(level_three)
+
+func open_level(level: PackedScene) -> void:
 	if opening: return
 	opening = true
-	var error = get_tree().change_scene_to_packed(level_one)
+	var error = get_tree().change_scene_to_packed(level)
 	if error != OK:
 		opening = false
 		$Panel/Content/Description.text = "Kunne ikke åpne nivået. Prøv igjen."

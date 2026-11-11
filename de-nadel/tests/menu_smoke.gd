@@ -75,8 +75,8 @@ func run() -> void:
 	await process_frame
 	await process_frame
 	check(current_scene.scene_file_path == "res://scenes/level_select.tscn", "Start spill opens level selection")
-	check(current_scene.get_node("Panel/Content/Level2").disabled, "level two is clearly unavailable")
-	check(current_scene.get_node("Panel/Content/Level3").disabled, "level three is clearly unavailable")
+	check(not current_scene.get_node("Panel/Content/Level2").disabled, "level two is available")
+	check(not current_scene.get_node("Panel/Content/Level3").disabled, "level three is available")
 	await take_capture("level-select.png")
 	current_scene.open_level_one()
 	await process_frame

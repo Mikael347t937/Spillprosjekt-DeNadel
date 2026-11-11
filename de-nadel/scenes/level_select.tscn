@@ -63,15 +63,15 @@ mouse_default_cursor_shape = 2
 [node name="Level2" type="Button" parent="Panel/Content"]
 layout_mode = 2
 custom_minimum_size = Vector2(0, 62)
-text = "Nivå 2 — Kommer senere"
-disabled = true
+text = "Nivå 2 — Lagerplassen"
+disabled = false
 mouse_default_cursor_shape = 2
 
 [node name="Level3" type="Button" parent="Panel/Content"]
 layout_mode = 2
 custom_minimum_size = Vector2(0, 62)
-text = "Nivå 3 — Kommer senere"
-disabled = true
+text = "Nivå 3 — Kontrollposten"
+disabled = false
 mouse_default_cursor_shape = 2
 
 [node name="Back" type="Button" parent="Panel/Content"]
