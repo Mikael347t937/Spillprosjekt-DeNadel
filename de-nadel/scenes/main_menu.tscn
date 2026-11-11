@@ -1,0 +1,366 @@
+[gd_scene format=3 uid="uid://b5itr3lppcewh"]
+
+[ext_resource type="Script" uid="uid://bj876cl6jrux6" path="res://scripts/main_menu.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://daw5uo5tglrps" path="res://assets/art/title_background.png" id="2"]
+[ext_resource type="Theme" uid="uid://ba4yjn3gcibfm" path="res://assets/menu_theme.tres" id="3"]
+[ext_resource type="FontFile" uid="uid://bx7o3md0weu0l" path="res://assets/fonts/Anton-Regular.ttf" id="4"]
+[ext_resource type="Script" uid="uid://cd5wpcbp6345g" path="res://scripts/needle.gd" id="5"]
+[ext_resource type="Shader" uid="uid://krirnbts26v0" path="res://shaders/film.gdshader" id="6"]
+[ext_resource type="Shader" uid="uid://c00qpcvkh6duu" path="res://shaders/title_grit.gdshader" id="7"]
+[ext_resource type="Script" uid="uid://cmaqakwxxeib0" path="res://scripts/atmosphere.gd" id="8"]
+[ext_resource type="AudioStream" uid="uid://ioajjh6u8dbc" path="res://assets/audio/city_drone.wav" id="9"]
+[ext_resource type="AudioStream" uid="uid://cyb2etfbltbo3" path="res://assets/audio/menu_click.wav" id="10"]
+[ext_resource type="PackedScene" uid="uid://d1mq3yn0px4tt" path="res://Level.tscn" id="11_level"]
+
+[sub_resource type="ShaderMaterial" id="Film"]
+shader = ExtResource("6")
+shader_parameter/vignette_strength = 0.42
+
+[sub_resource type="ShaderMaterial" id="Grit"]
+shader = ExtResource("7")
+
+[node name="MainMenu" type="Control" unique_id=595686926]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3")
+script = ExtResource("1")
+first_scene = ExtResource("11_level")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1999340271]
+material = SubResource("Film")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Atmosphere" type="Control" parent="." unique_id=245714661]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("8")
+
+[node name="Interface" type="Control" parent="." unique_id=688550899]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopLabel" type="Label" parent="Interface" unique_id=861164208]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 30.0
+offset_right = 500.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0.76, 0.72, 0.65, 0.7)
+theme_override_font_sizes/font_size = 16
+text = "EN BY. ETT REGIME. DITT VALG."
+
+[node name="Menu" type="Control" parent="Interface" unique_id=1279969209]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -230.0
+offset_right = 410.0
+offset_bottom = 310.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Eyebrow" type="Label" parent="Interface/Menu" unique_id=1027342268]
+layout_mode = 0
+offset_right = 660.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.75, 0.66, 0.57, 0.9)
+theme_override_font_sizes/font_size = 16
+text = "ET SPILL OM MOTSTAND"
+horizontal_alignment = 1
+
+[node name="Title" type="HBoxContainer" parent="Interface/Menu" unique_id=939168105]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 660.0
+offset_bottom = 178.0
+mouse_filter = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="De" type="Label" parent="Interface/Menu/Title" unique_id=1723974642]
+material = SubResource("Grit")
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87, 0.82, 0.72, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 112
+text = "DE"
+vertical_alignment = 1
+
+[node name="Needle" type="Control" parent="Interface/Menu/Title" unique_id=1254239785]
+custom_minimum_size = Vector2(50, 154)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("5")
+
+[node name="Nadel" type="Label" parent="Interface/Menu/Title" unique_id=559725019]
+material = SubResource("Grit")
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87, 0.82, 0.72, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 112
+text = "NADEL"
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Interface/Menu" unique_id=878591573]
+layout_mode = 0
+offset_top = 180.0
+offset_right = 660.0
+offset_bottom = 216.0
+theme_override_colors/font_color = Color(0.73, 0.68, 0.59, 1)
+theme_override_font_sizes/font_size = 26
+text = "N Å L E N"
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Interface/Menu" unique_id=1754286506]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 244.0
+offset_right = 515.0
+offset_bottom = 488.0
+theme_override_constants/separation = 6
+
+[node name="Start" type="Button" parent="Interface/Menu/Buttons" unique_id=156422203]
+custom_minimum_size = Vector2(370, 52)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_type_variation = &"TitleMenuButton"
+text = "Start spill"
+
+[node name="Settings" type="Button" parent="Interface/Menu/Buttons" unique_id=2040014327]
+custom_minimum_size = Vector2(370, 52)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_type_variation = &"TitleMenuButton"
+text = "Innstillinger"
+
+[node name="About" type="Button" parent="Interface/Menu/Buttons" unique_id=461015405]
+custom_minimum_size = Vector2(370, 52)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_type_variation = &"TitleMenuButton"
+text = "Om spillet"
+
+[node name="Quit" type="Button" parent="Interface/Menu/Buttons" unique_id=1918503392]
+custom_minimum_size = Vector2(370, 52)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_type_variation = &"TitleMenuButton"
+text = "Avslutt"
+
+[node name="Hint" type="Label" parent="Interface" unique_id=227231276]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -58.0
+offset_right = 300.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.7, 0.65, 0.57, 0.75)
+theme_override_font_sizes/font_size = 15
+text = "↑ ↓  VELG     ↵  BEKREFT     ESC  TILBAKE"
+horizontal_alignment = 1
+
+[node name="Build" type="Label" parent="Interface" unique_id=910094053]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -58.0
+offset_right = -40.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.7, 0.65, 0.57, 0.6)
+theme_override_font_sizes/font_size = 14
+text = "DE NADEL NÅLEN  /  0.1"
+horizontal_alignment = 2
+
+[node name="Scrim" type="ColorRect" parent="Interface" unique_id=1601024300]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="Settings" type="PanelContainer" parent="Interface" unique_id=1744625728]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -240.0
+offset_right = 280.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" type="VBoxContainer" parent="Interface/Settings" unique_id=944891686]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="Interface/Settings/Content" unique_id=1905713220]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 36
+text = "INNSTILLINGER"
+
+[node name="Description" type="Label" parent="Interface/Settings/Content" unique_id=1676816551]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.59, 0.56, 0.51, 1)
+theme_override_font_sizes/font_size = 22
+text = "Gjør byen litt mer din."
+
+[node name="VolumeTitle" type="HBoxContainer" parent="Interface/Settings/Content" unique_id=1505815134]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Interface/Settings/Content/VolumeTitle" unique_id=109399901]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Lydnivå"
+
+[node name="Value" type="Label" parent="Interface/Settings/Content/VolumeTitle" unique_id=928068455]
+layout_mode = 2
+text = "65 %"
+
+[node name="Volume" type="HSlider" parent="Interface/Settings/Content" unique_id=273886174]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+value = 65.0
+
+[node name="Fullscreen" type="CheckButton" parent="Interface/Settings/Content" unique_id=479230506]
+layout_mode = 2
+text = "Fullskjerm"
+
+[node name="ReducedMotion" type="CheckButton" parent="Interface/Settings/Content" unique_id=729099334]
+layout_mode = 2
+text = "Redusert bevegelse"
+
+[node name="Back" type="Button" parent="Interface/Settings/Content" unique_id=330042186]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Tilbake"
+
+[node name="About" type="PanelContainer" parent="Interface" unique_id=696909731]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -255.0
+offset_right = 320.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" type="VBoxContainer" parent="Interface/About" unique_id=1753856458]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Title" type="Label" parent="Interface/About/Content" unique_id=130197809]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 36
+text = "OM SPILLET"
+
+[node name="Tagline" type="Label" parent="Interface/About/Content" unique_id=2070336386]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.76, 0.3, 0.25, 1)
+theme_override_font_sizes/font_size = 28
+text = "De Nadel Nålen"
+
+[node name="Description" type="Label" parent="Interface/About/Content" unique_id=1645761345]
+layout_mode = 2
+text = "En mørk by. Et regime som krever lydighet.
+Og mennesker som fortsatt våger å si nei.
+
+Et dystopisk 2D-spill om motstand, overlevelse
+og valgene som former oss."
+autowrap_mode = 3
+
+[node name="Credits" type="Label" parent="Interface/About/Content" unique_id=1948158696]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.59, 0.56, 0.51, 1)
+theme_override_font_sizes/font_size = 19
+text = "Et gruppeprosjekt i MP og IT.
+Illustrasjon: KI-generert fra prosjektets referanser."
+autowrap_mode = 3
+
+[node name="Back" type="Button" parent="Interface/About/Content" unique_id=1670248945]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Tilbake"
+
+[node name="Fade" type="ColorRect" parent="." unique_id=950249327]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.015, 0.015, 0.015, 0)
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1520837275]
+stream = ExtResource("9")
+volume_db = -12.0
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=335694722]
+stream = ExtResource("10")
+volume_db = -6.0
+
+[node name="QuitConfirmation" type="ConfirmationDialog" parent="." unique_id=1648123079]
+title = "Avslutt spillet?"
+theme = ExtResource("3")
+ok_button_text = "Avslutt"
+dialog_text = "Vil du forlate byen?"
+cancel_button_text = "Avbryt"
