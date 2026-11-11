@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bpwdc0urdhoh" path="res://scripts/enemy.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bgi7tre4i12qc" path="res://tanks-simple.png" id="2_md0e3"]
 
+[ext_resource type="PackedScene" path="res://scenes/health_bar.tscn" id="health_bar"]
+
 [sub_resource type="RectangleShape2D" id="Shape"]
 size = Vector2(36, 36)
 
@@ -18,3 +20,5 @@ region_rect = Rect2(169, 169, 84, 84)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1921315118]
 shape = SubResource("Shape")
+
+[node name="HealthBar" parent="." instance=ExtResource("health_bar")]

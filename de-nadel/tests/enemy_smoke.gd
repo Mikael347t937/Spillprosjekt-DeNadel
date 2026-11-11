@@ -33,7 +33,7 @@ func run() -> void:
 	world.add_child(enemy)
 	await physics_frame
 	check(enemy.target == player, "enemy finds player")
-	check(enemy.get_node("Body") is Polygon2D and enemy.get_node("Body").color == Color.BLACK, "black square without an icon")
+	check(enemy.get_node("HealthBar").value == enemy.health, "enemy health bar matches health")
 	var start_x: float = enemy.position.x
 	await create_timer(0.15).timeout
 	check(enemy.position.x < start_x, "enemy moves toward player without keyboard input")
