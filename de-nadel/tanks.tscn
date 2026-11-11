@@ -5,6 +5,8 @@
 [ext_resource type="Script" uid="uid://d20xp30lgnxix" path="res://barell.gd" id="3_l3p2y"]
 [ext_resource type="Texture2D" uid="uid://bm3xj245acwke" path="res://specialBarrel6.png" id="3_shslj"]
 
+[ext_resource type="PackedScene" path="res://scenes/health_bar.tscn" id="health_bar"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejol1"]
 size = Vector2(59, 73)
 
@@ -29,3 +31,9 @@ position = Vector2(17, -8)
 rotation = -4.7211156
 scale = Vector2(1.725, 1.725)
 texture = ExtResource("3_shslj")
+
+[node name="HealthBar" parent="." instance=ExtResource("health_bar")]
+offset_left = -32.0
+offset_top = -54.0
+offset_right = 32.0
+offset_bottom = -47.0

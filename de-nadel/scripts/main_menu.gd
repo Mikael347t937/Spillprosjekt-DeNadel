@@ -1,6 +1,6 @@
 extends Control
 
-@export var first_scene: PackedScene = preload("res://scenes/prologue.tscn")
+@export var first_scene: PackedScene = preload("res://scenes/level_select.tscn")
 @onready var menu: Control = $Interface/Menu
 @onready var settings_panel: Control = $Interface/Settings
 @onready var about_panel: Control = $Interface/About

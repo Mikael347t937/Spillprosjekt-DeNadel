@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cumfe2sare4h0" path="res://scenes/enemy.tscn" id="4_enemy"]
 [ext_resource type="Script" uid="uid://cd78xkx55ghv2" path="res://wave_manager.gd" id="5_q4iis"]
 
+[ext_resource type="PackedScene" path="res://scenes/game_hud.tscn" id="hud"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m3clv"]
 texture = ExtResource("1_2nifc")
 texture_region_size = Vector2i(128, 128)
@@ -53,3 +55,11 @@ position = Vector2(511, 386)
 script = ExtResource("5_q4iis")
 enemy_scene = ExtResource("4_enemy")
 player = NodePath("../CharacterBody2D")
+
+[node name="Enemy" parent="." unique_id=740220056 instance=ExtResource("4_enemy")]
+position = Vector2(320, 180)
+
+[node name="Enemy2" parent="." unique_id=2043142194 instance=ExtResource("4_enemy")]
+position = Vector2(940, 460)
+
+[node name="GameHUD" parent="." instance=ExtResource("hud")]
