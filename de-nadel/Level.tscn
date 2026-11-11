@@ -3,9 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://qp7jsd7iketg" path="res://tanks-terrain.png" id="1_2nifc"]
 [ext_resource type="PackedScene" uid="uid://do0tvdf3yun3t" path="res://tanks.tscn" id="2_wkftn"]
 [ext_resource type="PackedScene" uid="uid://c8cst455c5x13" path="res://box.tscn" id="3_q4iis"]
-[ext_resource type="PackedScene" path="res://scenes/enemy.tscn" id="4_enemy"]
+[ext_resource type="PackedScene" uid="uid://cumfe2sare4h0" path="res://scenes/enemy.tscn" id="4_enemy"]
+[ext_resource type="PackedScene" uid="uid://r35vaj35x2jm" path="res://wall1.tscn" id="6_m3clv"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m3clv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wkftn"]
 texture = ExtResource("1_2nifc")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
@@ -25,7 +26,7 @@ texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSet" id="TileSet_to8yd"]
 tile_size = Vector2i(128, 128)
-sources/1 = SubResource("TileSetAtlasSource_m3clv")
+sources/1 = SubResource("TileSetAtlasSource_wkftn")
 
 [node name="Node2D" type="Node2D" unique_id=1004525630]
 
@@ -53,3 +54,8 @@ position = Vector2(320, 180)
 
 [node name="Enemy2" parent="." unique_id=2043142194 instance=ExtResource("4_enemy")]
 position = Vector2(940, 460)
+
+[node name="Wall" parent="." unique_id=966703290 instance=ExtResource("6_m3clv")]
+position = Vector2(98, 709)
+collision_layer = 2
+collision_mask = 5

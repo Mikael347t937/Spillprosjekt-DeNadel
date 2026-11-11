@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b72xvkr5y0lpu"]
+
+[ext_resource type="Texture2D" uid="uid://dwjpwrrmlimr1" path="res://Vegg.jpeg" id="1_xxgf6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3kda"]
+size = Vector2(196, 128)
+
+[node name="Wall" type="StaticBody2D" unique_id=966703290]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2024018001]
+shape = SubResource("RectangleShape2D_a3kda")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1319987726]
+scale = Vector2(0.37714285, 0.37714285)
+texture = ExtResource("1_xxgf6")
