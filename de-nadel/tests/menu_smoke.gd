@@ -28,7 +28,12 @@ func run() -> void:
 	original_values = [settings.volume, settings.fullscreen, settings.reduced_motion]
 	settings.config_path = "user://menu-test-settings.cfg"
 	root.size = Vector2i(1600, 900)
-	var menu = load("res://scenes/main_menu.tscn").instantiate()
+	var menu_scene = load("res://scenes/main_menu.tscn") as PackedScene
+	if menu_scene == null:
+		push_error("Main menu or a referenced level could not be loaded.")
+		quit(1)
+		return
+	var menu = menu_scene.instantiate()
 	root.add_child(menu)
 	current_scene = menu
 	await process_frame
