@@ -100,3 +100,21 @@ https://ensva002.github.io/Godotkurs%202025/pages/5_-_Instanser.html
 https://github.com/jpt/barlow
 
 tribby.com/fonts/barlow
+
+
+## Spille i nettleseren
+
+Publisert prototype: [Spill De Nadel](https://de-nadel-spill.fairlemon23.chatgpt.site). Del denne adressen; `localhost` og `127.0.0.1` virker bare på utviklerens maskin.
+
+Nettsiden ligger i `web/`. Den åpner den ekte Godot-eksporten i en iframe etter et klikk på **Spill nå**. Krever tastatur, mus, WebAssembly og WebGL 2. Nettutgaven har samme tre testbaner som prosjektet. En push til GitHub publiserer ikke nettsiden automatisk ennå.
+
+For å bygge på nytt, installer eksportmalene for samme Godot-versjon som editoren og kjør fra repoets rot:
+
+```sh
+python3 tools/build_web.py --godot /sti/til/Godot
+python3 -m http.server 8765 --directory web/dist
+```
+
+Åpne `http://localhost:8765`. På denne Macen er Godot-filen `/Users/daraa042/Downloads/Godot.app/Contents/MacOS/Godot`. `web/dist/` er generert og skal ikke committes. Last opp hele denne mappen ved publisering; ikke åpne HTML-filen direkte fra Finder. Eksporten bruker én tråd, slik at nettstedet ikke trenger spesielle isolasjonsheadere.
+
+Nettsidens HTML/CSS/JavaScript og byggeskript er tilpasset med Codex/AI. Bakgrunn og fonter gjenbruker prosjektets ressurser og kilder over. Referanse: [Godot: Exporting for the Web](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html). En senere Steam-utgave bygges som en egen skrivebordseksport fra samme Godot-prosjekt; nettutgaven publiserer ingenting til Steam.

@@ -26,3 +26,6 @@ mono_crash.*.json
 
 # macOS folder metadata
 .DS_Store
+
+# Generated website and browser game
+web/dist/
