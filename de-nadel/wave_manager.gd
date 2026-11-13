@@ -4,6 +4,8 @@ extends Node2D
 @export var enemy_scene: PackedScene
 @export var player: Node2D
 
+@export var max_waves: int = 2
+
 @export var spawn_distance: float = 500.0
 @export var spawn_delay: float = 0.7
 @export var pause_between_waves: float = 3.0
@@ -82,4 +84,9 @@ func check_wave_finished() -> void:
 		return
 
 	waiting_for_next_wave = false
+	if current_wave >= max_waves:
+		print("Du har fullført alle waves!")
+		return
+
 	start_wave()
+	
