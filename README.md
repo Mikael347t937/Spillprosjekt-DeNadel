@@ -21,7 +21,7 @@ Alle spillressurser ligger inne i `de-nadel/`. Bakgrunn, lyd og fonter følger m
 
 Endre `Max Health`, `Speed` og `Acceleration` på spilleren i Inspector. Fiendens `Max Health`, `Attack Damage` og `Attack Interval` kan også endres der. `Level.tscn` er beholdt på samme sted, og den eksisterende banen og tankgrafikken er beholdt.
 
-Nivå 2 (`Level-2.tscn`) bygger videre på lagets eksisterende nivåutkast: to rekker med kasser og tre fiender. Nivå 3 (`Level-3.tscn`) har flere grupper med kasser, fire fiender og en annen startposisjon. De bruker samme bakke, spiller, fiender, liv og pausemeny som nivå 1. Nivå 1 beholder lagets bølgesystem; nivå 2 og 3 har foreløpig et fast antall fiender og ingen egen seiersskjerm. Flytt instansene direkte i Godot for å justere banene.
+Nivå 2 (`Level-2.tscn`) bygger videre på lagets eksisterende nivåutkast: to rekker med kasser og tre fiender. Nivå 3 (`Level-3.tscn`) har flere grupper med kasser, fire fiender og en annen startposisjon. De bruker samme bakke, spiller, fiender, liv og pausemeny som nivå 1. Nivå 1 bruker lagets bølgesystem med én bølge, i tillegg til fiendene som står på banen fra starten. Nivå 2 og 3 har et fast antall fiender. Når alle fiendene på et nivå er slått, stopper spillet og viser **Neste nivå** og **Hovedmeny**. Etter nivå 3 vises **Alle nivåer fullført!**, med **Spill igjen** (til nivå 1) og **Hovedmeny**. Flytt instansene direkte i Godot for å justere banene.
 
 ## Kilder og hjelpemidler
 
@@ -52,6 +52,7 @@ godot --headless --path de-nadel --script res://tests/menu_smoke.gd
 godot --headless --path de-nadel --script res://tests/enemy_smoke.gd
 godot --headless --path de-nadel --script res://tests/health_smoke.gd
 godot --headless --path de-nadel --script res://tests/levels_smoke.gd
+godot --headless --path de-nadel --script res://tests/completion_smoke.gd
 ```
 
 `resource_smoke.gd` forsøker å laste alle scener og ressursfiler. Det avdekker blant annet en nivåinstans som peker til en slettet scene. `.godot/` er en lokal hurtigbuffer og skal ikke deles gjennom Git. Bruk nøyaktig navnet `scenes` (små bokstaver) i både mapper og ressursstier, også på Mac.
@@ -118,3 +119,5 @@ python3 -m http.server 8765 --directory web/dist
 Åpne `http://localhost:8765`. På denne Macen er Godot-filen `/Users/daraa042/Downloads/Godot.app/Contents/MacOS/Godot`. `web/dist/` er generert og skal ikke committes. Last opp hele denne mappen ved publisering; ikke åpne HTML-filen direkte fra Finder. Eksporten bruker én tråd, slik at nettstedet ikke trenger spesielle isolasjonsheadere.
 
 Nettsidens HTML/CSS/JavaScript og byggeskript er tilpasset med Codex/AI. Bakgrunn og fonter gjenbruker prosjektets ressurser og kilder over. Referanse: [Godot: Exporting for the Web](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html). En senere Steam-utgave bygges som en egen skrivebordseksport fra samme Godot-prosjekt; nettutgaven publiserer ingenting til Steam.
+
+Nivåslutt styres av `scripts/level_flow.gd`. Neste scene settes i **Next Level** på roten av hver nivåscene. Tom verdi betyr siste nivå. `wave_manager.gd` må være ferdig med bølgen før nivået kan vinnes; også fiendene som lå i scenen fra starten teller. Pause, død og nivåslutt bruker samme HUD og tema. Denne tilpasningen er gjort med Codex/AI.

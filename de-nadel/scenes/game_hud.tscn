@@ -84,6 +84,13 @@ text = "Pause"
 theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 
+[node name="Next" type="Button" parent="Screen/Dialog/Content"]
+visible = false
+layout_mode = 2
+custom_minimum_size = Vector2(0, 50)
+text = "Neste nivå"
+mouse_default_cursor_shape = 2
+
 [node name="Resume" type="Button" parent="Screen/Dialog/Content"]
 layout_mode = 2
 custom_minimum_size = Vector2(0, 50)

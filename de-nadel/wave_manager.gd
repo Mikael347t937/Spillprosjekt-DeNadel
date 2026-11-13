@@ -13,6 +13,7 @@ extends Node2D
 @export var first_wave_enemies: int = 5
 @export var increase_per_wave: int = 2
 
+var finished = false
 var current_wave: int = 0
 var enemies_alive: int = 0
 var is_spawning: bool = false
@@ -72,7 +73,11 @@ func on_enemy_removed() -> void:
 
 
 func check_wave_finished() -> void:
-	if is_spawning or waiting_for_next_wave or enemies_alive > 0:
+	if finished or is_spawning or waiting_for_next_wave or enemies_alive > 0:
+		return
+
+	if current_wave >= max_waves:
+		finished = true
 		return
 
 	waiting_for_next_wave = true
@@ -84,9 +89,5 @@ func check_wave_finished() -> void:
 		return
 
 	waiting_for_next_wave = false
-	if current_wave >= max_waves:
-		print("Du har fullført alle waves!")
-		return
-
 	start_wave()
 	
