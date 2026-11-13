@@ -1,0 +1,92 @@
+[gd_scene format=4]
+
+[ext_resource type="Texture2D" uid="uid://qp7jsd7iketg" path="res://tanks-terrain.png" id="1_nu0cj"]
+[ext_resource type="PackedScene" uid="uid://do0tvdf3yun3t" path="res://tanks.tscn" id="2_mk4e8"]
+[ext_resource type="PackedScene" uid="uid://c8cst455c5x13" path="res://box.tscn" id="3_ohy7r"]
+[ext_resource type="PackedScene" uid="uid://cumfe2sare4h0" path="res://scenes/enemy.tscn" id="4_tx72s"]
+[ext_resource type="PackedScene" path="res://scenes/game_hud.tscn" id="hud"]
+
+[ext_resource type="Script" path="res://scripts/level_flow.gd" id="flow"]
+
+[ext_resource type="PackedScene" path="res://scenes/boss.tscn" id="boss"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3crfi"]
+texture = ExtResource("1_nu0cj")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+6:1/0 = 0
+5:1/0 = 0
+4:1/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_46qi1"]
+tile_size = Vector2i(128, 128)
+sources/1 = SubResource("TileSetAtlasSource_3crfi")
+
+[node name="Level3" type="Node2D"]
+script = ExtResource("flow")
+next_level = ""
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAQADAAEAAAABAAAAAQACAAAAAAABAAEAAQADAAEAAAACAAEAAQACAAAAAAACAAIAAQACAAAAAAADAAIAAQAGAAAAAAAEAAIAAQACAAEAAAAFAAMAAQAAAAAAAAAGAAMAAQAAAAAAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAIAAMAAQAAAAAAAAAIAAIAAQAAAAAAAAAIAAEAAQAAAAAAAAAHAAEAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAGAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAEAAAAAQABAAAAAAADAAAAAQAEAAEAAAACAAAAAQACAAAAAAAAAAEAAQABAAAAAAADAAEAAQAGAAEAAAAEAAEAAQABAAAAAAAFAAEAAQAAAAAAAAAGAAEAAQAAAAAAAAAGAAIAAQACAAAAAAAHAAIAAQACAAAAAAAHAAMAAQAAAAAAAAAFAAIAAQACAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAEAAMAAQAEAAAAAAADAAMAAQADAAAAAAADAAQAAQAGAAEAAAAEAAQAAQABAAAAAAACAAQAAQACAAAAAAABAAQAAQACAAAAAAAAAAQAAQAFAAEAAAABAAMAAQAAAAAAAAACAAMAAQAAAAAAAAABAAIAAQAFAAEAAAAAAAIAAQABAAAAAAAAAAMAAQABAAAAAAAJAAMAAQAAAAAAAAAJAAQAAQAAAAAAAAAKAAQAAQAAAAAAAAAKAAMAAQAAAAAAAAAKAAIAAQAAAAAAAAAJAAIAAQAAAAAAAAAJAAEAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAAKAAEAAQAAAAAAAAAKAAUAAQAAAAAAAAAJAAUAAQAAAAAAAAAIAAUAAQAAAAAAAAAHAAUAAQAAAAAAAAAGAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAADAAUAAQAAAAAAAAACAAUAAQAAAAAAAAABAAUAAQAAAAAAAAAAAAUAAQAAAAAAAAALAAYAAQAAAAAAAAAKAAYAAQAAAAAAAAAJAAYAAQAAAAAAAAAIAAYAAQAAAAAAAAAHAAYAAQAAAAAAAAAGAAYAAQAAAAAAAAAFAAYAAQAAAAAAAAAEAAYAAQAAAAAAAAADAAYAAQAAAAAAAAACAAYAAQAAAAAAAAABAAYAAQAAAAAAAAAAAAYAAQAAAAAAAAALAAUAAQAAAAAAAAALAAQAAQAAAAAAAAALAAMAAQAAAAAAAAALAAIAAQAAAAAAAAALAAEAAQAAAAAAAAALAAAAAQAAAAAAAAAMAAAAAQAAAAAAAAAMAAEAAQAAAAAAAAAMAAIAAQAAAAAAAAAMAAMAAQAAAAAAAAAMAAYAAQAAAAAAAAAMAAUAAQAAAAAAAAAMAAQAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_46qi1")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_mk4e8")]
+position = Vector2(280, 670)
+
+[node name="Box1" parent="." instance=ExtResource("3_ohy7r")]
+position = Vector2(460, 520)
+
+[node name="Box2" parent="." instance=ExtResource("3_ohy7r")]
+position = Vector2(525, 520)
+
+[node name="Box3" parent="." instance=ExtResource("3_ohy7r")]
+position = Vector2(590, 520)
+
+[node name="Box4" parent="." instance=ExtResource("3_ohy7r")]
+position = Vector2(800, 330)
+
+[node name="Box5" parent="." instance=ExtResource("3_ohy7r")]
+position = Vector2(865, 330)
+
+[node name="Box6" parent="." instance=ExtResource("3_ohy7r")]
+position = Vector2(930, 330)
+
+[node name="Box7" parent="." instance=ExtResource("3_ohy7r")]
+position = Vector2(1100, 560)
+
+[node name="Box8" parent="." instance=ExtResource("3_ohy7r")]
+position = Vector2(1165, 560)
+
+[node name="Box9" parent="." instance=ExtResource("3_ohy7r")]
+position = Vector2(1230, 560)
+
+[node name="Box10" parent="." instance=ExtResource("3_ohy7r")]
+position = Vector2(460, 200)
+
+[node name="Enemy1" parent="." instance=ExtResource("4_tx72s")]
+position = Vector2(650, 210)
+appearance = 0
+
+[node name="Enemy2" parent="." instance=ExtResource("4_tx72s")]
+position = Vector2(1030, 230)
+appearance = 2
+
+[node name="Enemy3" parent="." instance=ExtResource("4_tx72s")]
+position = Vector2(1320, 380)
+appearance = 1
+
+[node name="Boss" parent="." instance=ExtResource("boss")]
+position = Vector2(1260, 200)
+appearance = 0
+
+[node name="GameHUD" parent="." instance=ExtResource("hud")]

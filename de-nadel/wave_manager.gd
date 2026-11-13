@@ -4,6 +4,8 @@ extends Node2D
 @export var enemy_scene: PackedScene
 @export var player: Node2D
 
+@export var max_waves: int = 2
+
 @export var spawn_distance: float = 500.0
 @export var spawn_delay: float = 0.7
 @export var pause_between_waves: float = 3.0
@@ -11,6 +13,7 @@ extends Node2D
 @export var first_wave_enemies: int = 5
 @export var increase_per_wave: int = 2
 
+var finished = false
 var current_wave: int = 0
 var enemies_alive: int = 0
 var is_spawning: bool = false
@@ -22,10 +25,12 @@ func _ready() -> void:
 		push_error("Mangler Enemy Scene eller Player!")
 		return
 
-	start_wave()
+	start_wave.call_deferred()
 
 
 func start_wave() -> void:
+	if not is_inside_tree() or get_parent().is_queued_for_deletion():
+		return
 	current_wave += 1
 	is_spawning = true
 
@@ -35,7 +40,9 @@ func start_wave() -> void:
 
 	for i in range(amount):
 		spawn_enemy()
-		await get_tree().create_timer(spawn_delay).timeout
+		await get_tree().create_timer(spawn_delay, false).timeout
+		if not is_inside_tree() or get_parent().is_queued_for_deletion():
+			return
 
 	is_spawning = false
 	check_wave_finished()
@@ -48,31 +55,40 @@ func spawn_enemy() -> void:
 		push_error("Enemy-scenen må ha en Node2D som rot!")
 		return
 
-	get_parent().add_child(enemy)
-
 	var angle = randf_range(0.0, TAU)
 	var direction = Vector2.RIGHT.rotated(angle)
 
-	enemy.global_position = player.global_position + direction * spawn_distance
+	enemy.appearance = randi_range(0, 2)
+	enemy.position = player.position + direction * spawn_distance
+	get_parent().add_child(enemy)
 
 	enemies_alive += 1
 	enemy.tree_exited.connect(on_enemy_removed)
 
 
 func on_enemy_removed() -> void:
+	if not is_inside_tree() or get_parent().is_queued_for_deletion():
+		return
 	enemies_alive -= 1
 	check_wave_finished()
 
 
 func check_wave_finished() -> void:
-	if is_spawning or waiting_for_next_wave or enemies_alive > 0:
+	if finished or is_spawning or waiting_for_next_wave or enemies_alive > 0:
+		return
+
+	if current_wave >= max_waves:
+		finished = true
 		return
 
 	waiting_for_next_wave = true
 
 	print("Wave ", current_wave, " fullført!")
 
-	await get_tree().create_timer(pause_between_waves).timeout
+	await get_tree().create_timer(pause_between_waves, false).timeout
+	if not is_inside_tree() or get_parent().is_queued_for_deletion():
+		return
 
 	waiting_for_next_wave = false
 	start_wave()
+	

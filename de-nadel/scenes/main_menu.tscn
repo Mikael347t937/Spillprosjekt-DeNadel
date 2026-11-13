@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://cmaqakwxxeib0" path="res://scripts/atmosphere.gd" id="8"]
 [ext_resource type="AudioStream" uid="uid://ioajjh6u8dbc" path="res://assets/audio/city_drone.wav" id="9"]
 [ext_resource type="AudioStream" uid="uid://cyb2etfbltbo3" path="res://assets/audio/menu_click.wav" id="10"]
-[ext_resource type="PackedScene" path="res://scenes/level_select.tscn" id="11_level"]
 
 [sub_resource type="ShaderMaterial" id="Film"]
 shader = ExtResource("6")
@@ -28,7 +27,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3")
 script = ExtResource("1")
-first_scene = ExtResource("11_level")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1999340271]
 material = SubResource("Film")

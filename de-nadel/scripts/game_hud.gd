@@ -5,15 +5,23 @@ extends CanvasLayer
 @onready var dialog: PanelContainer = $Screen/Dialog
 @onready var shade: ColorRect = $Screen/Shade
 @onready var options: VBoxContainer = $Screen/Dialog/Content/Options
+var level_won = false
+var next_level = ""
 var game_over = false
 var changing_scene = false
 
 func _ready() -> void:
+	var boss = get_tree().get_first_node_in_group("bosses")
+	if boss:
+		$Screen/BossHealth.show()
+		boss.health_changed.connect(update_boss_health)
+		update_boss_health(boss.health, boss.max_health)
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 		player.health_changed.connect(update_health)
 		player.died.connect(show_game_over)
 		update_health(player.health, player.max_health)
+	$Screen/Dialog/Content/Next.pressed.connect(open_next_level)
 	$Screen/Dialog/Content/Resume.pressed.connect(resume_game)
 	$Screen/Dialog/Content/Settings.pressed.connect(show_settings)
 	$Screen/Dialog/Content/Restart.pressed.connect(restart_level)
@@ -26,6 +34,10 @@ func _ready() -> void:
 	$Screen/Dialog/Content/Options/Fullscreen.button_pressed = GameSettings.fullscreen
 	$Screen/Dialog/Content/Options/Volume.value_changed.connect(change_volume)
 	$Screen/Dialog/Content/Options/Fullscreen.toggled.connect(change_fullscreen)
+
+func update_boss_health(current: int, maximum: int) -> void:
+	$Screen/BossHealth/Content/Bar.max_value = maximum
+	$Screen/BossHealth/Content/Bar.value = current
 
 func update_health(current: int, maximum: int) -> void:
 	health_bar.max_value = maximum
@@ -40,7 +52,7 @@ func show_pause() -> void:
 	$Screen/Dialog/Content/Resume.grab_focus()
 
 func resume_game() -> void:
-	if game_over: return
+	if game_over or level_won: return
 	dialog.hide()
 	shade.hide()
 	get_tree().paused = false
@@ -51,6 +63,28 @@ func show_game_over() -> void:
 	$Screen/Dialog/Content/Title.text = "Du døde"
 	$Screen/Dialog/Content/Resume.hide()
 	$Screen/Dialog/Content/Restart.grab_focus()
+
+func show_victory(scene: String) -> void:
+	if game_over or level_won or changing_scene: return
+	level_won = true
+	dialog.offset_top = -140
+	dialog.offset_bottom = 140
+	next_level = scene
+	get_tree().paused = true
+	shade.show()
+	dialog.show()
+	options.hide()
+	for name in ["Resume", "Settings", "Restart", "Levels", "Quit"]:
+		get_node("Screen/Dialog/Content/" + name).hide()
+	$Screen/Dialog/Content/Title.text = "Nivå fullført!" if not scene.is_empty() else "Alle nivåer fullført!"
+	$Screen/Dialog/Content/Next.text = "Neste nivå" if not scene.is_empty() else "Spill igjen"
+	$Screen/Dialog/Content/Next.show()
+	$Screen/Dialog/Content/Menu.show()
+	$Screen/Dialog/Content/Next.grab_focus()
+
+func open_next_level() -> void:
+	if not level_won: return
+	leave_for(next_level if not next_level.is_empty() else "res://Level.tscn")
 
 func show_settings() -> void:
 	for name in ["Resume", "Settings", "Restart", "Levels", "Menu", "Quit"]:
@@ -98,7 +132,7 @@ func leave_for(scene: String) -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		if options.visible: close_settings()
-		elif game_over: return
+		elif game_over or level_won: return
 		elif dialog.visible: resume_game()
 		else: show_pause()
 		get_viewport().set_input_as_handled()
