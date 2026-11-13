@@ -116,7 +116,6 @@ python3 tools/build_web.py --godot /sti/til/Godot
 python3 -m http.server 8765 --directory web/dist
 ```
 
-Åpne `http://localhost:8765`. På denne Macen er Godot-filen `/Users/daraa042/Downloads/Godot.app/Contents/MacOS/Godot`. `web/dist/` er generert og skal ikke committes. Last opp hele denne mappen ved publisering; ikke åpne HTML-filen direkte fra Finder. Eksporten bruker én tråd, slik at nettstedet ikke trenger spesielle isolasjonsheadere.
 
 Nettsidens HTML/CSS/JavaScript og byggeskript er tilpasset med Codex/AI. Bakgrunn og fonter gjenbruker prosjektets ressurser og kilder over. Referanse: [Godot: Exporting for the Web](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html). En senere Steam-utgave bygges som en egen skrivebordseksport fra samme Godot-prosjekt; nettutgaven publiserer ingenting til Steam.
 
