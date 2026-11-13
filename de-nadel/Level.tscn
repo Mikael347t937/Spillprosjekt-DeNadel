@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://qp7jsd7iketg" path="res://tanks-terrain.png" id="1_2nifc"]
 [ext_resource type="PackedScene" uid="uid://do0tvdf3yun3t" path="res://tanks.tscn" id="2_wkftn"]
 [ext_resource type="PackedScene" uid="uid://c8cst455c5x13" path="res://box.tscn" id="3_q4iis"]
-[ext_resource type="PackedScene" uid="uid://cumfe2sare4h0" path="res://scenes/enemy.tscn" id="4_enemy"]
+[ext_resource type="PackedScene" uid="uid://cumfe2sare4h0" path="res://Scenes/enemy.tscn" id="4_enemy"]
 [ext_resource type="Script" uid="uid://cd78xkx55ghv2" path="res://wave_manager.gd" id="5_q4iis"]
-
+[ext_resource type="PackedScene" uid="uid://r35vaj35x2jm" path="res://wall1.tscn" id="7_mxnmf"]
 [ext_resource type="PackedScene" path="res://scenes/game_hud.tscn" id="hud"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m3clv"]
@@ -62,4 +62,10 @@ position = Vector2(320, 180)
 [node name="Enemy2" parent="." unique_id=2043142194 instance=ExtResource("4_enemy")]
 position = Vector2(940, 460)
 
-[node name="GameHUD" parent="." instance=ExtResource("hud")]
+[node name="GameHUD" parent="." unique_id=1731291107 instance=ExtResource("hud")]
+
+[node name="Wall" parent="." unique_id=966703290 instance=ExtResource("7_mxnmf")]
+position = Vector2(51, 762)
+
+[node name="Wall2" parent="." unique_id=1719532199 instance=ExtResource("7_mxnmf")]
+position = Vector2(1069, 466)
