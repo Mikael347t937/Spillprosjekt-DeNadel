@@ -58,6 +58,7 @@ func spawn_enemy() -> void:
 	var angle = randf_range(0.0, TAU)
 	var direction = Vector2.RIGHT.rotated(angle)
 
+	enemy.appearance = randi_range(0, 2)
 	enemy.position = player.position + direction * spawn_distance
 	get_parent().add_child(enemy)
 

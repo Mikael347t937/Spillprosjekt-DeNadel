@@ -8,6 +8,8 @@
 
 [ext_resource type="Script" path="res://scripts/level_flow.gd" id="flow"]
 
+[ext_resource type="PackedScene" path="res://scenes/boss.tscn" id="boss"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3crfi"]
 texture = ExtResource("1_nu0cj")
 texture_region_size = Vector2i(128, 128)
@@ -72,15 +74,19 @@ position = Vector2(1230, 560)
 position = Vector2(460, 200)
 
 [node name="Enemy1" parent="." instance=ExtResource("4_tx72s")]
-position = Vector2(650, 170)
+position = Vector2(650, 210)
+appearance = 0
 
 [node name="Enemy2" parent="." instance=ExtResource("4_tx72s")]
-position = Vector2(1030, 190)
+position = Vector2(1030, 230)
+appearance = 2
 
 [node name="Enemy3" parent="." instance=ExtResource("4_tx72s")]
 position = Vector2(1320, 380)
+appearance = 1
 
-[node name="Enemy4" parent="." instance=ExtResource("4_tx72s")]
-position = Vector2(900, 720)
+[node name="Boss" parent="." instance=ExtResource("boss")]
+position = Vector2(1260, 200)
+appearance = 0
 
 [node name="GameHUD" parent="." instance=ExtResource("hud")]

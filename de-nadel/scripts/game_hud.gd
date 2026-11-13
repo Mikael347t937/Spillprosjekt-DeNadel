@@ -11,6 +11,11 @@ var game_over = false
 var changing_scene = false
 
 func _ready() -> void:
+	var boss = get_tree().get_first_node_in_group("bosses")
+	if boss:
+		$Screen/BossHealth.show()
+		boss.health_changed.connect(update_boss_health)
+		update_boss_health(boss.health, boss.max_health)
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
 		player.health_changed.connect(update_health)
@@ -29,6 +34,10 @@ func _ready() -> void:
 	$Screen/Dialog/Content/Options/Fullscreen.button_pressed = GameSettings.fullscreen
 	$Screen/Dialog/Content/Options/Volume.value_changed.connect(change_volume)
 	$Screen/Dialog/Content/Options/Fullscreen.toggled.connect(change_fullscreen)
+
+func update_boss_health(current: int, maximum: int) -> void:
+	$Screen/BossHealth/Content/Bar.max_value = maximum
+	$Screen/BossHealth/Content/Bar.value = current
 
 func update_health(current: int, maximum: int) -> void:
 	health_bar.max_value = maximum

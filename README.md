@@ -21,7 +21,7 @@ Alle spillressurser ligger inne i `de-nadel/`. Bakgrunn, lyd og fonter følger m
 
 Endre `Max Health`, `Speed` og `Acceleration` på spilleren i Inspector. Fiendens `Max Health`, `Attack Damage` og `Attack Interval` kan også endres der. `Level.tscn` er beholdt på samme sted, og den eksisterende banen og tankgrafikken er beholdt.
 
-Nivå 2 (`Level-2.tscn`) bygger videre på lagets eksisterende nivåutkast: to rekker med kasser og tre fiender. Nivå 3 (`Level-3.tscn`) har flere grupper med kasser, fire fiender og en annen startposisjon. De bruker samme bakke, spiller, fiender, liv og pausemeny som nivå 1. Nivå 1 bruker lagets bølgesystem med én bølge, i tillegg til fiendene som står på banen fra starten. Nivå 2 og 3 har et fast antall fiender. Når alle fiendene på et nivå er slått, stopper spillet og viser **Neste nivå** og **Hovedmeny**. Etter nivå 3 vises **Alle nivåer fullført!**, med **Spill igjen** (til nivå 1) og **Hovedmeny**. Flytt instansene direkte i Godot for å justere banene.
+Nivå 2 (`Level-2.tscn`) bygger videre på lagets eksisterende nivåutkast: to rekker med kasser og tre fiender. Nivå 3 (`Level-3.tscn`) har flere grupper med kasser, tre vanlige fiender, en boss og en annen startposisjon. De bruker samme bakke, spiller, fiender, liv og pausemeny som nivå 1. Nivå 1 bruker lagets bølgesystem med én bølge, i tillegg til fiendene som står på banen fra starten. Nivå 2 og 3 har et fast antall fiender. Når alle fiendene på et nivå er slått, stopper spillet og viser **Neste nivå** og **Hovedmeny**. Etter nivå 3 vises **Alle nivåer fullført!**, med **Spill igjen** (til nivå 1) og **Hovedmeny**. Flytt instansene direkte i Godot for å justere banene.
 
 ## Kilder og hjelpemidler
 
@@ -121,3 +121,7 @@ python3 -m http.server 8765 --directory web/dist
 Nettsidens HTML/CSS/JavaScript og byggeskript er tilpasset med Codex/AI. Bakgrunn og fonter gjenbruker prosjektets ressurser og kilder over. Referanse: [Godot: Exporting for the Web](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html). En senere Steam-utgave bygges som en egen skrivebordseksport fra samme Godot-prosjekt; nettutgaven publiserer ingenting til Steam.
 
 Nivåslutt styres av `scripts/level_flow.gd`. Neste scene settes i **Next Level** på roten av hver nivåscene. Tom verdi betyr siste nivå. `wave_manager.gd` må være ferdig med bølgen før nivået kan vinnes; også fiendene som lå i scenen fra starten teller. Pause, død og nivåslutt bruker samme HUD og tema. Denne tilpasningen er gjort med Codex/AI.
+
+## Fiendegrafikk og boss
+
+De tre Piskel-arkene levert av gruppen brukes som vanlige fiender. Nivå 3 har tre vakter og en boss med midlertidig grafikk, livsmåler, skudd og rykkeangrep. Kilder, balansering og hvordan designerne bytter bossgrafikk er dokumentert i [fiende- og bossguiden](de-nadel/docs/enemies-and-boss.md).

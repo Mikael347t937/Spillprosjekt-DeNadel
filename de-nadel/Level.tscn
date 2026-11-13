@@ -62,8 +62,10 @@ player = NodePath("../CharacterBody2D")
 
 [node name="Enemy" parent="." unique_id=740220056 instance=ExtResource("4_enemy")]
 position = Vector2(320, 180)
+appearance = 1
 
 [node name="Enemy2" parent="." unique_id=2043142194 instance=ExtResource("4_enemy")]
 position = Vector2(940, 460)
+appearance = 0
 
 [node name="GameHUD" parent="." unique_id=805454583 instance=ExtResource("hud")]
