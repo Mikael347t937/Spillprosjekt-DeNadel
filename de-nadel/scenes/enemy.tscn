@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cumfe2sare4h0"]
 
 [ext_resource type="Script" uid="uid://bpwdc0urdhoh" path="res://scripts/enemy.gd" id="1"]
-[ext_resource type="SpriteFrames" path="res://assets/characters/guard.tres" id="2_md0e3"]
+[ext_resource type="SpriteFrames" path="res://assets/characters/syringe_enemy.tres" id="2_md0e3"]
 
 [ext_resource type="PackedScene" path="res://scenes/health_bar.tscn" id="health_bar"]
+
+[ext_resource type="Script" path="res://scripts/directional_sprite.gd" id="direction"]
 
 [sub_resource type="RectangleShape2D" id="Shape"]
 size = Vector2(26, 44)
@@ -17,7 +19,8 @@ script = ExtResource("1")
 texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_md0e3")
-animation = &"walk"
+animation = &"front"
+script = ExtResource("direction")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1921315118]
 shape = SubResource("Shape")

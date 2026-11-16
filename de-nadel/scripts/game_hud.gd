@@ -14,6 +14,7 @@ func _ready() -> void:
 	var boss = get_tree().get_first_node_in_group("bosses")
 	if boss:
 		$Screen/BossHealth.show()
+		$Screen/BossHealth/Content/Name.text = boss.display_name
 		boss.health_changed.connect(update_boss_health)
 		update_boss_health(boss.health, boss.max_health)
 	var player = get_tree().get_first_node_in_group("player")

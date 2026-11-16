@@ -19,7 +19,9 @@ func _physics_process(delta: float) -> void:
 	hit_cooldown = maxf(0, hit_cooldown - delta)
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = velocity.move_toward(direction * speed, acceleration * delta)
+	var before = global_position
 	move_and_slide()
+	$Sprite2D.update_motion(global_position - before, direction)
 
 func take_damage(amount: int) -> void:
 	if dead or amount <= 0 or hit_cooldown > 0: return
@@ -30,6 +32,7 @@ func take_damage(amount: int) -> void:
 	if health == 0:
 		dead = true
 		velocity = Vector2.ZERO
+		$Sprite2D.update_motion(Vector2.ZERO)
 		died.emit()
 
 func update_health_bar() -> void:

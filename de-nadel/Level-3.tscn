@@ -75,18 +75,14 @@ position = Vector2(460, 200)
 
 [node name="Enemy1" parent="." instance=ExtResource("4_tx72s")]
 position = Vector2(650, 210)
-appearance = 0
 
 [node name="Enemy2" parent="." instance=ExtResource("4_tx72s")]
 position = Vector2(1030, 230)
-appearance = 2
 
 [node name="Enemy3" parent="." instance=ExtResource("4_tx72s")]
 position = Vector2(1320, 380)
-appearance = 1
 
 [node name="Boss" parent="." instance=ExtResource("boss")]
 position = Vector2(1260, 200)
-appearance = 0
 
 [node name="GameHUD" parent="." instance=ExtResource("hud")]

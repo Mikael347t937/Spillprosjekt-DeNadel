@@ -42,7 +42,7 @@ func run() -> void:
 		enemy.set_physics_process(false)
 		if enemy != boss:
 			check(enemy.get_node("Sprite2D") is AnimatedSprite2D, "basic enemy uses animated Piskel art")
-			check(enemy.get_node("Sprite2D").sprite_frames.get_frame_count("walk") == 4, "enemy has four animation frames")
+			check(enemy.get_node("Sprite2D").sprite_frames.get_frame_count("front") == 4, "enemy has four animation frames")
 	player.set_physics_process(false)
 	await capture("boss-arena")
 	node_added.connect(func(node: Node) -> void:

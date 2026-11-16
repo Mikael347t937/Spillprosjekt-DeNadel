@@ -16,6 +16,6 @@ func shoot() -> void:
 	if get_parent().dead or get_tree().paused: return
 	var instance = bullet.instantiate()
 	get_tree().current_scene.add_child(instance)
-	instance.global_position = global_position
+	instance.global_position = $Muzzle.global_position
 	instance.global_rotation = global_rotation
 	instance.linear_velocity = Vector2.RIGHT.rotated(global_rotation) * instance.speed

@@ -2,8 +2,7 @@ extends CharacterBody2D
 
 signal health_changed(current: int, maximum: int)
 
-const SKINS = [preload("res://assets/characters/guard.tres"), preload("res://assets/characters/scout.tres"), preload("res://assets/characters/soldier.tres")]
-@export_enum("Vakt", "Speider", "Soldat") var appearance = 0
+const FRAMES = preload("res://assets/characters/syringe_enemy.tres")
 @export var custom_frames: SpriteFrames
 @export var body_tint = Color.WHITE
 var hit_flash = 0.0
@@ -20,7 +19,7 @@ var target: Node2D
 var attack_timer = 0.0
 
 func _ready() -> void:
-	$Sprite2D.sprite_frames = custom_frames if custom_frames else SKINS[appearance]
+	$Sprite2D.sprite_frames = custom_frames if custom_frames else FRAMES
 	$Sprite2D.modulate = body_tint
 	health = max_health
 	$HealthBar.max_value = max_health
@@ -30,11 +29,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	hit_flash = maxf(0, hit_flash - delta)
 	$Sprite2D.modulate = Color(2, 0.6, 0.6) if hit_flash > 0 else body_tint
-	if velocity.length() > 1:
-		$Sprite2D.flip_h = velocity.x < 0
-		$Sprite2D.play("walk")
-	else:
-		$Sprite2D.stop()
 
 func _physics_process(delta: float) -> void:
 	velocity = Vector2.ZERO
@@ -48,7 +42,10 @@ func _physics_process(delta: float) -> void:
 			velocity = direction.normalized() * speed
 		elif direction.length() <= stopping_distance + 8:
 			try_attack()
+	var before = global_position
 	move_and_slide()
+	var facing = target.global_position - global_position if is_instance_valid(target) else Vector2.ZERO
+	$Sprite2D.update_motion(global_position - before, facing)
 
 func try_attack() -> void:
 	if attack_timer > 0 or not is_instance_valid(target) or not target.has_method("take_damage"): return

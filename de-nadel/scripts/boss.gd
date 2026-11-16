@@ -1,5 +1,7 @@
 extends "res://scripts/enemy.gd"
 
+@export var display_name = "Hitler"
+
 const PROJECTILE = preload("res://scenes/enemy_projectile.tscn")
 @export var shot_warning = 0.75
 @export var dash_warning = 0.9
@@ -48,7 +50,10 @@ func _physics_process(delta: float) -> void:
 			if state_time <= 0:
 				state = "move"
 				state_time = 0.45
+	var before = global_position
 	move_and_slide()
+	var facing = attack_direction if state in ["aim", "shoot", "charge", "dash"] else target.global_position - global_position
+	$Sprite2D.update_motion(global_position - before, facing)
 	if state == "dash" and get_slide_collision_count() > 0: rest()
 
 func prepare_attack() -> void:

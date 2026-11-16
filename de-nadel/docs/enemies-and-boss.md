@@ -2,13 +2,18 @@
 
 ## Grafikk og kilder
 
-Gruppen leverte tre Piskel-ark på 64 × 64 piksler. De er kopiert uendret inn i prosjektet:
+Gruppen leverte nye Piskel-filer 16. november:
 
-- `New Piskel.png` → `assets/characters/guard.png`
-- `New Piskel (2).png` → `assets/characters/scout.png`
-- `New Piskel (1).png` → `assets/characters/soldier.png`
+- `Vanlig dag på oslo s 3 (2).png` → `assets/characters/syringe_enemy.png`: vanlig fiende med sprøyte. Arket er 96 × 96; radene viser forfra, bakfra og fra siden, med tre 32 × 32-poser per rad.
+- `New Piskel (3).png` → `assets/characters/player_front.png`: spilleren sett forfra.
+- `New Piskel (1) (1).png` → `assets/characters/player_back.png`: spilleren sett bakfra.
+- `New Piskel (2) (1).png` → `assets/characters/player_side.png`: spilleren fra venstre side.
 
-Hvert ark er delt i fire 32 × 32-ruter i en SpriteFrames-ressurs. `walk` spilles mens figuren beveger seg. Nearest-filtrering holder pikslene skarpe. Utseendet endrer ikke skade eller liv: alle tre er vanlige nærkampfiender. Velg **Appearance** på en fiende i Inspector. Bølgene velger mellom de tre variantene.
+Bildene er kopiert uendret. De tre spillerarkene er 64 × 64, men inneholder bare tre tegnede ruter. Nederste høyre rute er tom og brukes ikke. Gåsyklusen er nøytral–steg–nøytral–motsatt steg. Nøytralposen brukes når figuren stopper.
+
+Både spiller og fiende bruker `scripts/directional_sprite.gd`. Faktisk bevegelse velger retning; ved stillstand beholdes retningen, eller figuren vender mot en hindring/målet sitt. Bare sidevisningen speiles. De leverte sidebildene ser mot venstre, så `flip_h` aktiveres når figuren går til høyre. Diagonaler med like store akser bruker forfra/bakfra konsekvent. Nearest-filtrering holder pikslene skarpe.
+
+`tanks.tscn` og `tanks.gd` beholder filnavnene for å bevare nivåreferanser, men spilleren er nå et menneske. Den gamle tankkanonen er fjernet. Musepekeren styrer fortsatt skuddretningen gjennom `Node2D/Muzzle`; figuren vender etter bevegelsen.
 
 Oppsett og kode er tilpasset med Codex/AI. Referanser for Godot-funksjonene:
 
@@ -18,9 +23,9 @@ Oppsett og kode er tilpasset med Codex/AI. Referanser for Godot-funksjonene:
 
 ## Boss på nivå 3
 
-`scenes/boss.tscn` er en egen scene som arver fra `scenes/enemy.tscn`. Den erstatter den fjerde vanlige fienden. Tre vakter og bossen må beseires før nivået avsluttes.
+`scenes/boss.tscn` er en egen scene som arver fra `scenes/enemy.tscn`. Den erstatter den fjerde vanlige fienden. Tre vanlige fiender og bossen må beseires før nivået avsluttes.
 
-Foreløpig heter bossen **Kommandanten**. Den bruker en større, rødfarget versjon av vaktgrafikken som plassholder. Dette er ikke endelig bossdesign.
+Bossen heter **Hitler**, etter gruppens valg. Det endelige bildet er ikke levert; den større, rødfargede spillerfiguren brukes fortsatt som plassholder. Navnet kan endres med **Display Name** på bossen.
 
 - 18 liv; spillerens kuler gjør 1 skade.
 - Veksler mellom tre skudd og et rett rykkeangrep.
@@ -33,12 +38,12 @@ Adferden ligger i `scripts/boss.gd`, prosjektilene i `scripts/enemy_projectile.g
 
 ## Når designerne leverer bossen
 
-1. Legg de nye bildefilene under `assets/characters/` og lag en SpriteFrames-ressurs med en animasjon kalt `walk`.
+1. Legg de nye bildefilene under `assets/characters/` og lag en SpriteFrames-ressurs med animasjonene `front`, `back` og `side`.
 2. Åpne `scenes/boss.tscn`, velg roten og sett **Custom Frames** til ressursen. Denne overstyrer standardgrafikken.
 3. Sett **Body Tint** til hvit og juster skalaen på `Sprite2D`. Juster `CollisionShape2D` til den nye figurens kropp.
 4. Behold skriptet, gruppene, `Warning`, `HealthBar` og signalene. Da fortsetter angrep, skade, bossens livsmåler og nivåslutt å fungere.
 
-Flere animasjoner for skudd, rykkeangrep og død kan legges til når de blir levert. Nå brukes gåanimasjonen og et kort fargeskift ved treff.
+Flere animasjoner for skudd, rykkeangrep og død kan legges til når de blir levert. Nå brukes retningsbestemte gåanimasjoner og et kort fargeskift ved treff.
 
 ## Kontroll
 

@@ -19,7 +19,7 @@ Alle spillressurser ligger inne i `de-nadel/`. Bakgrunn, lyd og fonter følger m
 - Bevegelse: **WASD** eller piltaster. Sikt med musen. Skyt med **venstre museknapp** eller **mellomrom**. Spillet bruker egne Input Map-handlinger: `move_left`, `move_right`, `move_up`, `move_down`, `shoot`.
 - **Esc** åpner pausemenyen med fortsett, innstillinger, omstart, nivåvalg, hovedmeny og avslutt. Avslutning krever bekreftelse. Nivået står stille mens pausemenyen er åpen.
 
-Endre `Max Health`, `Speed` og `Acceleration` på spilleren i Inspector. Fiendens `Max Health`, `Attack Damage` og `Attack Interval` kan også endres der. `Level.tscn` er beholdt på samme sted, og den eksisterende banen og tankgrafikken er beholdt.
+Endre `Max Health`, `Speed` og `Acceleration` på spilleren i Inspector. Fiendens `Max Health`, `Attack Damage` og `Attack Interval` kan også endres der. `Level.tscn` er beholdt på samme sted, og den eksisterende banen er beholdt. Spillerens grafikk er erstattet med gruppens retningsbestemte Piskel-figur.
 
 Nivå 2 (`Level-2.tscn`) bygger videre på lagets eksisterende nivåutkast: to rekker med kasser og tre fiender. Nivå 3 (`Level-3.tscn`) har flere grupper med kasser, tre vanlige fiender, en boss og en annen startposisjon. De bruker samme bakke, spiller, fiender, liv og pausemeny som nivå 1. Nivå 1 bruker lagets bølgesystem med én bølge, i tillegg til fiendene som står på banen fra starten. Nivå 2 og 3 har et fast antall fiender. Når alle fiendene på et nivå er slått, stopper spillet og viser **Neste nivå** og **Hovedmeny**. Etter nivå 3 vises **Alle nivåer fullført!**, med **Spill igjen** (til nivå 1) og **Hovedmeny**. Flytt instansene direkte i Godot for å justere banene.
 
@@ -123,4 +123,6 @@ Nivåslutt styres av `scripts/level_flow.gd`. Neste scene settes i **Next Level*
 
 ## Fiendegrafikk og boss
 
-De tre Piskel-arkene levert av gruppen brukes som vanlige fiender. Nivå 3 har tre vakter og en boss med midlertidig grafikk, livsmåler, skudd og rykkeangrep. Kilder, balansering og hvordan designerne bytter bossgrafikk er dokumentert i [fiende- og bossguiden](de-nadel/docs/enemies-and-boss.md).
+De tre Piskel-arkene for forside, bakside og profil brukes nå som spillerfigur. Arket med sprøyten brukes som vanlig fiende. Nivå 3 har tre vanlige fiender og Hitler som boss, med midlertidig grafikk, livsmåler, skudd og rykkeangrep. Kilder, balansering og hvordan designerne bytter bossgrafikk er dokumentert i [fiende- og bossguiden](de-nadel/docs/enemies-and-boss.md).
+
+Retningsanimasjoner: `scripts/directional_sprite.gd` velger forside, bakside og profil etter faktisk bevegelse. Tomme Piskel-ruter er utelatt for å unngå flimring. Kjør `godot --headless --path de-nadel --script res://tests/direction_smoke.gd` for å kontrollere retninger, stillstand, hindringer og at alle rammer inneholder grafikk.
