@@ -12,27 +12,30 @@
 [ext_resource type="PackedScene" path="res://scenes/world/barrier.tscn" id="obj_barrier"]
 [ext_resource type="PackedScene" path="res://scenes/world/bench.tscn" id="obj_bench"]
 [ext_resource type="PackedScene" path="res://scenes/world/bush.tscn" id="obj_bush"]
-[ext_resource type="PackedScene" path="res://scenes/world/house_04.tscn" id="obj_house_04"]
 [ext_resource type="PackedScene" path="res://scenes/world/house_05.tscn" id="obj_house_05"]
-[ext_resource type="PackedScene" path="res://scenes/world/house_06.tscn" id="obj_house_06"]
 [ext_resource type="PackedScene" path="res://scenes/world/house_07.tscn" id="obj_house_07"]
-[ext_resource type="PackedScene" path="res://scenes/world/house_08.tscn" id="obj_house_08"]
 [ext_resource type="PackedScene" path="res://scenes/world/house_09.tscn" id="obj_house_09"]
-[ext_resource type="PackedScene" path="res://scenes/world/house_10.tscn" id="obj_house_10"]
 [ext_resource type="PackedScene" path="res://scenes/world/house_11.tscn" id="obj_house_11"]
-[ext_resource type="PackedScene" path="res://scenes/world/house_12.tscn" id="obj_house_12"]
 [ext_resource type="PackedScene" path="res://scenes/world/house_13.tscn" id="obj_house_13"]
-[ext_resource type="PackedScene" path="res://scenes/world/house_14.tscn" id="obj_house_14"]
 [ext_resource type="PackedScene" path="res://scenes/world/house_15.tscn" id="obj_house_15"]
-[ext_resource type="PackedScene" path="res://scenes/world/house_16.tscn" id="obj_house_16"]
 [ext_resource type="PackedScene" path="res://scenes/world/lamp.tscn" id="obj_lamp"]
-[ext_resource type="PackedScene" path="res://scenes/world/narko_sign.tscn" id="obj_narko_sign"]
 [ext_resource type="PackedScene" path="res://scenes/world/rock.tscn" id="obj_rock"]
 [ext_resource type="PackedScene" path="res://scenes/world/tree.tscn" id="obj_tree"]
+
+[ext_resource type="PackedScene" path="res://scenes/world/house_01.tscn" id="building0"]
+[ext_resource type="PackedScene" path="res://scenes/world/house_04.tscn" id="building1"]
+[ext_resource type="PackedScene" path="res://scenes/world/house_07.tscn" id="building2"]
+[ext_resource type="PackedScene" path="res://scenes/world/house_04.tscn" id="building3"]
+[ext_resource type="PackedScene" path="res://scenes/world/house_09.tscn" id="building4"]
 
 [node name="City" type="Node2D"]
 texture_filter = 1
 z_index = -20
+
+[node name="Pavement" type="Polygon2D" parent="."]
+z_index = 1
+color = Color(0.18, 0.18, 0.20, 1)
+polygon = PackedVector2Array(0, 0, 1664, 0, 1664, 160, 0, 160)
 
 [node name="Ground" type="Node2D" parent="."]
 
@@ -504,45 +507,20 @@ scale = Vector2(0.69945355, 0.84768212)
 texture = ExtResource("ground")
 
 [node name="Decorations" type="Node2D" parent="."]
+z_index = 2
 
-[node name="House040" parent="Decorations" instance=ExtResource("obj_house_04")]
-position = Vector2(64, 64)
 
-[node name="House051" parent="Decorations" instance=ExtResource("obj_house_05")]
-position = Vector2(192, 64)
 
-[node name="House062" parent="Decorations" instance=ExtResource("obj_house_06")]
-position = Vector2(320, 64)
 
-[node name="House073" parent="Decorations" instance=ExtResource("obj_house_07")]
-position = Vector2(448, 64)
 
-[node name="House084" parent="Decorations" instance=ExtResource("obj_house_08")]
-position = Vector2(576, 64)
 
-[node name="House095" parent="Decorations" instance=ExtResource("obj_house_09")]
-position = Vector2(704, 64)
 
-[node name="House106" parent="Decorations" instance=ExtResource("obj_house_10")]
-position = Vector2(832, 64)
 
-[node name="House117" parent="Decorations" instance=ExtResource("obj_house_11")]
-position = Vector2(960, 64)
 
-[node name="House128" parent="Decorations" instance=ExtResource("obj_house_12")]
-position = Vector2(1088, 64)
 
-[node name="House139" parent="Decorations" instance=ExtResource("obj_house_13")]
-position = Vector2(1216, 64)
 
-[node name="House1410" parent="Decorations" instance=ExtResource("obj_house_14")]
-position = Vector2(1344, 64)
 
-[node name="House1511" parent="Decorations" instance=ExtResource("obj_house_15")]
-position = Vector2(1472, 64)
 
-[node name="House1612" parent="Decorations" instance=ExtResource("obj_house_16")]
-position = Vector2(1600, 64)
 
 [node name="Tree13" parent="Decorations" instance=ExtResource("obj_tree")]
 position = Vector2(96, 390)
@@ -571,5 +549,18 @@ position = Vector2(1130, 145)
 [node name="Lamp21" parent="Decorations" instance=ExtResource("obj_lamp")]
 position = Vector2(1440, 145)
 
-[node name="NarkoSign22" parent="Decorations" instance=ExtResource("obj_narko_sign")]
-position = Vector2(1460, 210)
+
+[node name="Building0" parent="Decorations" instance=ExtResource("building0")]
+position = Vector2(310, 76)
+
+[node name="Building1" parent="Decorations" instance=ExtResource("building1")]
+position = Vector2(580, 66)
+
+[node name="Building2" parent="Decorations" instance=ExtResource("building2")]
+position = Vector2(850, 72)
+
+[node name="Building3" parent="Decorations" instance=ExtResource("building3")]
+position = Vector2(1135, 60)
+
+[node name="Building4" parent="Decorations" instance=ExtResource("building4")]
+position = Vector2(1500, 72)

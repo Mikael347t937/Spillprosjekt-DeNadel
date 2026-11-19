@@ -11,7 +11,7 @@ collision_mask = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1440179180]
 texture = ExtResource("1_g2tbl")
-scale = Vector2(0.45, 0.45)
+scale = Vector2(0.51923077, 0.52427184)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1589857402]
 shape = SubResource("RectangleShape2D_to8yd")

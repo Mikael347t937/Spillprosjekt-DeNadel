@@ -1,8 +1,12 @@
 [gd_scene load_steps=2 format=3]
 
-[ext_resource type="Texture2D" path="res://assets/world/house_12.tres" id="1"]
+[ext_resource type="Texture2D" path="res://assets/world/verden.png" id="1"]
 
-[node name="House12" type="Sprite2D"]
+[node name="House12" type="Node2D"]
 texture_filter = 1
-scale = Vector2(0.70329670, 0.81012658)
+scale = Vector2(1.05, 1.05)
+
+[node name="Facade" type="Polygon2D" parent="."]
 texture = ExtResource("1")
+polygon = PackedVector2Array(-77.0, 79.0, -77.0, -30.0, -61.0, -30.0, -61.0, -52.0, -32.0, -52.0, -32.0, -65.0, 13.0, -65.0, 13.0, -54.0, 37.0, -54.0, 37.0, -43.0, 62.0, -43.0, 62.0, -22.0, 74.0, -22.0, 74.0, 79.0)
+uv = PackedVector2Array(595.0, 549.0, 595.0, 440.0, 611.0, 440.0, 611.0, 418.0, 640.0, 418.0, 640.0, 405.0, 685.0, 405.0, 685.0, 416.0, 709.0, 416.0, 709.0, 427.0, 734.0, 427.0, 734.0, 448.0, 746.0, 448.0, 746.0, 549.0)

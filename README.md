@@ -133,4 +133,8 @@ Nivåene har nå mynter, patronkasser og en hagle. Bruk **1** og **2** for våpe
 
 ## Kartgrafikk og NARKO-logo
 
-Gruppens `verden.png` brukes nå til mørke bymiljøer på alle tre nivåer, med veier, hus og flyttbare miljøscener. Kasser har ny grafikk og beholder kollisjonen. NARKO-logoen brukes på skilt. Originalbilder, kilder og hvordan dere flytter/kopierer objektene i Godot er forklart i [kartguiden](de-nadel/docs/world-art.md).
+Gruppens `verden.png` brukes nå til mørke bymiljøer på alle tre nivåer, med veier, hus og flyttbare miljøscener. Kasser har ny grafikk og beholder kollisjonen. NARKO-logoen ligger i hovedmenyen, og er fjernet fra kartene. Husene klippes langs silhuetten, og kassene er tilpasset kollisjonen på 54 × 54. Originalbilder, kilder og hvordan dere flytter/kopierer objektene i Godot er forklart i [kartguiden](de-nadel/docs/world-art.md).
+
+## Menylyd fra gruppen
+
+`ZOOM0039_TrLR.WAV` er levert av gruppen og kopiert uendret til `de-nadel/assets/audio/menu_recording.wav` (31,09 sekunder, stereo, 44,1 kHz). Hele opptaket gjentas i hovedmenyen og bruker innstillingen **Lydnivå**. Avspilleren fjernes når menyen lukkes, slik at opptaket ikke fortsetter under spillingen. Den gamle `city_drone.wav` er bevart, men brukes ikke som menybakgrunn nå. Ekstern kilde/rettighetshaver er ikke oppgitt utover gruppens levering.

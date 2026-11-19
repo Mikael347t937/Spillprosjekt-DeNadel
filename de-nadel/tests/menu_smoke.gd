@@ -43,6 +43,12 @@ func run() -> void:
 	check(menu.buttons.get_child(0).text == "Start spill", "Norwegian start label")
 	check(root.gui_get_focus_owner() == menu.buttons.get_child(0), "keyboard focus starts on Start spill")
 	check(menu.buttons.get_child(0).get_node(menu.buttons.get_child(0).focus_neighbor_top) == menu.buttons.get_child(3), "keyboard navigation wraps")
+	var ambience = menu.get_node("Ambience")
+	check(ambience.stream.resource_path == "res://assets/audio/menu_recording.wav", "menu uses the supplied recording")
+	check(absf(ambience.stream.get_length() - 31.0944) < 0.02, "full recording is imported")
+	check(ambience.stream.loop_mode == AudioStreamWAV.LOOP_FORWARD and ambience.stream.loop_end > 0, "recording is configured to loop")
+	check(menu.get_node("Interface/NarkoLogo").mouse_filter == Control.MOUSE_FILTER_IGNORE, "logo does not intercept menu input")
+	var ambience_ref = weakref(ambience)
 	await take_capture("main-menu.png")
 	for dimensions in [Vector2i(1280,720), Vector2i(960,540), Vector2i(1280,800)]:
 		root.size = dimensions
@@ -75,6 +81,7 @@ func run() -> void:
 	await process_frame
 	await process_frame
 	check(current_scene.scene_file_path == "res://scenes/level_select.tscn", "Start spill opens level selection")
+	check(ambience_ref.get_ref() == null, "leaving menu frees its audio player")
 	check(not current_scene.get_node("Panel/Content/Level2").disabled, "level two is available")
 	check(not current_scene.get_node("Panel/Content/Level3").disabled, "level three is available")
 	await take_capture("level-select.png")

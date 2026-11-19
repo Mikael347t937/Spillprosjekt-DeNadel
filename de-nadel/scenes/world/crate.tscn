@@ -4,5 +4,5 @@
 
 [node name="Crate" type="Sprite2D"]
 texture_filter = 1
-scale = Vector2(0.41304348, 0.50331126)
+scale = Vector2(0.51923077, 0.52427184)
 texture = ExtResource("1")

@@ -38,11 +38,11 @@ func _ready() -> void:
 	volume_slider.value_changed.connect(_volume_changed)
 	fullscreen_toggle.toggled.connect(_fullscreen_changed)
 	motion_toggle.toggled.connect(_motion_changed)
+	var recording: AudioStreamWAV = $Ambience.stream
+	recording.loop_mode = AudioStreamWAV.LOOP_FORWARD
+	recording.loop_begin = 0
+	recording.loop_end = int(recording.get_length() * recording.mix_rate)
 	if DisplayServer.get_name() != "headless":
-		var drone: AudioStreamWAV = $Ambience.stream
-		drone.loop_mode = AudioStreamWAV.LOOP_FORWARD
-		drone.loop_begin = 0
-		drone.loop_end = int(drone.get_length() * drone.mix_rate)
 		$Ambience.play()
 	fade.color.a = 1.0
 	if GameSettings.reduced_motion:

@@ -8,8 +8,14 @@
 [ext_resource type="Shader" uid="uid://krirnbts26v0" path="res://shaders/film.gdshader" id="6"]
 [ext_resource type="Shader" uid="uid://c00qpcvkh6duu" path="res://shaders/title_grit.gdshader" id="7"]
 [ext_resource type="Script" uid="uid://cmaqakwxxeib0" path="res://scripts/atmosphere.gd" id="8"]
-[ext_resource type="AudioStream" uid="uid://ioajjh6u8dbc" path="res://assets/audio/city_drone.wav" id="9"]
+[ext_resource type="AudioStream" path="res://assets/audio/menu_recording.wav" id="9"]
 [ext_resource type="AudioStream" uid="uid://cyb2etfbltbo3" path="res://assets/audio/menu_click.wav" id="10"]
+
+[ext_resource type="Texture2D" path="res://assets/world/narko_sign.tres" id="logo"]
+[ext_resource type="Shader" path="res://shaders/logo_ink.gdshader" id="logo_ink"]
+
+[sub_resource type="ShaderMaterial" id="LogoInk"]
+shader = ExtResource("logo_ink")
 
 [sub_resource type="ShaderMaterial" id="Film"]
 shader = ExtResource("6")
@@ -212,6 +218,22 @@ theme_override_font_sizes/font_size = 14
 text = "DE NADEL NÅLEN  /  0.1"
 horizontal_alignment = 2
 
+[node name="NarkoLogo" type="TextureRect" parent="Interface"]
+material = SubResource("LogoInk")
+layout_mode = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 24.0
+offset_right = -40.0
+offset_bottom = 156.0
+grow_horizontal = 0
+mouse_filter = 2
+texture_filter = 1
+texture = ExtResource("logo")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="Scrim" type="ColorRect" parent="Interface" unique_id=1601024300]
 visible = false
 layout_mode = 1
@@ -350,7 +372,7 @@ color = Color(0.015, 0.015, 0.015, 0)
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1520837275]
 stream = ExtResource("9")
-volume_db = -12.0
+volume_db = -3.0
 
 [node name="Click" type="AudioStreamPlayer" parent="." unique_id=335694722]
 stream = ExtResource("10")
