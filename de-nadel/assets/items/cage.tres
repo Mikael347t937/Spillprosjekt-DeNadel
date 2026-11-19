@@ -1,0 +1,22 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/items/loot_atlas.png" id="atlas"]
+
+[sub_resource type="AtlasTexture" id="Frame0"]
+atlas = ExtResource("atlas")
+region = Rect2(0.0, 940.5, 313.5, 313.5)
+
+[sub_resource type="AtlasTexture" id="Frame1"]
+atlas = ExtResource("atlas")
+region = Rect2(313.5, 940.5, 313.5, 313.5)
+
+[sub_resource type="AtlasTexture" id="Frame2"]
+atlas = ExtResource("atlas")
+region = Rect2(627.0, 940.5, 313.5, 313.5)
+
+[sub_resource type="AtlasTexture" id="Frame3"]
+atlas = ExtResource("atlas")
+region = Rect2(940.5, 940.5, 313.5, 313.5)
+
+[resource]
+animations = [{"frames": [{"duration": 1.0, "texture": SubResource("Frame0")}, {"duration": 1.0, "texture": SubResource("Frame1")}, {"duration": 1.0, "texture": SubResource("Frame2")}, {"duration": 1.0, "texture": SubResource("Frame3")}], "loop": false, "name": &"open", "speed": 5.0}]

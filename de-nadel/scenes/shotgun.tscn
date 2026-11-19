@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3]
+[ext_resource type="PackedScene" path="res://scenes/coin.tscn" id="base"]
+[ext_resource type="SpriteFrames" path="res://assets/items/shotgun.tres" id="frames"]
+[node name="Shotgun" instance=ExtResource("base")]
+pickup_type = 2
+amount = 6
+[node name="Sprite2D" parent="." index="0"]
+sprite_frames = ExtResource("frames")

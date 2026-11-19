@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3]
+[ext_resource type="Script" path="res://scripts/pickup.gd" id="script"]
+[ext_resource type="SpriteFrames" path="res://assets/items/coin.tres" id="frames"]
+[sub_resource type="CircleShape2D" id="Shape"]
+radius = 18.0
+
+[node name="Coin" type="Area2D" groups=["pickups"]]
+collision_layer = 0
+collision_mask = 1
+script = ExtResource("script")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.2, 0.2)
+sprite_frames = ExtResource("frames")
+animation = &"spin"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("Shape")

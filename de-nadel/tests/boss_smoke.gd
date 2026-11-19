@@ -128,6 +128,9 @@ func run() -> void:
 	check(not hud.level_won, "defeating guards does not finish the boss level")
 	boss.take_damage(999)
 	await settle()
+	if not current_scene.get_node("SupplyCage").opened:
+		await current_scene.get_node("SupplyCage").released
+		await settle()
 	check(hud.level_won and paused, "boss death completes level three")
 	hud.restart_level()
 	await settle()

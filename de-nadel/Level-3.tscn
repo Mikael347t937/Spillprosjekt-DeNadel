@@ -10,6 +10,11 @@
 
 [ext_resource type="PackedScene" path="res://scenes/boss.tscn" id="boss"]
 
+[ext_resource type="PackedScene" path="res://scenes/coin.tscn" id="loot_coin"]
+[ext_resource type="PackedScene" path="res://scenes/ammo.tscn" id="loot_ammo"]
+[ext_resource type="PackedScene" path="res://scenes/shotgun.tscn" id="loot_shotgun"]
+[ext_resource type="PackedScene" path="res://scenes/supply_cage.tscn" id="cage"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3crfi"]
 texture = ExtResource("1_nu0cj")
 texture_region_size = Vector2i(128, 128)
@@ -86,3 +91,21 @@ position = Vector2(1320, 380)
 position = Vector2(1260, 200)
 
 [node name="GameHUD" parent="." instance=ExtResource("hud")]
+
+[node name="Coin1" parent="." instance=ExtResource("loot_coin")]
+position = Vector2(350, 670)
+
+[node name="Coin2" parent="." instance=ExtResource("loot_coin")]
+position = Vector2(440, 700)
+
+[node name="Coin3" parent="." instance=ExtResource("loot_coin")]
+position = Vector2(1000, 680)
+
+[node name="Ammo" parent="." instance=ExtResource("loot_ammo")]
+position = Vector2(520, 750)
+
+[node name="Shotgun" parent="." instance=ExtResource("loot_shotgun")]
+position = Vector2(280, 750)
+
+[node name="SupplyCage" parent="." instance=ExtResource("cage")]
+position = Vector2(1370, 690)

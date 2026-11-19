@@ -27,6 +27,9 @@ func defeat_all() -> void:
 	for enemy in get_nodes_in_group("enemies"):
 		enemy.take_damage(999)
 	await settle()
+	if current_scene.has_node("SupplyCage") and not current_scene.get_node("SupplyCage").opened:
+		await current_scene.get_node("SupplyCage").released
+		await settle()
 
 func capture(name: String) -> void:
 	if not OS.get_cmdline_user_args().has("--capture"): return

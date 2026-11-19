@@ -126,3 +126,7 @@ Nivåslutt styres av `scripts/level_flow.gd`. Neste scene settes i **Next Level*
 De tre Piskel-arkene for forside, bakside og profil brukes nå som spillerfigur. Arket med sprøyten brukes som vanlig fiende. Nivå 3 har tre vanlige fiender og Hitler som boss, med midlertidig grafikk, livsmåler, skudd og rykkeangrep. Kilder, balansering og hvordan designerne bytter bossgrafikk er dokumentert i [fiende- og bossguiden](de-nadel/docs/enemies-and-boss.md).
 
 Retningsanimasjoner: `scripts/directional_sprite.gd` velger forside, bakside og profil etter faktisk bevegelse. Tomme Piskel-ruter er utelatt for å unngå flimring. Kjør `godot --headless --path de-nadel --script res://tests/direction_smoke.gd` for å kontrollere retninger, stillstand, hindringer og at alle rammer inneholder grafikk.
+
+## Mynter, ammunisjon og sluttsekvens
+
+Nivåene har nå mynter, patronkasser og en hagle. Bruk **1** og **2** for våpenvalg. Etter siste kamp åpnes et bur med sprøyter før seiersmenyen vises. Alle objektene er egne, flyttbare `.tscn`-scener, med grafikk fra `de-nadel/assets/items/loot_atlas.png`. [Veiledning for laget, kilder og kontroll](de-nadel/docs/items-and-ending.md).

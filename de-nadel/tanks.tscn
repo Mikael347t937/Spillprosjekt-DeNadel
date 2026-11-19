@@ -7,6 +7,8 @@
 
 [ext_resource type="PackedScene" path="res://scenes/health_bar.tscn" id="health_bar"]
 
+[ext_resource type="Texture2D" path="res://assets/items/shotgun_icon.tres" id="shotgun_icon"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejol1"]
 size = Vector2(30, 44)
 
@@ -26,10 +28,18 @@ position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_ejol1")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1951531738]
+position = Vector2(0, 18)
 script = ExtResource("3_l3p2y")
 
+[node name="Weapon" type="Sprite2D" parent="Node2D"]
+visible = false
+position = Vector2(18, 0)
+scale = Vector2(0.12, 0.12)
+texture_filter = 1
+texture = ExtResource("shotgun_icon")
+
 [node name="Muzzle" type="Marker2D" parent="Node2D"]
-position = Vector2(26, 0)
+position = Vector2(36, 0)
 
 [node name="HealthBar" parent="." instance=ExtResource("health_bar")]
 offset_left = -32.0

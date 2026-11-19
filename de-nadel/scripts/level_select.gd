@@ -7,6 +7,7 @@ var opening = false
 
 func _ready() -> void:
 	get_tree().paused = false
+	RunInventory.reset()
 	$Panel/Content/Level1.pressed.connect(open_level_one)
 	$Panel/Content/Level2.pressed.connect(open_level_two)
 	$Panel/Content/Level3.pressed.connect(open_level_three)
