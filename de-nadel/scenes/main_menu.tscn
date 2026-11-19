@@ -8,7 +8,7 @@
 [ext_resource type="Shader" uid="uid://krirnbts26v0" path="res://shaders/film.gdshader" id="6"]
 [ext_resource type="Shader" uid="uid://c00qpcvkh6duu" path="res://shaders/title_grit.gdshader" id="7"]
 [ext_resource type="Script" uid="uid://cmaqakwxxeib0" path="res://scripts/atmosphere.gd" id="8"]
-[ext_resource type="AudioStream" path="res://assets/audio/menu_recording.wav" id="9"]
+[ext_resource type="AudioStream" path="res://assets/audio/city_drone.wav" id="9"]
 [ext_resource type="AudioStream" uid="uid://cyb2etfbltbo3" path="res://assets/audio/menu_click.wav" id="10"]
 
 [ext_resource type="Texture2D" path="res://assets/world/narko_sign.tres" id="logo"]
@@ -372,7 +372,7 @@ color = Color(0.015, 0.015, 0.015, 0)
 
 [node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1520837275]
 stream = ExtResource("9")
-volume_db = -3.0
+volume_db = -12.0
 
 [node name="Click" type="AudioStreamPlayer" parent="." unique_id=335694722]
 stream = ExtResource("10")

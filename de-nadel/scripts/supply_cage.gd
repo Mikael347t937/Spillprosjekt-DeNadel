@@ -10,6 +10,7 @@ var opened = false
 func release_supplies() -> void:
 	if opening or opened: return
 	opening = true
+	$VictoryMusic.play()
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Sprite2D.play("open")
 	await get_tree().create_timer(0.45, false).timeout

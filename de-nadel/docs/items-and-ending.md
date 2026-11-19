@@ -41,3 +41,7 @@ Referanser: [Godot Area2D](https://docs.godotengine.org/en/stable/classes/class_
 ## Kontroll
 
 Kjør `godot --headless --path de-nadel --script res://tests/loot_smoke.gd`. Testen kontrollerer fysisk oppsamling, dobbeltkall, patronforbruk, skuddpause, inventar mellom nivåer, omstart og rekkefølgen i sluttsekvensen.
+
+## Sluttmusikk
+
+Gruppens `ZOOM0039_TrLR.WAV` brukes som `assets/audio/victory_recording.wav`. `SupplyCage/VictoryMusic` starter i `release_supplies()`, spiller én gang og har prosessmodus Always, slik at seiersmenyens pause ikke stopper opptaket. Når nivået forlates, fjernes lydspilleren sammen med buret. Hovedmenyen bruker sin opprinnelige bybakgrunnslyd.

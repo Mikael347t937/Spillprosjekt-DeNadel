@@ -135,6 +135,6 @@ Nivåene har nå mynter, patronkasser og en hagle. Bruk **1** og **2** for våpe
 
 Gruppens `verden.png` brukes nå til mørke bymiljøer på alle tre nivåer, med veier, hus og flyttbare miljøscener. Kasser har ny grafikk og beholder kollisjonen. NARKO-logoen ligger i hovedmenyen, og er fjernet fra kartene. Husene klippes langs silhuetten, og kassene er tilpasset kollisjonen på 54 × 54. Originalbilder, kilder og hvordan dere flytter/kopierer objektene i Godot er forklart i [kartguiden](de-nadel/docs/world-art.md).
 
-## Menylyd fra gruppen
+## Sluttmusikk fra gruppen
 
-`ZOOM0039_TrLR.WAV` er levert av gruppen og kopiert uendret til `de-nadel/assets/audio/menu_recording.wav` (31,09 sekunder, stereo, 44,1 kHz). Hele opptaket gjentas i hovedmenyen og bruker innstillingen **Lydnivå**. Avspilleren fjernes når menyen lukkes, slik at opptaket ikke fortsetter under spillingen. Den gamle `city_drone.wav` er bevart, men brukes ikke som menybakgrunn nå. Ekstern kilde/rettighetshaver er ikke oppgitt utover gruppens levering.
+`ZOOM0039_TrLR.WAV` er levert av gruppen og kopiert uendret til `de-nadel/assets/audio/victory_recording.wav` (31,09 sekunder, stereo, 44,1 kHz). Opptaket starter én gang når siste kamp er vunnet og buret åpnes. Det fortsetter gjennom sprøyteanimasjonen og seiersskjermen, selv om spillingen er pauset. **Lydnivå** regulerer volumet. Ved omstart eller retur til menyen fjernes avspilleren. Hovedmenyen bruker igjen `city_drone.wav`. Ekstern kilde/rettighetshaver er ikke oppgitt utover gruppens levering.
