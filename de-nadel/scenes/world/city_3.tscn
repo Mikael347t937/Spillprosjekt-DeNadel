@@ -1,0 +1,585 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/world/ground.tres" id="ground"]
+[ext_resource type="Texture2D" path="res://assets/world/moss_a.tres" id="moss_a"]
+[ext_resource type="Texture2D" path="res://assets/world/moss_b.tres" id="moss_b"]
+[ext_resource type="Texture2D" path="res://assets/world/moss_c.tres" id="moss_c"]
+[ext_resource type="Texture2D" path="res://assets/world/cracks.tres" id="cracks"]
+[ext_resource type="Texture2D" path="res://assets/world/road.tres" id="road"]
+[ext_resource type="Texture2D" path="res://assets/world/crosswalk.tres" id="crosswalk"]
+[ext_resource type="Texture2D" path="res://assets/world/broken_road.tres" id="broken_road"]
+[ext_resource type="PackedScene" path="res://scenes/world/barrel.tscn" id="obj_barrel"]
+[ext_resource type="PackedScene" path="res://scenes/world/barrier.tscn" id="obj_barrier"]
+[ext_resource type="PackedScene" path="res://scenes/world/bench.tscn" id="obj_bench"]
+[ext_resource type="PackedScene" path="res://scenes/world/bush.tscn" id="obj_bush"]
+[ext_resource type="PackedScene" path="res://scenes/world/fence.tscn" id="obj_fence"]
+[ext_resource type="PackedScene" path="res://scenes/world/house_01.tscn" id="obj_house_01"]
+[ext_resource type="PackedScene" path="res://scenes/world/house_02.tscn" id="obj_house_02"]
+[ext_resource type="PackedScene" path="res://scenes/world/house_03.tscn" id="obj_house_03"]
+[ext_resource type="PackedScene" path="res://scenes/world/house_04.tscn" id="obj_house_04"]
+[ext_resource type="PackedScene" path="res://scenes/world/house_05.tscn" id="obj_house_05"]
+[ext_resource type="PackedScene" path="res://scenes/world/house_06.tscn" id="obj_house_06"]
+[ext_resource type="PackedScene" path="res://scenes/world/house_10.tscn" id="obj_house_10"]
+[ext_resource type="PackedScene" path="res://scenes/world/house_11.tscn" id="obj_house_11"]
+[ext_resource type="PackedScene" path="res://scenes/world/house_12.tscn" id="obj_house_12"]
+[ext_resource type="PackedScene" path="res://scenes/world/house_13.tscn" id="obj_house_13"]
+[ext_resource type="PackedScene" path="res://scenes/world/house_14.tscn" id="obj_house_14"]
+[ext_resource type="PackedScene" path="res://scenes/world/house_15.tscn" id="obj_house_15"]
+[ext_resource type="PackedScene" path="res://scenes/world/house_16.tscn" id="obj_house_16"]
+[ext_resource type="PackedScene" path="res://scenes/world/lamp.tscn" id="obj_lamp"]
+[ext_resource type="PackedScene" path="res://scenes/world/narko_sign.tscn" id="obj_narko_sign"]
+[ext_resource type="PackedScene" path="res://scenes/world/rock.tscn" id="obj_rock"]
+[ext_resource type="PackedScene" path="res://scenes/world/tree.tscn" id="obj_tree"]
+
+[node name="City" type="Node2D"]
+texture_filter = 1
+z_index = -20
+
+[node name="Ground" type="Node2D" parent="."]
+
+[node name="Tile_0_0" type="Sprite2D" parent="Ground"]
+position = Vector2(64, 64)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_1_0" type="Sprite2D" parent="Ground"]
+position = Vector2(192, 64)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_2_0" type="Sprite2D" parent="Ground"]
+position = Vector2(320, 64)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_3_0" type="Sprite2D" parent="Ground"]
+position = Vector2(448, 64)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_4_0" type="Sprite2D" parent="Ground"]
+position = Vector2(576, 64)
+scale = Vector2(0.70718232, 0.71508380)
+texture = ExtResource("moss_b")
+
+[node name="Tile_5_0" type="Sprite2D" parent="Ground"]
+position = Vector2(704, 64)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_6_0" type="Sprite2D" parent="Ground"]
+position = Vector2(832, 64)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_7_0" type="Sprite2D" parent="Ground"]
+position = Vector2(960, 64)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_8_0" type="Sprite2D" parent="Ground"]
+position = Vector2(1088, 64)
+scale = Vector2(0.70329670, 0.71508380)
+texture = ExtResource("road")
+
+[node name="Tile_9_0" type="Sprite2D" parent="Ground"]
+position = Vector2(1216, 64)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_10_0" type="Sprite2D" parent="Ground"]
+position = Vector2(1344, 64)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_11_0" type="Sprite2D" parent="Ground"]
+position = Vector2(1472, 64)
+scale = Vector2(0.70718232, 0.71508380)
+texture = ExtResource("moss_c")
+
+[node name="Tile_12_0" type="Sprite2D" parent="Ground"]
+position = Vector2(1600, 64)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_0_1" type="Sprite2D" parent="Ground"]
+position = Vector2(64, 192)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_1_1" type="Sprite2D" parent="Ground"]
+position = Vector2(192, 192)
+scale = Vector2(0.70718232, 0.71508380)
+texture = ExtResource("moss_c")
+
+[node name="Tile_2_1" type="Sprite2D" parent="Ground"]
+position = Vector2(320, 192)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_3_1" type="Sprite2D" parent="Ground"]
+position = Vector2(448, 192)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_4_1" type="Sprite2D" parent="Ground"]
+position = Vector2(576, 192)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_5_1" type="Sprite2D" parent="Ground"]
+position = Vector2(704, 192)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_6_1" type="Sprite2D" parent="Ground"]
+position = Vector2(832, 192)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_7_1" type="Sprite2D" parent="Ground"]
+position = Vector2(960, 192)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_8_1" type="Sprite2D" parent="Ground"]
+position = Vector2(1088, 192)
+scale = Vector2(0.70329670, 0.71508380)
+texture = ExtResource("road")
+
+[node name="Tile_9_1" type="Sprite2D" parent="Ground"]
+position = Vector2(1216, 192)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_10_1" type="Sprite2D" parent="Ground"]
+position = Vector2(1344, 192)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_11_1" type="Sprite2D" parent="Ground"]
+position = Vector2(1472, 192)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_12_1" type="Sprite2D" parent="Ground"]
+position = Vector2(1600, 192)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_0_2" type="Sprite2D" parent="Ground"]
+position = Vector2(64, 320)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_1_2" type="Sprite2D" parent="Ground"]
+position = Vector2(192, 320)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_2_2" type="Sprite2D" parent="Ground"]
+position = Vector2(320, 320)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_3_2" type="Sprite2D" parent="Ground"]
+position = Vector2(448, 320)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_4_2" type="Sprite2D" parent="Ground"]
+position = Vector2(576, 320)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_5_2" type="Sprite2D" parent="Ground"]
+position = Vector2(704, 320)
+scale = Vector2(0.70718232, 0.71508380)
+texture = ExtResource("moss_b")
+
+[node name="Tile_6_2" type="Sprite2D" parent="Ground"]
+position = Vector2(832, 320)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_7_2" type="Sprite2D" parent="Ground"]
+position = Vector2(960, 320)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_8_2" type="Sprite2D" parent="Ground"]
+position = Vector2(1088, 320)
+scale = Vector2(0.70329670, 0.71508380)
+texture = ExtResource("road")
+
+[node name="Tile_9_2" type="Sprite2D" parent="Ground"]
+position = Vector2(1216, 320)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_10_2" type="Sprite2D" parent="Ground"]
+position = Vector2(1344, 320)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_11_2" type="Sprite2D" parent="Ground"]
+position = Vector2(1472, 320)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_12_2" type="Sprite2D" parent="Ground"]
+position = Vector2(1600, 320)
+scale = Vector2(0.70718232, 0.71508380)
+texture = ExtResource("moss_c")
+
+[node name="Tile_0_3" type="Sprite2D" parent="Ground"]
+position = Vector2(64, 448)
+scale = Vector2(0.70329670, 0.71508380)
+texture = ExtResource("road")
+rotation = 1.5707963
+
+[node name="Tile_1_3" type="Sprite2D" parent="Ground"]
+position = Vector2(192, 448)
+scale = Vector2(0.70329670, 0.71508380)
+texture = ExtResource("road")
+rotation = 1.5707963
+
+[node name="Tile_2_3" type="Sprite2D" parent="Ground"]
+position = Vector2(320, 448)
+scale = Vector2(0.70329670, 0.71508380)
+texture = ExtResource("road")
+rotation = 1.5707963
+
+[node name="Tile_3_3" type="Sprite2D" parent="Ground"]
+position = Vector2(448, 448)
+scale = Vector2(0.70329670, 0.71508380)
+texture = ExtResource("road")
+rotation = 1.5707963
+
+[node name="Tile_4_3" type="Sprite2D" parent="Ground"]
+position = Vector2(576, 448)
+scale = Vector2(0.70329670, 0.71508380)
+texture = ExtResource("road")
+rotation = 1.5707963
+
+[node name="Tile_5_3" type="Sprite2D" parent="Ground"]
+position = Vector2(704, 448)
+scale = Vector2(0.70329670, 0.71508380)
+texture = ExtResource("road")
+rotation = 1.5707963
+
+[node name="Tile_6_3" type="Sprite2D" parent="Ground"]
+position = Vector2(832, 448)
+scale = Vector2(0.70329670, 0.71508380)
+texture = ExtResource("road")
+rotation = 1.5707963
+
+[node name="Tile_7_3" type="Sprite2D" parent="Ground"]
+position = Vector2(960, 448)
+scale = Vector2(0.70329670, 0.71508380)
+texture = ExtResource("road")
+rotation = 1.5707963
+
+[node name="Tile_8_3" type="Sprite2D" parent="Ground"]
+position = Vector2(1088, 448)
+scale = Vector2(0.70329670, 0.82580645)
+texture = ExtResource("broken_road")
+
+[node name="Tile_9_3" type="Sprite2D" parent="Ground"]
+position = Vector2(1216, 448)
+scale = Vector2(0.70329670, 0.71508380)
+texture = ExtResource("road")
+rotation = 1.5707963
+
+[node name="Tile_10_3" type="Sprite2D" parent="Ground"]
+position = Vector2(1344, 448)
+scale = Vector2(0.70329670, 0.71508380)
+texture = ExtResource("road")
+rotation = 1.5707963
+
+[node name="Tile_11_3" type="Sprite2D" parent="Ground"]
+position = Vector2(1472, 448)
+scale = Vector2(0.70329670, 0.71508380)
+texture = ExtResource("road")
+rotation = 1.5707963
+
+[node name="Tile_12_3" type="Sprite2D" parent="Ground"]
+position = Vector2(1600, 448)
+scale = Vector2(0.70329670, 0.71508380)
+texture = ExtResource("road")
+rotation = 1.5707963
+
+[node name="Tile_0_4" type="Sprite2D" parent="Ground"]
+position = Vector2(64, 576)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_1_4" type="Sprite2D" parent="Ground"]
+position = Vector2(192, 576)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_2_4" type="Sprite2D" parent="Ground"]
+position = Vector2(320, 576)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_3_4" type="Sprite2D" parent="Ground"]
+position = Vector2(448, 576)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_4_4" type="Sprite2D" parent="Ground"]
+position = Vector2(576, 576)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_5_4" type="Sprite2D" parent="Ground"]
+position = Vector2(704, 576)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_6_4" type="Sprite2D" parent="Ground"]
+position = Vector2(832, 576)
+scale = Vector2(0.70718232, 0.71508380)
+texture = ExtResource("moss_b")
+
+[node name="Tile_7_4" type="Sprite2D" parent="Ground"]
+position = Vector2(960, 576)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_8_4" type="Sprite2D" parent="Ground"]
+position = Vector2(1088, 576)
+scale = Vector2(0.70718232, 0.82580645)
+texture = ExtResource("crosswalk")
+
+[node name="Tile_9_4" type="Sprite2D" parent="Ground"]
+position = Vector2(1216, 576)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_10_4" type="Sprite2D" parent="Ground"]
+position = Vector2(1344, 576)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_11_4" type="Sprite2D" parent="Ground"]
+position = Vector2(1472, 576)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_12_4" type="Sprite2D" parent="Ground"]
+position = Vector2(1600, 576)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_0_5" type="Sprite2D" parent="Ground"]
+position = Vector2(64, 704)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_1_5" type="Sprite2D" parent="Ground"]
+position = Vector2(192, 704)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_2_5" type="Sprite2D" parent="Ground"]
+position = Vector2(320, 704)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_3_5" type="Sprite2D" parent="Ground"]
+position = Vector2(448, 704)
+scale = Vector2(0.70718232, 0.71508380)
+texture = ExtResource("moss_c")
+
+[node name="Tile_4_5" type="Sprite2D" parent="Ground"]
+position = Vector2(576, 704)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_5_5" type="Sprite2D" parent="Ground"]
+position = Vector2(704, 704)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_6_5" type="Sprite2D" parent="Ground"]
+position = Vector2(832, 704)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_7_5" type="Sprite2D" parent="Ground"]
+position = Vector2(960, 704)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_8_5" type="Sprite2D" parent="Ground"]
+position = Vector2(1088, 704)
+scale = Vector2(0.70329670, 0.71508380)
+texture = ExtResource("road")
+
+[node name="Tile_9_5" type="Sprite2D" parent="Ground"]
+position = Vector2(1216, 704)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_10_5" type="Sprite2D" parent="Ground"]
+position = Vector2(1344, 704)
+scale = Vector2(0.69565217, 0.71508380)
+texture = ExtResource("moss_a")
+
+[node name="Tile_11_5" type="Sprite2D" parent="Ground"]
+position = Vector2(1472, 704)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_12_5" type="Sprite2D" parent="Ground"]
+position = Vector2(1600, 704)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_0_6" type="Sprite2D" parent="Ground"]
+position = Vector2(64, 832)
+scale = Vector2(0.69565217, 0.71508380)
+texture = ExtResource("moss_a")
+
+[node name="Tile_1_6" type="Sprite2D" parent="Ground"]
+position = Vector2(192, 832)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_2_6" type="Sprite2D" parent="Ground"]
+position = Vector2(320, 832)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_3_6" type="Sprite2D" parent="Ground"]
+position = Vector2(448, 832)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_4_6" type="Sprite2D" parent="Ground"]
+position = Vector2(576, 832)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_5_6" type="Sprite2D" parent="Ground"]
+position = Vector2(704, 832)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_6_6" type="Sprite2D" parent="Ground"]
+position = Vector2(832, 832)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_7_6" type="Sprite2D" parent="Ground"]
+position = Vector2(960, 832)
+scale = Vector2(0.70718232, 0.71508380)
+texture = ExtResource("moss_b")
+
+[node name="Tile_8_6" type="Sprite2D" parent="Ground"]
+position = Vector2(1088, 832)
+scale = Vector2(0.70329670, 0.71508380)
+texture = ExtResource("road")
+
+[node name="Tile_9_6" type="Sprite2D" parent="Ground"]
+position = Vector2(1216, 832)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_10_6" type="Sprite2D" parent="Ground"]
+position = Vector2(1344, 832)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_11_6" type="Sprite2D" parent="Ground"]
+position = Vector2(1472, 832)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Tile_12_6" type="Sprite2D" parent="Ground"]
+position = Vector2(1600, 832)
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
+
+[node name="Decorations" type="Node2D" parent="."]
+
+[node name="House100" parent="Decorations" instance=ExtResource("obj_house_10")]
+position = Vector2(64, 64)
+
+[node name="House111" parent="Decorations" instance=ExtResource("obj_house_11")]
+position = Vector2(192, 64)
+
+[node name="House122" parent="Decorations" instance=ExtResource("obj_house_12")]
+position = Vector2(320, 64)
+
+[node name="House133" parent="Decorations" instance=ExtResource("obj_house_13")]
+position = Vector2(448, 64)
+
+[node name="House144" parent="Decorations" instance=ExtResource("obj_house_14")]
+position = Vector2(576, 64)
+
+[node name="House155" parent="Decorations" instance=ExtResource("obj_house_15")]
+position = Vector2(704, 64)
+
+[node name="House166" parent="Decorations" instance=ExtResource("obj_house_16")]
+position = Vector2(832, 64)
+
+[node name="House017" parent="Decorations" instance=ExtResource("obj_house_01")]
+position = Vector2(960, 64)
+
+[node name="House028" parent="Decorations" instance=ExtResource("obj_house_02")]
+position = Vector2(1088, 64)
+
+[node name="House039" parent="Decorations" instance=ExtResource("obj_house_03")]
+position = Vector2(1216, 64)
+
+[node name="House0410" parent="Decorations" instance=ExtResource("obj_house_04")]
+position = Vector2(1344, 64)
+
+[node name="House0511" parent="Decorations" instance=ExtResource("obj_house_05")]
+position = Vector2(1472, 64)
+
+[node name="House0612" parent="Decorations" instance=ExtResource("obj_house_06")]
+position = Vector2(1600, 64)
+
+[node name="Tree13" parent="Decorations" instance=ExtResource("obj_tree")]
+position = Vector2(96, 390)
+
+[node name="Tree14" parent="Decorations" instance=ExtResource("obj_tree")]
+position = Vector2(1550, 420)
+
+[node name="Bush15" parent="Decorations" instance=ExtResource("obj_bush")]
+position = Vector2(110, 620)
+
+[node name="Rock16" parent="Decorations" instance=ExtResource("obj_rock")]
+position = Vector2(1490, 520)
+
+[node name="Barrel17" parent="Decorations" instance=ExtResource("obj_barrel")]
+position = Vector2(1450, 790)
+
+[node name="Barrier18" parent="Decorations" instance=ExtResource("obj_barrier")]
+position = Vector2(1290, 795)
+
+[node name="Bench19" parent="Decorations" instance=ExtResource("obj_bench")]
+position = Vector2(200, 800)
+
+[node name="Lamp20" parent="Decorations" instance=ExtResource("obj_lamp")]
+position = Vector2(1130, 145)
+
+[node name="Lamp21" parent="Decorations" instance=ExtResource("obj_lamp")]
+position = Vector2(1440, 145)
+
+[node name="NarkoSign22" parent="Decorations" instance=ExtResource("obj_narko_sign")]
+position = Vector2(1460, 210)
+
+[node name="NarkoSign23" parent="Decorations" instance=ExtResource("obj_narko_sign")]
+position = Vector2(1260, 92)
+
+[node name="Fence24" parent="Decorations" instance=ExtResource("obj_fence")]
+position = Vector2(1240, 800)
+
+[node name="Barrel25" parent="Decorations" instance=ExtResource("obj_barrel")]
+position = Vector2(1180, 790)

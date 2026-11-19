@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/world/house_15.tres" id="1"]
+
+[node name="House15" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(0.71111111, 0.81012658)
+texture = ExtResource("1")

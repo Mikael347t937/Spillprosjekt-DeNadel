@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/world/narko_sign.tres" id="1"]
+
+[node name="NarkoSign" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(0.11494253, 0.11494340)
+texture = ExtResource("1")
