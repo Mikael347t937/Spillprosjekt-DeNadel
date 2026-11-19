@@ -2,6 +2,14 @@
 
 ## Grafikk og kilder
 
+## Spilleren, oppdatert 19. november
+
+Gruppen leverte `Protagonist (1).png`. Originalen er kopiert uendret til `assets/characters/protagonist.png` (32 × 288). `player.tres` deler den i ni 32 × 32-ruter: de seks første viser forfra, de tre siste viser bakfra. Bakfra brukes midtposen som hvilepose. Arket har ikke en egen sidevisning; vannrett bevegelse bruker derfor forfra uten speiling. Når sidegrafikk blir levert, kan en `side`-animasjon legges til i samme ressurs.
+
+Bossens gamle midlertidige grafikk er skilt ut i `boss_placeholder.tres`, slik at bytte av spillerbildet ikke endrer bossen.
+
+## Tidligere bilder og fienden
+
 Gruppen leverte nye Piskel-filer 16. november:
 
 - `Vanlig dag på oslo s 3 (2).png` → `assets/characters/syringe_enemy.png`: vanlig fiende med sprøyte. Arket er 96 × 96; radene viser forfra, bakfra og fra siden, med tre 32 × 32-poser per rad.
@@ -9,9 +17,9 @@ Gruppen leverte nye Piskel-filer 16. november:
 - `New Piskel (1) (1).png` → `assets/characters/player_back.png`: spilleren sett bakfra.
 - `New Piskel (2) (1).png` → `assets/characters/player_side.png`: spilleren fra venstre side.
 
-Bildene er kopiert uendret. De tre spillerarkene er 64 × 64, men inneholder bare tre tegnede ruter. Nederste høyre rute er tom og brukes ikke. Gåsyklusen er nøytral–steg–nøytral–motsatt steg. Nøytralposen brukes når figuren stopper.
+Disse tidligere bildene er bevart for bossens plassholder. De tre gamle spillerarkene er 64 × 64, men inneholder bare tre tegnede ruter. Nederste høyre rute er tom og brukes ikke. Gåsyklusen er nøytral–steg–nøytral–motsatt steg. Nøytralposen brukes når figuren stopper.
 
-Både spiller og fiende bruker `scripts/directional_sprite.gd`. Faktisk bevegelse velger retning; ved stillstand beholdes retningen, eller figuren vender mot en hindring/målet sitt. Bare sidevisningen speiles. De leverte sidebildene ser mot venstre, så `flip_h` aktiveres når figuren går til høyre. Diagonaler med like store akser bruker forfra/bakfra konsekvent. Nearest-filtrering holder pikslene skarpe.
+Både spiller og fiende bruker `scripts/directional_sprite.gd`. Faktisk bevegelse velger retning; ved stillstand beholdes retningen, eller figuren vender mot en hindring/målet sitt. Bare en faktisk sidevisning speiles; spillerens nye ark har ingen slik animasjon. De leverte sidebildene ser mot venstre, så `flip_h` aktiveres når figuren går til høyre. Diagonaler med like store akser bruker forfra/bakfra konsekvent. Nearest-filtrering holder pikslene skarpe.
 
 `tanks.tscn` og `tanks.gd` beholder filnavnene for å bevare nivåreferanser, men spilleren er nå et menneske. Den gamle tankkanonen er fjernet. Musepekeren styrer fortsatt skuddretningen gjennom `Node2D/Muzzle`; figuren vender etter bevegelsen.
 
@@ -25,7 +33,7 @@ Oppsett og kode er tilpasset med Codex/AI. Referanser for Godot-funksjonene:
 
 `scenes/boss.tscn` er en egen scene som arver fra `scenes/enemy.tscn`. Den erstatter den fjerde vanlige fienden. Tre vanlige fiender og bossen må beseires før nivået avsluttes.
 
-Bossen heter **Hitler**, etter gruppens valg. Det endelige bildet er ikke levert; den større, rødfargede spillerfiguren brukes fortsatt som plassholder. Navnet kan endres med **Display Name** på bossen.
+Bossen heter **Hitler**, etter gruppens valg. Det endelige bildet er ikke levert; den større, rødfargede gamle spillerfiguren i `boss_placeholder.tres` brukes fortsatt som plassholder. Navnet kan endres med **Display Name** på bossen.
 
 - 18 liv; spillerens kuler gjør 1 skade.
 - Veksler mellom tre skudd og et rett rykkeangrep.

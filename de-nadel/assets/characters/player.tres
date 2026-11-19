@@ -1,48 +1,45 @@
-[gd_resource type="SpriteFrames" load_steps=13 format=3]
+[gd_resource type="SpriteFrames" load_steps=11 format=3]
 
-[ext_resource type="Texture2D" path="res://assets/characters/player_front.png" id="0"]
-[ext_resource type="Texture2D" path="res://assets/characters/player_back.png" id="1"]
-[ext_resource type="Texture2D" path="res://assets/characters/player_side.png" id="2"]
+[ext_resource type="Texture2D" path="res://assets/characters/protagonist.png" id="1"]
 
-[sub_resource type="AtlasTexture" id="front0"]
-atlas = ExtResource("0")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="front1"]
-atlas = ExtResource("0")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="front2"]
-atlas = ExtResource("0")
-region = Rect2(0, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="back0"]
+[sub_resource type="AtlasTexture" id="pose0"]
 atlas = ExtResource("1")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="back1"]
-atlas = ExtResource("1")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="back2"]
+[sub_resource type="AtlasTexture" id="pose1"]
 atlas = ExtResource("1")
 region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="side0"]
-atlas = ExtResource("2")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="pose2"]
+atlas = ExtResource("1")
+region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="side1"]
-atlas = ExtResource("2")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="pose3"]
+atlas = ExtResource("1")
+region = Rect2(0, 96, 32, 32)
 
-[sub_resource type="AtlasTexture" id="side2"]
-atlas = ExtResource("2")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="pose4"]
+atlas = ExtResource("1")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="pose5"]
+atlas = ExtResource("1")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="pose6"]
+atlas = ExtResource("1")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="pose7"]
+atlas = ExtResource("1")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="pose8"]
+atlas = ExtResource("1")
+region = Rect2(0, 256, 32, 32)
 
 [resource]
 animations = [
-{ "frames": [{"duration": 1.0, "texture": SubResource("front1")}, {"duration": 1.0, "texture": SubResource("front0")}, {"duration": 1.0, "texture": SubResource("front1")}, {"duration": 1.0, "texture": SubResource("front2")}], "loop": true, "name": &"front", "speed": 7.0 },
-{ "frames": [{"duration": 1.0, "texture": SubResource("back1")}, {"duration": 1.0, "texture": SubResource("back0")}, {"duration": 1.0, "texture": SubResource("back1")}, {"duration": 1.0, "texture": SubResource("back2")}], "loop": true, "name": &"back", "speed": 7.0 },
-{ "frames": [{"duration": 1.0, "texture": SubResource("side1")}, {"duration": 1.0, "texture": SubResource("side0")}, {"duration": 1.0, "texture": SubResource("side1")}, {"duration": 1.0, "texture": SubResource("side2")}], "loop": true, "name": &"side", "speed": 7.0 }
+{ "frames": [{"duration": 1.0, "texture": SubResource("pose0")}, {"duration": 1.0, "texture": SubResource("pose1")}, {"duration": 1.0, "texture": SubResource("pose2")}, {"duration": 1.0, "texture": SubResource("pose3")}, {"duration": 1.0, "texture": SubResource("pose4")}, {"duration": 1.0, "texture": SubResource("pose5")}], "loop": true, "name": &"front", "speed": 7.0 },
+{ "frames": [{"duration": 1.0, "texture": SubResource("pose7")}, {"duration": 1.0, "texture": SubResource("pose6")}, {"duration": 1.0, "texture": SubResource("pose7")}, {"duration": 1.0, "texture": SubResource("pose8")}], "loop": true, "name": &"back", "speed": 7.0 },
 ]
