@@ -82,6 +82,7 @@ func run() -> void:
 	gun.shoot()
 	check(bullet_count() == before, "pause blocks shooting")
 	hud.resume_game()
+	current_scene.get_node("Lagerliste").collect(player)
 	for enemy in get_nodes_in_group("enemies"): enemy.take_damage(999)
 	await settle()
 	hud.open_next_level()

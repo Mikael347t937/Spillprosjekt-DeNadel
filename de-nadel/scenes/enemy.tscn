@@ -28,3 +28,14 @@ shape = SubResource("Shape")
 [node name="HealthBar" parent="." instance=ExtResource("health_bar")]
 offset_top = -42.0
 offset_bottom = -36.0
+
+[node name="AttackTell" type="Label" parent="."]
+visible = false
+offset_left = -8.0
+offset_top = -65.0
+offset_right = 8.0
+offset_bottom = -43.0
+theme_override_colors/font_color = Color(0.91, 0.65, 0.33, 1)
+theme_override_font_sizes/font_size = 25
+text = "!"
+horizontal_alignment = 1

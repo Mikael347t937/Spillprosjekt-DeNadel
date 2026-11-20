@@ -8,6 +8,7 @@
 
 [ext_resource type="PackedScene" path="res://scenes/world/city_3.tscn" id="city"]
 
+[ext_resource type="Script" path="res://scripts/path_grid.gd" id="paths"]
 [ext_resource type="Script" path="res://scripts/level_flow.gd" id="flow"]
 
 [ext_resource type="PackedScene" path="res://scenes/boss.tscn" id="boss"]
@@ -41,6 +42,9 @@ sources/1 = SubResource("TileSetAtlasSource_3crfi")
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("flow")
+objective = 0
+chapter = "03 / Kontrollposten"
+briefing = "Du har funnet lageret. Slå bossen og frigjør det som ble beslaglagt."
 next_level = ""
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -83,12 +87,20 @@ position = Vector2(460, 200)
 
 [node name="Enemy1" parent="." instance=ExtResource("4_tx72s")]
 position = Vector2(650, 210)
+speed = 125.0
+max_health = 2
+attack_damage = 12
+windup_duration = 0.25
 
 [node name="Enemy2" parent="." instance=ExtResource("4_tx72s")]
 position = Vector2(1030, 230)
 
 [node name="Enemy3" parent="." instance=ExtResource("4_tx72s")]
 position = Vector2(1320, 380)
+speed = 65.0
+max_health = 5
+attack_damage = 25
+windup_duration = 0.6
 
 [node name="Boss" parent="." instance=ExtResource("boss")]
 position = Vector2(1260, 200)
@@ -114,3 +126,6 @@ position = Vector2(280, 750)
 position = Vector2(1370, 690)
 
 [node name="City" parent="." instance=ExtResource("city")]
+
+[node name="Paths" type="Node2D" parent="."]
+script = ExtResource("paths")

@@ -11,6 +11,7 @@ func _ready() -> void:
 func collect(body: Node) -> void:
 	if collected or not body.is_in_group("player"): return
 	if not body.collect_pickup(pickup_type, amount): return
+	GameAudio.play_effect(GameAudio.PICKUP, -14.0)
 	collected = true
 	$Sprite2D.hide()
 	queue_free()

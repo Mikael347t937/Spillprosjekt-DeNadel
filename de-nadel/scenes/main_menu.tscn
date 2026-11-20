@@ -1,25 +1,24 @@
 [gd_scene format=3 uid="uid://b5itr3lppcewh"]
 
 [ext_resource type="Script" uid="uid://bj876cl6jrux6" path="res://scripts/main_menu.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://daw5uo5tglrps" path="res://assets/art/title_background.png" id="2"]
 [ext_resource type="Theme" uid="uid://ba4yjn3gcibfm" path="res://assets/menu_theme.tres" id="3"]
 [ext_resource type="FontFile" uid="uid://bx7o3md0weu0l" path="res://assets/fonts/Anton-Regular.ttf" id="4"]
 [ext_resource type="Script" uid="uid://cd5wpcbp6345g" path="res://scripts/needle.gd" id="5"]
-[ext_resource type="Shader" uid="uid://krirnbts26v0" path="res://shaders/film.gdshader" id="6"]
 [ext_resource type="Shader" uid="uid://c00qpcvkh6duu" path="res://shaders/title_grit.gdshader" id="7"]
 [ext_resource type="Script" uid="uid://cmaqakwxxeib0" path="res://scripts/atmosphere.gd" id="8"]
 [ext_resource type="AudioStream" path="res://assets/audio/city_drone.wav" id="9"]
 [ext_resource type="AudioStream" uid="uid://cyb2etfbltbo3" path="res://assets/audio/menu_click.wav" id="10"]
-
 [ext_resource type="Texture2D" path="res://assets/world/narko_sign.tres" id="logo"]
 [ext_resource type="Shader" path="res://shaders/logo_ink.gdshader" id="logo_ink"]
+[ext_resource type="PackedScene" path="res://scenes/world/city_1.tscn" id="pixel_city"]
+[ext_resource type="SpriteFrames" path="res://assets/characters/player.tres" id="pixel_player"]
+[ext_resource type="SpriteFrames" path="res://assets/characters/syringe_enemy.tres" id="pixel_enemy"]
+
+
 
 [sub_resource type="ShaderMaterial" id="LogoInk"]
 shader = ExtResource("logo_ink")
 
-[sub_resource type="ShaderMaterial" id="Film"]
-shader = ExtResource("6")
-shader_parameter/vignette_strength = 0.42
 
 [sub_resource type="ShaderMaterial" id="Grit"]
 shader = ExtResource("7")
@@ -34,18 +33,30 @@ grow_vertical = 2
 theme = ExtResource("3")
 script = ExtResource("1")
 
-[node name="Background" type="TextureRect" parent="." unique_id=1999340271]
-material = SubResource("Film")
+[node name="Background" type="Node2D" parent="."]
+
+[node name="City" parent="Background" instance=ExtResource("pixel_city")]
+
+[node name="PlayerArt" type="AnimatedSprite2D" parent="Background"]
+position = Vector2(270, 480)
+scale = Vector2(7, 7)
+texture_filter = 1
+sprite_frames = ExtResource("pixel_player")
+animation = &"front"
+
+[node name="EnemyArt" type="AnimatedSprite2D" parent="Background"]
+position = Vector2(1330, 560)
+scale = Vector2(4, 4)
+texture_filter = 1
+sprite_frames = ExtResource("pixel_enemy")
+animation = &"front"
+
+[node name="BackgroundShade" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("2")
-expand_mode = 1
-stretch_mode = 6
+color = Color(0.025, 0.025, 0.035, 0.35)
 
 [node name="Atmosphere" type="Control" parent="." unique_id=245714661]
 layout_mode = 1
@@ -351,7 +362,8 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.59, 0.56, 0.51, 1)
 theme_override_font_sizes/font_size = 19
 text = "Et gruppeprosjekt i MP og IT.
-Illustrasjon: KI-generert fra prosjektets referanser."
+Grafikk fra prosjektets egne Piskel-ark.
+Kilder og tilpasninger: se README."
 autowrap_mode = 3
 
 [node name="Back" type="Button" parent="Interface/About/Content" unique_id=1670248945]

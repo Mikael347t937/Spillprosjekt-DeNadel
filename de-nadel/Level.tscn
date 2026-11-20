@@ -9,6 +9,7 @@
 
 [ext_resource type="PackedScene" path="res://scenes/world/city_1.tscn" id="city"]
 
+[ext_resource type="Script" path="res://scripts/path_grid.gd" id="paths"]
 [ext_resource type="Script" path="res://scripts/level_flow.gd" id="flow"]
 
 [ext_resource type="PackedScene" path="res://scenes/coin.tscn" id="loot_coin"]
@@ -39,6 +40,9 @@ sources/1 = SubResource("TileSetAtlasSource_m3clv")
 
 [node name="Node2D" type="Node2D" unique_id=1004525630]
 script = ExtResource("flow")
+objective = 1
+chapter = "01 / Bakgatene"
+briefing = "Regimet har sperret byen. Finn våpenet og bryt gjennom vaktholdet."
 next_level = "res://Level-2.tscn"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2000910164]
@@ -50,16 +54,16 @@ tile_set = SubResource("TileSet_to8yd")
 position = Vector2(575, 236)
 
 [node name="Box" parent="." unique_id=249545296 instance=ExtResource("3_q4iis")]
-position = Vector2(660, 237)
+position = Vector2(740, 250)
 
 [node name="Box2" parent="." unique_id=1053104313 instance=ExtResource("3_q4iis")]
-position = Vector2(678, 599)
+position = Vector2(800, 250)
 
 [node name="Box3" parent="." unique_id=21877599 instance=ExtResource("3_q4iis")]
-position = Vector2(371, 445)
+position = Vector2(740, 550)
 
 [node name="Box4" parent="." unique_id=1754816045 instance=ExtResource("3_q4iis")]
-position = Vector2(511, 386)
+position = Vector2(800, 550)
 
 [node name="WaveManager" type="Node2D" parent="." unique_id=295320869 node_paths=PackedStringArray("player")]
 script = ExtResource("5_q4iis")
@@ -91,3 +95,6 @@ position = Vector2(780, 600)
 position = Vector2(580, 470)
 
 [node name="City" parent="." instance=ExtResource("city")]
+
+[node name="Paths" type="Node2D" parent="."]
+script = ExtResource("paths")

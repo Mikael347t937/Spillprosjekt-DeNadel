@@ -23,6 +23,9 @@ func stop_enemies() -> void:
 		enemy.set_physics_process(false)
 
 func defeat_all() -> void:
+	var player = get_first_node_in_group("player")
+	if current_scene.objective == 1 and not player.has_shotgun: current_scene.get_node("Shotgun").collect(player)
+	if current_scene.objective == 2 and current_scene.has_node("Lagerliste"): current_scene.get_node("Lagerliste").collect(player)
 	stop_enemies()
 	for enemy in get_nodes_in_group("enemies"):
 		enemy.take_damage(999)
@@ -62,7 +65,10 @@ func run() -> void:
 	check(manager.finished and not paused, "original enemies must also be defeated")
 	original_enemy.take_damage(999)
 	await settle()
-	check(hud.level_won and paused and hud.dialog.visible, "last enemy completes level one")
+	check(not hud.level_won and not paused, "clearing guards alone does not skip the weapon objective")
+	level.get_node("Shotgun").collect(get_first_node_in_group("player"))
+	await settle()
+	check(hud.level_won and paused and hud.dialog.visible, "weapon and last enemy complete level one")
 	var visible_buttons = 0
 	for child in hud.get_node("Screen/Dialog/Content").get_children():
 		if child is Button and child.visible: visible_buttons += 1

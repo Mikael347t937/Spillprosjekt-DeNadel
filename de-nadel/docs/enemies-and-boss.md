@@ -4,7 +4,7 @@
 
 ## Spilleren, oppdatert 19. november
 
-Gruppen leverte `Protagonist (1).png`. Originalen er kopiert uendret til `assets/characters/protagonist.png` (32 × 288). `player.tres` deler den i ni 32 × 32-ruter: de seks første viser forfra, de tre siste viser bakfra. Bakfra brukes midtposen som hvilepose. Arket har ikke en egen sidevisning; vannrett bevegelse bruker derfor forfra uten speiling. Når sidegrafikk blir levert, kan en `side`-animasjon legges til i samme ressurs.
+Gruppen leverte `Protagonist (1).png`. Originalen er kopiert uendret til `assets/characters/protagonist.png` (32 × 288). `player.tres` deler den i ni 32 × 32-ruter: de seks første viser forfra, de tre siste viser bakfra. Bakfra brukes midtposen som hvilepose. Et enkelt profilark er lagt til 20. november som `protagonist_side.svg`, med tre 32 × 32-poser. Original-PNG-en er uendret. Profilen tegnes mot venstre og speiles ved bevegelse mot høyre.
 
 Bossens gamle midlertidige grafikk er skilt ut i `boss_placeholder.tres`, slik at bytte av spillerbildet ikke endrer bossen.
 
@@ -60,3 +60,5 @@ godot --headless --path de-nadel --script res://tests/boss_smoke.gd
 ```
 
 Testen sjekker blant annet faktisk treff fra begge siders kuler, dekning, forvarsel, pause, rykkeangrep, fasebytte, nivåslutt og omstart.
+
+Oppdaterte oppdrag, forvarsel, rutenett og kilder: [spillguiden](gameplay-polish.md).

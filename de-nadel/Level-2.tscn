@@ -8,6 +8,8 @@
 
 [ext_resource type="PackedScene" path="res://scenes/world/city_2.tscn" id="city"]
 
+[ext_resource type="Script" path="res://scripts/path_grid.gd" id="paths"]
+[ext_resource type="PackedScene" path="res://scenes/field_supply.tscn" id="list"]
 [ext_resource type="Script" path="res://scripts/level_flow.gd" id="flow"]
 
 [ext_resource type="PackedScene" path="res://scenes/coin.tscn" id="loot_coin"]
@@ -38,6 +40,9 @@ sources/1 = SubResource("TileSetAtlasSource_3crfi")
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("flow")
+objective = 2
+chapter = "02 / Lagerplassen"
+briefing = "En lagerliste viser hvor regimet skjuler sprøytene. Ta den med videre."
 next_level = "res://Level-3.tscn"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -74,12 +79,20 @@ position = Vector2(1000, 415)
 
 [node name="Enemy1" parent="." instance=ExtResource("4_tx72s")]
 position = Vector2(850, 180)
+speed = 125.0
+max_health = 2
+attack_damage = 12
+windup_duration = 0.25
 
 [node name="Enemy2" parent="." instance=ExtResource("4_tx72s")]
 position = Vector2(1120, 610)
 
 [node name="Enemy3" parent="." instance=ExtResource("4_tx72s")]
 position = Vector2(1380, 390)
+speed = 65.0
+max_health = 5
+attack_damage = 25
+windup_duration = 0.6
 
 [node name="GameHUD" parent="." instance=ExtResource("hud")]
 
@@ -99,3 +112,9 @@ position = Vector2(420, 650)
 position = Vector2(300, 530)
 
 [node name="City" parent="." instance=ExtResource("city")]
+
+[node name="Paths" type="Node2D" parent="."]
+script = ExtResource("paths")
+
+[node name="Lagerliste" parent="." instance=ExtResource("list")]
+position = Vector2(1300, 660)
