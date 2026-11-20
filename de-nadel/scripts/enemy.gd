@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 		if windup_left <= 0:
 			winding_up = false
 			$AttackTell.hide()
-			if is_instance_valid(target) and global_position.distance_to(target.global_position) <= stopping_distance + 20: try_attack()
+			if is_instance_valid(target) and global_position.distance_to(target.global_position) <= stopping_distance + 6: try_attack()
 			attack_timer = attack_interval
 		$Sprite2D.update_motion(Vector2.ZERO)
 		return
