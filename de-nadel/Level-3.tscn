@@ -103,7 +103,7 @@ attack_damage = 25
 windup_duration = 0.6
 
 [node name="Boss" parent="." instance=ExtResource("boss")]
-position = Vector2(1260, 200)
+position = Vector2(1260, 280)
 
 [node name="GameHUD" parent="." instance=ExtResource("hud")]
 

@@ -40,7 +40,7 @@ polygon = PackedVector2Array(0, 0, 1664, 0, 1664, 160, 0, 160)
 
 [node name="Base" type="Polygon2D" parent="."]
 color = Color(0.20, 0.20, 0.245, 1)
-polygon = PackedVector2Array(0, 0, 1664, 0, 1664, 896, 0, 896)
+polygon = PackedVector2Array(0, 0, 1664, 0, 1664, 900, 0, 900)
 
 [node name="Ground" type="Node2D" parent="."]
 visible = false
