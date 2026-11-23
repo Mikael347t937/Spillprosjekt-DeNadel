@@ -42,8 +42,8 @@ func _ready() -> void:
 func update_inventory() -> void:
 	var player = get_tree().get_first_node_in_group("player")
 	if not player: return
-	$Screen/Inventory/Content/CoinsRow/Coins.text = "Mynter: %d" % player.coins
-	$Screen/Inventory/Content/Weapon.text = "Hagle: %d patroner" % player.shells if player.selected_weapon == 1 else "Pistol ∞ | Hagle: %d" % player.shells
+	$Screen/Inventory/Content/CoinsRow/Coins.text = str(player.coins)
+	$Screen/Inventory/Content/Weapon.text = "Hagle · %d" % player.shells if player.selected_weapon == 1 else "Pistol ∞"
 
 func update_boss_health(current: int, maximum: int) -> void:
 	$Screen/BossHealth/Content/Bar.max_value = maximum
@@ -52,9 +52,11 @@ func update_boss_health(current: int, maximum: int) -> void:
 func update_health(current: int, maximum: int) -> void:
 	health_bar.max_value = maximum
 	health_bar.value = current
-	health_label.text = "Liv: %d / %d" % [current, maximum]
+	health_label.text = str(current)
 
 func show_pause() -> void:
+	$Screen/Dialog/Content/Briefing.text = get_parent().briefing
+	$Screen/Dialog/Content/Briefing.show()
 	get_tree().paused = true
 	shade.show()
 	dialog.show()
@@ -77,6 +79,7 @@ func show_game_over() -> void:
 func show_victory(scene: String, liberated: bool = false) -> void:
 	if game_over or level_won or changing_scene: return
 	ending = false
+	$Screen/Dialog/Content/Briefing.hide()
 	level_won = true
 	dialog.offset_top = -140
 	dialog.offset_bottom = 140

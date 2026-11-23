@@ -1,7 +1,17 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3]
 [ext_resource type="Script" path="res://scripts/game_hud.gd" id="1"]
 [ext_resource type="Theme" path="res://assets/menu_theme.tres" id="2"]
 [ext_resource type="Texture2D" path="res://assets/items/coin_icon.tres" id="coin_icon"]
+[sub_resource type="StyleBoxEmpty" id="Compact"]
+content_margin_left = 8.0
+content_margin_right = 8.0
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+[sub_resource type="StyleBoxFlat" id="HealthFill"]
+bg_color = Color(0.65, 0.22, 0.18, 1)
+[sub_resource type="StyleBoxFlat" id="HealthTrack"]
+bg_color = Color(0.13, 0.13, 0.15, 0.8)
+
 [node name="GameHUD" type="CanvasLayer"]
 layer = 10
 process_mode = 3
@@ -18,27 +28,34 @@ theme = ExtResource("2")
 mouse_filter = 2
 
 [node name="Health" type="PanelContainer" parent="Screen"]
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 280.0
-offset_bottom = 120.0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 200.0
+offset_bottom = 58.0
 mouse_filter = 2
+theme_override_styles/panel = SubResource("Compact")
 
-[node name="Content" type="VBoxContainer" parent="Screen/Health"]
+[node name="Content" type="HBoxContainer" parent="Screen/Health"]
 layout_mode = 2
 mouse_filter = 2
+alignment = 1
+theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="Screen/Health/Content"]
 layout_mode = 2
-text = "Liv: 100 / 100"
+text = "100"
 mouse_filter = 2
+theme_override_font_sizes/font_size = 19
 
 [node name="Bar" type="ProgressBar" parent="Screen/Health/Content"]
 layout_mode = 2
-custom_minimum_size = Vector2(180, 12)
+custom_minimum_size = Vector2(100, 7)
 value = 100.0
 show_percentage = false
 mouse_filter = 2
+size_flags_vertical = 4
+theme_override_styles/fill = SubResource("HealthFill")
+theme_override_styles/background = SubResource("HealthTrack")
 
 [node name="Hint" type="Label" parent="Screen"]
 offset_left = 20.0
@@ -48,39 +65,44 @@ offset_bottom = 170.0
 text = "WASD / piler · Mus + mellomrom\nEsc: pause"
 theme_override_font_sizes/font_size = 18
 mouse_filter = 2
+visible = false
 
 [node name="Inventory" type="PanelContainer" parent="Screen"]
-offset_left = 20.0
-offset_top = 195.0
-offset_right = 300.0
-offset_bottom = 310.0
+offset_left = 210.0
+offset_top = 18.0
+offset_right = 540.0
+offset_bottom = 58.0
 mouse_filter = 2
+theme_override_styles/panel = SubResource("Compact")
 
-[node name="Content" type="VBoxContainer" parent="Screen/Inventory"]
+[node name="Content" type="HBoxContainer" parent="Screen/Inventory"]
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/separation = 22
 
 [node name="CoinsRow" type="HBoxContainer" parent="Screen/Inventory/Content"]
 layout_mode = 2
 mouse_filter = 2
 
 [node name="Icon" type="TextureRect" parent="Screen/Inventory/Content/CoinsRow"]
-custom_minimum_size = Vector2(35, 35)
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
 texture = ExtResource("coin_icon")
 expand_mode = 1
 stretch_mode = 5
 mouse_filter = 2
+size_flags_vertical = 4
 
 [node name="Coins" type="Label" parent="Screen/Inventory/Content/CoinsRow"]
 layout_mode = 2
-text = "Mynter: 0"
+text = "0"
 mouse_filter = 2
+theme_override_font_sizes/font_size = 19
 
 [node name="Weapon" type="Label" parent="Screen/Inventory/Content"]
 layout_mode = 2
-text = "Pistol: ubegrenset"
-theme_override_font_sizes/font_size = 22
+text = "Pistol ∞"
+theme_override_font_sizes/font_size = 19
 mouse_filter = 2
 
 [node name="Controls" type="Label" parent="Screen/Inventory/Content"]
@@ -88,16 +110,18 @@ layout_mode = 2
 text = "1: Pistol · 2: Hagle"
 theme_override_font_sizes/font_size = 18
 mouse_filter = 2
+visible = false
 
 [node name="BossHealth" type="PanelContainer" parent="Screen"]
 visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -240.0
-offset_top = 20.0
-offset_right = 240.0
-offset_bottom = 110.0
+offset_left = -140.0
+offset_top = 18.0
+offset_right = 140.0
+offset_bottom = 65.0
 mouse_filter = 2
+theme_override_styles/panel = SubResource("Compact")
 
 [node name="Content" type="VBoxContainer" parent="Screen/BossHealth"]
 layout_mode = 2
@@ -108,22 +132,26 @@ layout_mode = 2
 text = "Hitler"
 horizontal_alignment = 1
 mouse_filter = 2
+theme_override_font_sizes/font_size = 18
 
 [node name="Bar" type="ProgressBar" parent="Screen/BossHealth/Content"]
 layout_mode = 2
-custom_minimum_size = Vector2(360, 16)
+custom_minimum_size = Vector2(240, 7)
 show_percentage = false
 mouse_filter = 2
+theme_override_styles/fill = SubResource("HealthFill")
+theme_override_styles/background = SubResource("HealthTrack")
 
 [node name="Objective" type="PanelContainer" parent="Screen"]
 layout_mode = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -550.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = 200.0
+offset_left = -310.0
+offset_top = 18.0
+offset_right = -18.0
+offset_bottom = 90.0
 mouse_filter = 2
+theme_override_styles/panel = SubResource("Compact")
 
 [node name="Content" type="VBoxContainer" parent="Screen/Objective"]
 layout_mode = 2
@@ -133,19 +161,20 @@ theme_override_constants/separation = 3
 [node name="Title" type="Label" parent="Screen/Objective/Content"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.79, 0.45, 0.36, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 14
 text = "Oppdrag"
 
 [node name="Goal" type="Label" parent="Screen/Objective/Content"]
 layout_mode = 2
 autowrap_mode = 3
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 17
 
 [node name="Story" type="Label" parent="Screen/Objective/Content"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.65, 0.62, 0.59, 1)
 theme_override_font_sizes/font_size = 17
 autowrap_mode = 3
+visible = false
 
 [node name="Shade" type="ColorRect" parent="Screen"]
 layout_mode = 1
@@ -181,6 +210,12 @@ theme_override_constants/separation = 10
 layout_mode = 2
 text = "Pause"
 theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+
+[node name="Briefing" type="Label" parent="Screen/Dialog/Content"]
+layout_mode = 2
+autowrap_mode = 3
+theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 
 [node name="VictoryText" type="Label" parent="Screen/Dialog/Content"]
@@ -237,6 +272,11 @@ mouse_default_cursor_shape = 2
 layout_mode = 2
 visible = false
 theme_override_constants/separation = 20
+
+[node name="Controls" type="Label" parent="Screen/Dialog/Content/Options"]
+layout_mode = 2
+text = "WASD / piler: gå\nMus: sikt · Klikk / mellomrom: skyt\n1 / 2: bytt våpen · Esc: pause"
+theme_override_font_sizes/font_size = 16
 
 [node name="VolumeLabel" type="Label" parent="Screen/Dialog/Content/Options"]
 layout_mode = 2

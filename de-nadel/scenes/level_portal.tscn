@@ -1,0 +1,37 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/level_portal.gd" id="script"]
+[sub_resource type="RectangleShape2D" id="entry"]
+size = Vector2(100, 130)
+
+[node name="LevelPortal" type="Area2D"]
+collision_layer = 0
+collision_mask = 1
+script = ExtResource("script")
+
+[node name="Frame" type="Polygon2D" parent="."]
+color = Color(0.12, 0.13, 0.15, 1)
+polygon = PackedVector2Array(-44, -92, 44, -92, 44, 70, -44, 70)
+[node name="Opening" type="Polygon2D" parent="."]
+color = Color(0.045, 0.05, 0.06, 1)
+polygon = PackedVector2Array(-32, -74, 32, -74, 32, 64, -32, 64)
+[node name="Shutter" type="Polygon2D" parent="."]
+color = Color(0.34, 0.35, 0.36, 1)
+polygon = PackedVector2Array(-30, -72, 30, -72, 30, 62, -30, 62)
+[node name="Lamp" type="Polygon2D" parent="."]
+color = Color(0.7, 0.47, 0.27, 1)
+polygon = PackedVector2Array(-20, -85, 20, -85, 20, -79, -20, -79)
+[node name="Threshold" type="Polygon2D" parent="."]
+color = Color(0.46, 0.43, 0.35, 1)
+polygon = PackedVector2Array(-48, 64, 48, 64, 54, 76, -54, 76)
+[node name="Entry" type="CollisionShape2D" parent="."]
+shape = SubResource("entry")
+[node name="Label" type="Label" parent="."]
+offset_left = -82.0
+offset_top = 90.0
+offset_right = 82.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0.8, 0.75, 0.65, 1)
+theme_override_font_sizes/font_size = 14
+text = "LÅST"
+horizontal_alignment = 1

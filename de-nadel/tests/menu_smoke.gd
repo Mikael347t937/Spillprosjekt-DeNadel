@@ -46,7 +46,7 @@ func run() -> void:
 	var ambience = menu.get_node("Ambience")
 	check(ambience.stream.resource_path == "res://assets/audio/city_drone.wav", "menu uses its original city ambience")
 	check(ambience.stream.loop_mode == AudioStreamWAV.LOOP_FORWARD and ambience.stream.loop_end > 0, "menu ambience is configured to loop")
-	check(menu.get_node("Interface/NarkoLogo").mouse_filter == Control.MOUSE_FILTER_IGNORE, "logo does not intercept menu input")
+	check(menu.get_node("Interface/Menu/GameLogo").mouse_filter == Control.MOUSE_FILTER_IGNORE, "logo does not intercept menu input")
 	var ambience_ref = weakref(ambience)
 	await take_capture("main-menu.png")
 	for dimensions in [Vector2i(1280,720), Vector2i(960,540), Vector2i(1280,800)]:

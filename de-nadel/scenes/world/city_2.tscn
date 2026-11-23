@@ -30,6 +30,8 @@
 [ext_resource type="PackedScene" path="res://scenes/world/house_05.tscn" id="building3"]
 [ext_resource type="PackedScene" path="res://scenes/world/house_10.tscn" id="building4"]
 
+[ext_resource type="PackedScene" path="res://scenes/world/regime_wall_sign.tscn" id="wall_seal"]
+
 [node name="City" type="Node2D"]
 texture_filter = 1
 z_index = -20
@@ -591,3 +593,6 @@ position = Vector2(510, 162)
 theme_override_colors/font_color = Color(0.67, 0.58, 0.47, 1)
 theme_override_font_sizes/font_size = 16
 text = "LAGER 02"
+
+[node name="RegimeWallSign" parent="Decorations" instance=ExtResource("wall_seal")]
+position = Vector2(1090, 112)

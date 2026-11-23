@@ -1,4 +1,4 @@
-# Spillprosjekt-DeNadel
+# Die Nadel
 
 ## Åpne spillet
 
@@ -14,20 +14,45 @@ Alle spillressurser ligger inne i `de-nadel/`. Bakgrunn, lyd og fonter følger m
 
 - Spilleren starter med 100 liv. En fiende gjør 20 skade når den er nær nok, høyst én gang i sekundet. Bokser og vegger blokkerer nærangrepet.
 - Etter et treff har spilleren et halvt sekund uten ny skade. Det hindrer flere fiender i å tømme alt livet med én gang.
-- Fiender har 3 liv. Hver kule gjør 1 skade. Liv vises over figurene; spillerens liv vises også øverst til venstre.
+- Fiender har 3 liv. Hver kule gjør 1 skade. Vanlige fiender har ingen synlig livsmåler. Spillerens liv vises kompakt øverst til venstre. Bossmåleren vises bare på tredje nivå.
 - Ved 0 liv stopper spillet. Velg **Prøv igjen**, **Velg nivå** eller **Hovedmeny**.
 - Bevegelse: **WASD** eller piltaster. Sikt med musen. Skyt med **venstre museknapp** eller **mellomrom**. Spillet bruker egne Input Map-handlinger: `move_left`, `move_right`, `move_up`, `move_down`, `shoot`.
 - **Esc** åpner pausemenyen med fortsett, innstillinger, omstart, nivåvalg, hovedmeny og avslutt. Avslutning krever bekreftelse. Nivået står stille mens pausemenyen er åpen.
 
 Endre `Max Health`, `Speed` og `Acceleration` på spilleren i Inspector. Fiendens `Max Health`, `Attack Damage` og `Attack Interval` kan også endres der. `Level.tscn` er beholdt på samme sted, og den eksisterende banen er beholdt. Spillerens grafikk er erstattet med gruppens retningsbestemte Piskel-figur.
 
-Nivå 2 (`Level-2.tscn`) bygger videre på lagets eksisterende nivåutkast: to rekker med kasser og tre fiender. Nivå 3 (`Level-3.tscn`) har flere grupper med kasser, tre vanlige fiender, en boss og en annen startposisjon. De bruker samme bakke, spiller, fiender, liv og pausemeny som nivå 1. Nivå 1 bruker lagets bølgesystem med én bølge, i tillegg til fiendene som står på banen fra starten. Nivå 2 og 3 har et fast antall fiender. Når alle fiendene på et nivå er slått, stopper spillet og viser **Neste nivå** og **Hovedmeny**. Etter nivå 3 vises **Alle nivåer fullført!**, med **Spill igjen** (til nivå 1) og **Hovedmeny**. Flytt instansene direkte i Godot for å justere banene.
+Spillet har fortsatt **tre nivåer**, med én opprinnelig bane per nivå. Det er ikke lagt til ekstra arenaer. En portal øst på nivå 1 og 2 er låst mens kampen eller oppdraget pågår. Når alle vakter og eventuelle bølger er slått og oppdraget er gjort, åpnes portalen. Gå inn for å komme direkte til neste nivå; spillet stopper ikke på en mellomliggende seiersmeny.
+
+- **Nivå 1:** slå vaktene og ta haglen før portalen åpnes.
+- **Nivå 2:** slå vaktene og hent lagerlisten på den opprinnelige plassen.
+- **Nivå 3:** den opprinnelige bossbanen og sprøyteburet er beholdt. Etter kampen åpnes buret, sprøytene faller ut og opptaket spilles. Sluttmenyen har **Spill igjen** og **Hovedmeny**.
+
+Liv fylles ved nivåskifte. Mynter, ammunisjon og våpen beholdes. Omstart nullstiller kampen og lukker portalen. `Portal` er en vanlig instans av `scenes/level_portal.tscn` som kan flyttes i Godot, innenfor banens yttergrense. Koden i `scripts/level_flow.gd` styrer opplåsing og overgang; portalens `Area2D` registrerer når spilleren går inn.
+
+Spillbildet bruker en liten livsmåler og kompakte mynt-/våpentall. Store svarte paneler, livstall over figurene og faste tastaturinstruksjoner er fjernet. Oppdragets bakgrunn står i pausemenyen. Styringen finnes under **Esc → Innstillinger**.
+
+### Stigende vanskelighetsgrad
+
+| Nivå | Motstandere | Samlet liv hos motstanderne | Kamp |
+| --- | --- | --- | --- |
+| 1 | 2 vakter + 5 i én bølge | 21 | Vanlige vakter, 95 i fart |
+| 2 | 8 vakter | 31 | 3 raske, 3 vanlige og 2 tunge |
+| 3 | 9 vakter + boss | 57 | Sterkere vakter og boss med kortere hvile |
+
+Raske vakter har mindre liv og gjør mindre skade per slag. Tunge vakter tåler mer og slår hardere, men beveger seg saktere og varsler lenger før slaget. På nivå 2 og 3 oppdager vaktene spilleren fra start. Alle vanlige vakter er fortsatt langsommere enn spilleren. Begge nivåene har en ekstra ammunisjonskasse med åtte patroner. Endre verdiene på fiendeinstansene i Inspector for å justere balansen videre.
+
+### Svart skjerm ved lokal kjøring på Mac
+
+`node_2d.tscn` var en tom scene og er nå en instans av hovedmenyen, slik at også direkte kjøring av denne scenen viser menyen. Prosjektets hovedscene er fortsatt `scenes/main_menu.tscn`.
+
+På maskinen vi testet ga Godots innebygde spillvindu også svart skjerm / heng. Prosjektets lokale **Embed Game** ble derfor slått av, og spillet starter i et eget vindu. Dette er en lokal editorinnstilling i `.godot/editor/project_metadata.cfg` (`game_view/embed_on_play=false`); `.godot` skal fortsatt ikke pushes. Hvis en annen Mac har samme problem, velg separat spillvindu uten verktøylinje i **Game**-arbeidsområdet. Eksporterte spill endres ikke av denne innstillingen.
 
 ## Kilder og hjelpemidler
 
-Helse, nivåvelger, pausemeny og oppsettet av nivå 2 og 3 er skrevet og tilpasset dette prosjektet med hjelp fra Codex/AI. Koden er ikke hentet fra et annet spill. Dokumentasjonen under er brukt som referanse for Godot-funksjonene:
+Helse, nivåvelger, pausemeny, portalene, det kompakte HUD-et og oppsettet av nivå 2 og 3 er skrevet og tilpasset dette prosjektet med hjelp fra Codex/AI. Koden er ikke hentet fra et annet spill. Dokumentasjonen under er brukt som referanse for Godot-funksjonene:
 
 - [Godot: Using signals](https://docs.godotengine.org/en/stable/getting_started/step_by_step/signals.html) — koblingen mellom skade, liv og grensesnitt.
+- [Godot: Area2D](https://docs.godotengine.org/en/stable/classes/class_area2d.html) — portalen registrerer spilleren med overlapp.
 - [Godot: ProgressBar](https://docs.godotengine.org/en/stable/classes/class_progressbar.html) — livsmålere med `value` og `max_value`.
 - [Godot: Pausing games](https://docs.godotengine.org/en/stable/tutorials/scripting/pausing_games.html) — pause av spillverdenen mens menyen fortsatt virker.
 
@@ -105,7 +130,7 @@ tribby.com/fonts/barlow
 
 ## Spille i nettleseren
 
-Publisert prototype: [Spill De Nadel](https://de-nadel-spill.fairlemon23.chatgpt.site). Del denne adressen; `localhost` og `127.0.0.1` virker bare på utviklerens maskin.
+Publisert prototype: [Spill Die Nadel](https://de-nadel-spill.fairlemon23.chatgpt.site). Del denne adressen; `localhost` og `127.0.0.1` virker bare på utviklerens maskin.
 
 Nettsiden ligger i `web/`. Den åpner den ekte Godot-eksporten i en iframe etter et klikk på **Spill nå**. Krever tastatur, mus, WebAssembly og WebGL 2. Nettutgaven har samme tre testbaner som prosjektet. En push til GitHub publiserer ikke nettsiden automatisk ennå.
 
@@ -142,3 +167,19 @@ Gruppens `verden.png` brukes nå til mørke bymiljøer på alle tre nivåer, med
 ## Oppdrag og pikselgrafikk, 20. november
 
 Tre nivåer har nå egne oppdrag: finn haglen, hent lagerlisten og slå bossen. Menyen bruker samme pikselgrafikk som spillet. Spilleren har et enkelt profilark, kasser har topp og side, og vakter varsler slag og går rundt dekning. Fire korte lydeffekter er lagt til. [Hvordan det er laget, hva laget kan redigere, kilder og tester](de-nadel/docs/gameplay-polish.md).
+
+## Logo og regimemerking
+
+Spillets riktige navn er **Die Nadel**. Menyen bruker hele logoen fra gruppens bilde `Screenshot 2026-11-20 at 11.11.04 (2).png`, bevart som `de-nadel/assets/art/die_nadel_source.png`. Det er ikke laget en ny logo med AI. To AtlasTexture-ressurser velger hele logoen og det separate sprøytesymbolet fra samme original. `die_nadel_ink.gdshader` skjuler det hvite bakgrunnspapiret og tilpasser blekkfargen til mørk bakgrunn; originalfilen endres ikke.
+
+Regimets symbol brukes på ett flagg i nivå 1 og 2, og to ved bossens område i nivå 3. Bare utvalgte kasser har merking. `scenes/world/regime_flag.tscn` og `regime_crate.tscn` er vanlige scener som kan flyttes og kopieres i Godot. Den merkede kassen arver den eksisterende kassens kollisjon. Symbolet tilhører spillets fiendtlige regime. Det gamle Narko-merket og den gamle tittelen vises ikke samtidig med det nye menylogoet.
+
+GitHub-adressen, prosjektmappen og eksisterende ressursstier er beholdt. Visningsnavnet og menytekstene er oppdatert til Die Nadel.
+
+### Tekstur- og kollisjonsrettelser
+
+Den mørke rammen rundt banen er fjernet. Den usynlige nordgrensen er flyttet ned, slik at spillerens hode ikke går inn i husrekken. Fiender og bølger starter under denne grensen. Ekstra ammunisjon i nivå 3 ligger nå fritt, uten å overlappe tønnen. En liten regimplakett er lagt på ett bygg per gate. Flagg tegnes foran grenseområdet, slik at symbolet ikke blir skåret av en stripe.
+
+`gameplay_soak.gd` kjører bevegelse, ekte skudd, fiendeangrep, pauser og omstarter over tid. Den kontrollerer også nordgrensen og kollisjonen rundt alle kassene i nivå 2. Slike kontroller er i tillegg til de vanlige testene, ikke en garanti for at all grafikk og spillbalanse er perfekt.
+
+Spilleren, fiender og kasser sorteres nå etter Y-posisjon. Spilleren vises foran en kasse når han står nedenfor den, og bak kassen når han står ovenfor. Det fjerner feil overlapping som tidligere kunne se ut som en ødelagt tekstur.

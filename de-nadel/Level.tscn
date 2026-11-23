@@ -16,6 +16,12 @@
 [ext_resource type="PackedScene" path="res://scenes/ammo.tscn" id="loot_ammo"]
 [ext_resource type="PackedScene" path="res://scenes/shotgun.tscn" id="loot_shotgun"]
 
+[ext_resource type="PackedScene" path="res://scenes/level_bounds.tscn" id="bounds"]
+[ext_resource type="PackedScene" path="res://scenes/level_portal.tscn" id="portal"]
+
+[ext_resource type="PackedScene" path="res://scenes/world/regime_crate.tscn" id="regime_box"]
+[ext_resource type="PackedScene" path="res://scenes/world/regime_flag.tscn" id="regime_flag"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m3clv"]
 texture = ExtResource("1_2nifc")
 texture_region_size = Vector2i(128, 128)
@@ -39,6 +45,7 @@ tile_size = Vector2i(128, 128)
 sources/1 = SubResource("TileSetAtlasSource_m3clv")
 
 [node name="Node2D" type="Node2D" unique_id=1004525630]
+y_sort_enabled = true
 script = ExtResource("flow")
 objective = 1
 chapter = "01 / Bakgatene"
@@ -56,7 +63,7 @@ position = Vector2(575, 236)
 [node name="Box" parent="." unique_id=249545296 instance=ExtResource("3_q4iis")]
 position = Vector2(740, 250)
 
-[node name="Box2" parent="." unique_id=1053104313 instance=ExtResource("3_q4iis")]
+[node name="Box2" parent="." unique_id=1053104313 instance=ExtResource("regime_box")]
 position = Vector2(800, 250)
 
 [node name="Box3" parent="." unique_id=21877599 instance=ExtResource("3_q4iis")]
@@ -72,7 +79,7 @@ enemy_scene = ExtResource("4_enemy")
 player = NodePath("../CharacterBody2D")
 
 [node name="Enemy" parent="." unique_id=740220056 instance=ExtResource("4_enemy")]
-position = Vector2(320, 180)
+position = Vector2(320, 260)
 
 [node name="Enemy2" parent="." unique_id=2043142194 instance=ExtResource("4_enemy")]
 position = Vector2(940, 460)
@@ -98,3 +105,11 @@ position = Vector2(580, 470)
 
 [node name="Paths" type="Node2D" parent="."]
 script = ExtResource("paths")
+
+[node name="Bounds" parent="." instance=ExtResource("bounds")]
+
+[node name="Portal" parent="." instance=ExtResource("portal")]
+position = Vector2(1500, 470)
+
+[node name="RegimeFlag1" parent="." instance=ExtResource("regime_flag")]
+position = Vector2(1100, 230)
