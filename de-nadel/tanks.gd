@@ -32,6 +32,7 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(amount: int) -> void:
 	if dead or controls_locked or amount <= 0 or hit_cooldown > 0: return
+	GameAudio.play_effect(GameAudio.IMPACT)
 	health = maxi(0, health - amount)
 	hit_cooldown = 0.5
 	update_health_bar()

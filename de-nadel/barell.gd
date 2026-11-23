@@ -22,6 +22,7 @@ func shoot() -> void:
 	var player = get_parent()
 	if player.dead or player.controls_locked or get_tree().paused or cooldown > 0: return
 	var shotgun = player.selected_weapon == 1 and player.has_shotgun and player.shells > 0
+	GameAudio.play_effect(GameAudio.SHOTGUN if shotgun else GameAudio.PISTOL)
 	cooldown = 0.65 if shotgun else 0.22
 	for spread in [-0.09, 0.0, 0.09] if shotgun else [0.0]:
 		var instance = bullet.instantiate()

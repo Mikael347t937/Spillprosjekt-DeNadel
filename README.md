@@ -6,7 +6,7 @@
 2. I Godot 4.7.2: velg **Import**, og åpne **`de-nadel/project.godot`** fra dette repositoriet.
 3. Trykk **F5**. Hovedscenen er `de-nadel/scenes/main_menu.tscn`.
 
-Startmenyen har **Start spill**, **Innstillinger**, **Om spillet** og **Avslutt**. Bruk mus eller piltastene og Enter. Esc går tilbake. Lydnivå, fullskjerm og redusert bevegelse lagres lokalt. **Start spill** åpner nivåvelgeren. **Nivå 1** er den eksisterende `de-nadel/Level.tscn`. **Nivå 2 — Lagerplassen** og **Nivå 3 — Kontrollposten** kan også velges. Hovedmenyen er fortsatt prosjektets hovedscene; bruk **Run Current Scene** for å teste et nivå direkte.
+Startmenyen har **Start spill**, **Innstillinger**, **Om spillet** og **Avslutt**. Bruk mus eller piltastene og Enter. Esc går tilbake. Lydnivå, fullskjerm og redusert bevegelse lagres lokalt. **Start spill** åpner nivåvelgeren. **Nivå 1 — Bakgatene** er den eksisterende `de-nadel/Level.tscn`. **Nivå 2 — Lagerplassen** og **Nivå 3 — Kontrollposten** kan også velges. Hovedmenyen er fortsatt prosjektets hovedscene; bruk **Run Current Scene** for å teste et nivå direkte.
 
 Alle spillressurser ligger inne i `de-nadel/`. Bakgrunn, lyd og fonter følger med, og fontlisensene ligger i `de-nadel/assets/fonts/`. Bakgrunnens kildebeskrivelse er i `de-nadel/docs/art-direction.md`.
 
@@ -33,7 +33,7 @@ Helse, nivåvelger, pausemeny og oppsettet av nivå 2 og 3 er skrevet og tilpass
 
 Andre ressurser som allerede var i prosjektet:
 
-- Bakgrunnen til startmenyen er laget med imagegen fra gruppens referansebilder. Prompten og beskrivelsen ligger i `de-nadel/docs/art-direction.md`.
+- Den tidligere bakgrunnen til startmenyen ble laget med imagegen fra gruppens referansebilder. Den er bevart som eldre materiale; menyen bruker nå gruppens pikselby. Prompten og beskrivelsen ligger i `de-nadel/docs/art-direction.md`.
 - Fontene **Anton** og **Barlow Condensed** er hentet fra [Google Fonts sitt åpne fontarkiv](https://github.com/google/fonts). SIL Open Font License-filene følger med i `de-nadel/assets/fonts/`.
 - `city_drone.wav` og `menu_click.wav` er syntetisert for prosjektet, ikke lastet ned fra et lydbibliotek.
 - `tanks-simple.png`, `tanks-terrain.png`, `specialBarrel6.png` og `bulletRed1.png` lå allerede i lagets prosjekt. Den opprinnelige nedlastingskilden er ikke dokumentert i repoet og er **ikke bekreftet**. Den som la dem inn må supplere med original lenke og lisens; vi oppgir ikke en antatt kilde som sikker.
@@ -138,3 +138,7 @@ Gruppens `verden.png` brukes nå til mørke bymiljøer på alle tre nivåer, med
 ## Sluttmusikk fra gruppen
 
 `ZOOM0039_TrLR.WAV` er levert av gruppen og kopiert uendret til `de-nadel/assets/audio/victory_recording.wav` (31,09 sekunder, stereo, 44,1 kHz). Opptaket starter én gang når siste kamp er vunnet og buret åpnes. Det fortsetter gjennom sprøyteanimasjonen og seiersskjermen, selv om spillingen er pauset. **Lydnivå** regulerer volumet. Ved omstart eller retur til menyen fjernes avspilleren. Hovedmenyen bruker igjen `city_drone.wav`. Ekstern kilde/rettighetshaver er ikke oppgitt utover gruppens levering.
+
+## Oppdrag og pikselgrafikk, 20. november
+
+Tre nivåer har nå egne oppdrag: finn haglen, hent lagerlisten og slå bossen. Menyen bruker samme pikselgrafikk som spillet. Spilleren har et enkelt profilark, kasser har topp og side, og vakter varsler slag og går rundt dekning. Fire korte lydeffekter er lagt til. [Hvordan det er laget, hva laget kan redigere, kilder og tester](de-nadel/docs/gameplay-polish.md).

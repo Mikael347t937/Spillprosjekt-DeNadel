@@ -1,6 +1,8 @@
-[gd_resource type="SpriteFrames" load_steps=11 format=3]
+[gd_resource type="SpriteFrames" load_steps=15 format=3]
 
 [ext_resource type="Texture2D" path="res://assets/characters/protagonist.png" id="1"]
+
+[ext_resource type="Texture2D" path="res://assets/characters/protagonist_side.svg" id="side"]
 
 [sub_resource type="AtlasTexture" id="pose0"]
 atlas = ExtResource("1")
@@ -38,8 +40,21 @@ region = Rect2(0, 224, 32, 32)
 atlas = ExtResource("1")
 region = Rect2(0, 256, 32, 32)
 
+[sub_resource type="AtlasTexture" id="side0"]
+atlas = ExtResource("side")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="side1"]
+atlas = ExtResource("side")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="side2"]
+atlas = ExtResource("side")
+region = Rect2(0, 64, 32, 32)
+
 [resource]
 animations = [
 { "frames": [{"duration": 1.0, "texture": SubResource("pose0")}, {"duration": 1.0, "texture": SubResource("pose1")}, {"duration": 1.0, "texture": SubResource("pose2")}, {"duration": 1.0, "texture": SubResource("pose3")}, {"duration": 1.0, "texture": SubResource("pose4")}, {"duration": 1.0, "texture": SubResource("pose5")}], "loop": true, "name": &"front", "speed": 7.0 },
 { "frames": [{"duration": 1.0, "texture": SubResource("pose7")}, {"duration": 1.0, "texture": SubResource("pose6")}, {"duration": 1.0, "texture": SubResource("pose7")}, {"duration": 1.0, "texture": SubResource("pose8")}], "loop": true, "name": &"back", "speed": 7.0 },
+{ "frames": [{"duration": 1.0, "texture": SubResource("side0")}, {"duration": 1.0, "texture": SubResource("side1")}, {"duration": 1.0, "texture": SubResource("side0")}, {"duration": 1.0, "texture": SubResource("side2")}], "loop": true, "name": &"side", "speed": 7.0 },
 ]

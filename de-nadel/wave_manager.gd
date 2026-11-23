@@ -58,7 +58,9 @@ func spawn_enemy() -> void:
 	var angle = randf_range(0.0, TAU)
 	var direction = Vector2.RIGHT.rotated(angle)
 
-	enemy.position = player.position + direction * spawn_distance
+	enemy.position = (player.position + direction * spawn_distance).clamp(Vector2(48, 180), Vector2(1550, 840))
+	var paths = get_tree().get_first_node_in_group("path_grid")
+	if paths and paths.ready_for_paths: enemy.position = paths.open_spawn(enemy.position)
 	get_parent().add_child(enemy)
 
 	enemies_alive += 1

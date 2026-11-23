@@ -14,9 +14,11 @@ a = p.parse_args()
 out = a.output.resolve()
 (out / 'game').mkdir(parents=True, exist_ok=True)
 (out / 'assets').mkdir(exist_ok=True)
+old_cover = out / 'assets/title_background.png'
+if old_cover.exists(): old_cover.unlink()
 for name in ['index.html', 'style.css', 'app.js']:
     shutil.copy2(root / 'web' / name, out / name)
-for source in ['assets/art/title_background.png', 'assets/fonts/Anton-Regular.ttf', 'assets/fonts/BarlowCondensed-Regular.ttf', 'icon.svg']:
+for source in ['assets/art/pixel_city_preview.png', 'assets/fonts/Anton-Regular.ttf', 'assets/fonts/BarlowCondensed-Regular.ttf', 'icon.svg']:
     shutil.copy2(root / 'de-nadel' / source, out / 'assets' / Path(source).name)
 for license_file in (root / 'de-nadel/assets/fonts').glob('*OFL*'):
     shutil.copy2(license_file, out / 'assets' / license_file.name)

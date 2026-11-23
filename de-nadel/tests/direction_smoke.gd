@@ -37,11 +37,11 @@ func run() -> void:
 			check(frames.get_frame_count(animation) == expected, "walk cycle uses the supplied poses")
 			for i in range(frames.get_frame_count(animation)):
 				check(not frames.get_frame_texture(animation, i).get_image().is_invisible(), "animation never includes an empty frame")
-	check(not visual.sprite_frames.has_animation("side"), "protagonist does not reuse another character side view")
+	check(visual.sprite_frames.has_animation("side"), "protagonist has its own pixel profile")
 	var boss = load("res://scenes/boss.tscn").instantiate()
 	check(boss.custom_frames != visual.sprite_frames, "boss keeps separate placeholder artwork")
 	boss.free()
-	for entry in [["move_left", "front", false], ["move_right", "front", false], ["move_up", "back", false], ["move_down", "front", false]]:
+	for entry in [["move_left", "side", false], ["move_right", "side", true], ["move_up", "back", false], ["move_down", "front", false]]:
 		player.velocity = Vector2.ZERO
 		Input.action_press(entry[0])
 		await create_timer(0.2).timeout

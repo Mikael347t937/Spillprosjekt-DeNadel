@@ -39,7 +39,12 @@ z_index = 1
 color = Color(0.18, 0.18, 0.20, 1)
 polygon = PackedVector2Array(0, 0, 1664, 0, 1664, 160, 0, 160)
 
+[node name="Base" type="Polygon2D" parent="."]
+color = Color(0.20, 0.20, 0.245, 1)
+polygon = PackedVector2Array(0, 0, 1664, 0, 1664, 900, 0, 900)
+
 [node name="Ground" type="Node2D" parent="."]
+visible = false
 
 [node name="Tile_0_0" type="Sprite2D" parent="Ground"]
 position = Vector2(64, 64)
@@ -58,8 +63,8 @@ texture = ExtResource("ground")
 
 [node name="Tile_3_0" type="Sprite2D" parent="Ground"]
 position = Vector2(448, 64)
-scale = Vector2(0.70329670, 0.71508380)
-texture = ExtResource("road")
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_4_0" type="Sprite2D" parent="Ground"]
 position = Vector2(576, 64)
@@ -123,8 +128,8 @@ texture = ExtResource("moss_c")
 
 [node name="Tile_3_1" type="Sprite2D" parent="Ground"]
 position = Vector2(448, 192)
-scale = Vector2(0.70329670, 0.71508380)
-texture = ExtResource("road")
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_4_1" type="Sprite2D" parent="Ground"]
 position = Vector2(576, 192)
@@ -188,8 +193,8 @@ texture = ExtResource("ground")
 
 [node name="Tile_3_2" type="Sprite2D" parent="Ground"]
 position = Vector2(448, 320)
-scale = Vector2(0.70329670, 0.71508380)
-texture = ExtResource("road")
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_4_2" type="Sprite2D" parent="Ground"]
 position = Vector2(576, 320)
@@ -238,80 +243,68 @@ texture = ExtResource("ground")
 
 [node name="Tile_0_3" type="Sprite2D" parent="Ground"]
 position = Vector2(64, 448)
-scale = Vector2(0.70329670, 0.71508380)
-texture = ExtResource("road")
-rotation = 1.5707963
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_1_3" type="Sprite2D" parent="Ground"]
 position = Vector2(192, 448)
-scale = Vector2(0.70329670, 0.71508380)
-texture = ExtResource("road")
-rotation = 1.5707963
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_2_3" type="Sprite2D" parent="Ground"]
 position = Vector2(320, 448)
-scale = Vector2(0.70329670, 0.71508380)
-texture = ExtResource("road")
-rotation = 1.5707963
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_3_3" type="Sprite2D" parent="Ground"]
 position = Vector2(448, 448)
-scale = Vector2(0.70329670, 0.82580645)
-texture = ExtResource("broken_road")
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_4_3" type="Sprite2D" parent="Ground"]
 position = Vector2(576, 448)
-scale = Vector2(0.70329670, 0.71508380)
-texture = ExtResource("road")
-rotation = 1.5707963
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_5_3" type="Sprite2D" parent="Ground"]
 position = Vector2(704, 448)
-scale = Vector2(0.70329670, 0.71508380)
-texture = ExtResource("road")
-rotation = 1.5707963
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_6_3" type="Sprite2D" parent="Ground"]
 position = Vector2(832, 448)
-scale = Vector2(0.70329670, 0.71508380)
-texture = ExtResource("road")
-rotation = 1.5707963
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_7_3" type="Sprite2D" parent="Ground"]
 position = Vector2(960, 448)
-scale = Vector2(0.70329670, 0.71508380)
-texture = ExtResource("road")
-rotation = 1.5707963
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_8_3" type="Sprite2D" parent="Ground"]
 position = Vector2(1088, 448)
-scale = Vector2(0.70329670, 0.71508380)
-texture = ExtResource("road")
-rotation = 1.5707963
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_9_3" type="Sprite2D" parent="Ground"]
 position = Vector2(1216, 448)
-scale = Vector2(0.70329670, 0.71508380)
-texture = ExtResource("road")
-rotation = 1.5707963
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_10_3" type="Sprite2D" parent="Ground"]
 position = Vector2(1344, 448)
-scale = Vector2(0.70329670, 0.71508380)
-texture = ExtResource("road")
-rotation = 1.5707963
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_11_3" type="Sprite2D" parent="Ground"]
 position = Vector2(1472, 448)
-scale = Vector2(0.70329670, 0.71508380)
-texture = ExtResource("road")
-rotation = 1.5707963
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_12_3" type="Sprite2D" parent="Ground"]
 position = Vector2(1600, 448)
-scale = Vector2(0.70329670, 0.71508380)
-texture = ExtResource("road")
-rotation = 1.5707963
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_0_4" type="Sprite2D" parent="Ground"]
 position = Vector2(64, 576)
@@ -330,8 +323,8 @@ texture = ExtResource("ground")
 
 [node name="Tile_3_4" type="Sprite2D" parent="Ground"]
 position = Vector2(448, 576)
-scale = Vector2(0.70718232, 0.82580645)
-texture = ExtResource("crosswalk")
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_4_4" type="Sprite2D" parent="Ground"]
 position = Vector2(576, 576)
@@ -395,8 +388,8 @@ texture = ExtResource("ground")
 
 [node name="Tile_3_5" type="Sprite2D" parent="Ground"]
 position = Vector2(448, 704)
-scale = Vector2(0.70329670, 0.71508380)
-texture = ExtResource("road")
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_4_5" type="Sprite2D" parent="Ground"]
 position = Vector2(576, 704)
@@ -460,8 +453,8 @@ texture = ExtResource("ground")
 
 [node name="Tile_3_6" type="Sprite2D" parent="Ground"]
 position = Vector2(448, 832)
-scale = Vector2(0.70329670, 0.71508380)
-texture = ExtResource("road")
+scale = Vector2(0.69945355, 0.84768212)
+texture = ExtResource("ground")
 
 [node name="Tile_4_6" type="Sprite2D" parent="Ground"]
 position = Vector2(576, 832)
@@ -507,6 +500,23 @@ texture = ExtResource("ground")
 position = Vector2(1600, 832)
 scale = Vector2(0.69945355, 0.84768212)
 texture = ExtResource("ground")
+
+[node name="Street" type="Polygon2D" parent="."]
+z_index = 1
+color = Color(0.16, 0.16, 0.19, 1)
+polygon = PackedVector2Array(0, 360, 1664, 360, 1664, 490, 0, 490)
+
+[node name="CurbTop" type="Line2D" parent="."]
+z_index = 1
+points = PackedVector2Array(0, 358, 1664, 358)
+width = 3.0
+default_color = Color(0.34, 0.33, 0.35, 1)
+
+[node name="CurbBottom" type="Line2D" parent="."]
+z_index = 1
+points = PackedVector2Array(0, 492, 1664, 492)
+width = 3.0
+default_color = Color(0.12, 0.12, 0.15, 1)
 
 [node name="Decorations" type="Node2D" parent="."]
 z_index = 2
@@ -575,3 +585,9 @@ position = Vector2(1135, 60)
 
 [node name="Building4" parent="Decorations" instance=ExtResource("building4")]
 position = Vector2(1500, 72)
+
+[node name="WallNotice" type="Label" parent="Decorations"]
+position = Vector2(510, 162)
+theme_override_colors/font_color = Color(0.67, 0.58, 0.47, 1)
+theme_override_font_sizes/font_size = 16
+text = "LAGER 02"
