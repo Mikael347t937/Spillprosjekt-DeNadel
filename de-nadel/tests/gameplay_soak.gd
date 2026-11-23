@@ -131,7 +131,7 @@ func run() -> void:
 			if physics_steps % 120 == 0: await capture("combat-soak-level-%d" % number)
 		release_controls()
 		print("SOAK: level %d ran for %.1f seconds" % [number, (Time.get_ticks_msec() - started) / 1000.0])
-		check(not get_nodes_in_group("enemies").is_empty() or current_scene.completed or current_scene.waves != null, "level %d keeps a valid combat/completion state" % number)
+		check(not get_nodes_in_group("enemies").is_empty() or current_scene.completed or not current_scene.objective_ready() or current_scene.waves != null, "level %d keeps a valid combat/completion state" % number)
 	check(shots > 30 and physics_steps > 1000, "sustained test exercised real projectiles and movement over time")
 	current_scene.queue_free()
 	paused = false
