@@ -15,4 +15,4 @@ polygon = PackedVector2Array(-20, -24, 20, -24, 20, 24, -20, 24)
 [node name="Symbol" type="Sprite2D" parent="."]
 material = SubResource("Ink")
 texture = ExtResource("symbol")
-scale = Vector2(0.10, 0.10)
+scale = Vector2(0.20, 0.20)

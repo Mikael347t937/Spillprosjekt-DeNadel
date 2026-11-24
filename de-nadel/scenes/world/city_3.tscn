@@ -31,6 +31,8 @@
 
 [ext_resource type="PackedScene" path="res://scenes/world/regime_wall_sign.tscn" id="wall_seal"]
 
+[ext_resource type="PackedScene" path="res://scenes/world/regime_banner.tscn" id="banner"]
+
 [node name="City" type="Node2D"]
 texture_filter = 1
 z_index = -20
@@ -593,3 +595,9 @@ text = "KONTROLLPOST"
 
 [node name="RegimeWallSign" parent="Decorations" instance=ExtResource("wall_seal")]
 position = Vector2(1090, 112)
+
+[node name="RegimeBanner1" parent="Decorations" instance=ExtResource("banner")]
+position = Vector2(600, 35)
+
+[node name="RegimeBanner2" parent="Decorations" instance=ExtResource("banner")]
+position = Vector2(1180, 30)

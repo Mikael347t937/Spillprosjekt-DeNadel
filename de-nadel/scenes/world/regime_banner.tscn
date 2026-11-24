@@ -1,0 +1,39 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/art/regime_symbol.tres" id="symbol"]
+[ext_resource type="Shader" path="res://shaders/die_nadel_ink.gdshader" id="ink"]
+
+[sub_resource type="ShaderMaterial" id="BannerInk"]
+shader = ExtResource("ink")
+shader_parameter/ink_color = Color(0.80, 0.75, 0.64, 1)
+
+[node name="RegimeBanner" type="Node2D"]
+texture_filter = 1
+
+[node name="Shadow" type="Polygon2D" parent="."]
+color = Color(0.04, 0.04, 0.05, 0.55)
+polygon = PackedVector2Array(-23, 4, 29, 4, 29, 118, 3, 105, -23, 118)
+
+[node name="Cloth" type="Polygon2D" parent="."]
+color = Color(0.40, 0.09, 0.10, 1)
+polygon = PackedVector2Array(-26, 0, 26, 0, 26, 114, 0, 101, -26, 114)
+
+[node name="Hem" type="Line2D" parent="."]
+points = PackedVector2Array(-23, 3, -23, 108, 0, 97, 23, 108, 23, 3)
+width = 1.0
+default_color = Color(0.57, 0.19, 0.18, 1)
+
+[node name="Fold" type="Polygon2D" parent="."]
+color = Color(0.22, 0.04, 0.05, 0.4)
+polygon = PackedVector2Array(13, 3, 20, 3, 20, 107, 13, 104)
+
+[node name="Symbol" type="Sprite2D" parent="."]
+material = SubResource("BannerInk")
+position = Vector2(0, 44)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("symbol")
+
+[node name="Rail" type="Line2D" parent="."]
+points = PackedVector2Array(-31, -2, 31, -2)
+width = 4.0
+default_color = Color(0.24, 0.23, 0.23, 1)

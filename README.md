@@ -98,7 +98,7 @@ Vi skiller mellom filer som faktisk er lagt inn i spillet, og dokumentasjon vi b
 | `assets/characters/syringe_enemy.png` | Levert av gruppen som `Vanlig dag på oslo s 3 (2).png`. Brukes til vanlig fiende. |
 | `assets/characters/player_front.png`, `player_back.png`, `player_side.png` | Gruppens tidligere Piskel-ark. De er bevart og brukes som midlertidig bossgrafikk. |
 | `assets/world/verden.png` | Levert av gruppen: bakke, hus og rekvisitter. Utsnitt brukes i egne Godot-scener. |
-| `assets/art/die_nadel_source.png` | Logo levert av gruppen som `Screenshot 2026-11-20 at 11.11.04 (2).png`. Hele logoen brukes i menyen, og symbolet på utvalgte flagg, kasser og bygg. |
+| `assets/art/die_nadel_source.png` | Oppdatert logo levert av gruppen som `Die nadel 1.png` (24. november). Originalbildet er kopiert uten endring. Hele logoen brukes i menyen, og symbolet på utvalgte flagg, kasser og bygg. To flyttbare veggbannere er lagt til på hvert nivå som `scenes/world/regime_banner.tscn`. |
 | `assets/world/narko_logo.png` | Tidligere logo levert som skjermbilde. Beholdt i prosjektet, men vises ikke i den nåværende hovedmenyen. |
 | `assets/characters/protagonist_side.svg`, `assets/world/crate_depth.svg` | Profilbilder og kasse med litt dybde, laget som SVG med hjelp fra Codex. Dette er 2D-grafikk. |
 | `assets/items/loot_atlas.png` | Generert med imagegen til prosjektet: mynter, ammunisjon, hagle, sprøyter og bur. Prompten ligger i [loot-art-prompt.txt](de-nadel/docs/loot-art-prompt.txt). Lærerens bilde var en referanse for ideen. |
