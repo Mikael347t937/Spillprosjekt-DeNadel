@@ -10,6 +10,15 @@ var supplies_collected = false
 @onready var waves = get_node_or_null("WaveManager")
 var completed = false
 
+func _ready() -> void:
+	if has_node("Portal"): $Portal.entered.connect(enter_portal)
+
+func enter_portal() -> void:
+	var player = get_tree().get_first_node_in_group("player")
+	if not completed or hud.changing_scene or hud.game_over or player.dead: return
+	RunInventory.save_player(player)
+	hud.leave_for(next_level)
+
 func _process(_delta: float) -> void:
 	if completed or hud.game_over or hud.changing_scene: return
 	update_objective()
@@ -21,6 +30,10 @@ func _process(_delta: float) -> void:
 	finish_level()
 
 func finish_level() -> void:
+	if has_node("Portal") and not next_level.is_empty():
+		$Portal.set_unlocked(true)
+		hud.get_node("Screen/Objective/Content/Goal").text = "Portalen er åpen →"
+		return
 	var cages = get_tree().get_nodes_in_group("supply_cages")
 	if not cages.is_empty():
 		hud.ending = true
@@ -42,9 +55,9 @@ func update_objective() -> void:
 	var enemies_left = 0
 	for enemy in get_tree().get_nodes_in_group("enemies"):
 		if not enemy.dead: enemies_left += 1
-	var task = "Slå bossen og vaktene. Frigjør sprøytene."
-	if objective == 1: task = "Finn haglen." if not objective_ready() else "Hold området til siste vakt er slått."
-	if objective == 2: task = "Hent lagerlisten øst på plassen." if not supplies_collected else "Lagerlisten er sikret. Slå de siste vaktene."
+	var task = "Vakter: %d" % enemies_left
+	if objective == 1 and not objective_ready(): task += " · Finn haglen."
+	if objective == 2 and not supplies_collected: task += " · Finn lagerlisten."
 	hud.get_node("Screen/Objective/Content/Title").text = chapter
-	hud.get_node("Screen/Objective/Content/Goal").text = task + "  |  Fiender: %d" % enemies_left
+	hud.get_node("Screen/Objective/Content/Goal").text = task
 	hud.get_node("Screen/Objective/Content/Story").text = briefing

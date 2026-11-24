@@ -41,6 +41,8 @@ func run() -> void:
 	for enemy in get_nodes_in_group("enemies"):
 		enemy.set_physics_process(false)
 		if enemy != boss:
+			enemy.collision_layer = 0
+			enemy.collision_mask = 0
 			check(enemy.get_node("Sprite2D") is AnimatedSprite2D, "basic enemy uses animated Piskel art")
 			check(enemy.get_node("Sprite2D").sprite_frames.get_frame_count("front") == 4, "enemy has four animation frames")
 	player.set_physics_process(false)

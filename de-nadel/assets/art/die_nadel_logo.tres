@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" format=3]
+[ext_resource type="Texture2D" path="res://assets/art/die_nadel_source.png" id="source"]
+[resource]
+atlas = ExtResource("source")
+region = Rect2(0, 20, 1680, 330)
+filter_clip = true

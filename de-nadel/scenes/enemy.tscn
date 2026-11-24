@@ -26,6 +26,7 @@ script = ExtResource("direction")
 shape = SubResource("Shape")
 
 [node name="HealthBar" parent="." instance=ExtResource("health_bar")]
+visible = false
 offset_top = -42.0
 offset_bottom = -36.0
 

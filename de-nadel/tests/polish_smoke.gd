@@ -70,8 +70,8 @@ func run() -> void:
 	check(not current_scene.get_node("GameHUD").level_won, "guards alone do not complete the warehouse objective")
 	player.position = current_scene.get_node("Lagerliste").position
 	await create_timer(0.12).timeout
-	check(current_scene.supplies_collected and current_scene.get_node("GameHUD").level_won, "walking onto the warehouse list completes the objective")
-	check(paused, "warehouse objective uses the normal victory screen")
+	check(current_scene.supplies_collected and current_scene.get_node("Portal").unlocked, "walking onto the warehouse list opens the exit portal")
+	check(not paused, "player remains free to enter the portal")
 	paused = false
 	current_scene.queue_free()
 	await process_frame

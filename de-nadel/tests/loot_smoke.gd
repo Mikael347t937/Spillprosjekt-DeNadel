@@ -56,7 +56,7 @@ func run() -> void:
 	coin.collect(player)
 	coin.collect(player)
 	check(player.coins == 6, "duplicate callbacks cannot collect the same coin twice")
-	check(hud.get_node("Screen/Inventory/Content/CoinsRow/Coins").text == "Mynter: 6", "coin HUD updates")
+	check(hud.get_node("Screen/Inventory/Content/CoinsRow/Coins").text == "6", "coin HUD updates")
 	await drop_at_player("res://scenes/ammo.tscn", player)
 	check(player.shells == 8, "ammo crate adds eight shells")
 	await drop_at_player("res://scenes/shotgun.tscn", player)
@@ -85,7 +85,8 @@ func run() -> void:
 	current_scene.get_node("Lagerliste").collect(player)
 	for enemy in get_nodes_in_group("enemies"): enemy.take_damage(999)
 	await settle()
-	hud.open_next_level()
+	player.position = current_scene.get_node("Portal").position
+	await create_timer(0.15).timeout
 	await settle()
 	player = get_first_node_in_group("player")
 	hud = current_scene.get_node("GameHUD")

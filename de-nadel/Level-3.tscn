@@ -18,6 +18,11 @@
 [ext_resource type="PackedScene" path="res://scenes/shotgun.tscn" id="loot_shotgun"]
 [ext_resource type="PackedScene" path="res://scenes/supply_cage.tscn" id="cage"]
 
+[ext_resource type="PackedScene" path="res://scenes/level_bounds.tscn" id="bounds"]
+
+[ext_resource type="PackedScene" path="res://scenes/world/regime_crate.tscn" id="regime_box"]
+[ext_resource type="PackedScene" path="res://scenes/world/regime_flag.tscn" id="regime_flag"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3crfi"]
 texture = ExtResource("1_nu0cj")
 texture_region_size = Vector2i(128, 128)
@@ -41,6 +46,7 @@ tile_size = Vector2i(128, 128)
 sources/1 = SubResource("TileSetAtlasSource_3crfi")
 
 [node name="Level3" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("flow")
 objective = 0
 chapter = "03 / Kontrollposten"
@@ -61,7 +67,7 @@ position = Vector2(460, 520)
 [node name="Box2" parent="." instance=ExtResource("3_ohy7r")]
 position = Vector2(525, 520)
 
-[node name="Box3" parent="." instance=ExtResource("3_ohy7r")]
+[node name="Box3" parent="." instance=ExtResource("regime_box")]
 position = Vector2(590, 520)
 
 [node name="Box4" parent="." instance=ExtResource("3_ohy7r")]
@@ -79,31 +85,89 @@ position = Vector2(1100, 560)
 [node name="Box8" parent="." instance=ExtResource("3_ohy7r")]
 position = Vector2(1165, 560)
 
-[node name="Box9" parent="." instance=ExtResource("3_ohy7r")]
+[node name="Box9" parent="." instance=ExtResource("regime_box")]
 position = Vector2(1230, 560)
 
 [node name="Box10" parent="." instance=ExtResource("3_ohy7r")]
 position = Vector2(460, 200)
 
 [node name="Enemy1" parent="." instance=ExtResource("4_tx72s")]
-position = Vector2(650, 210)
-speed = 125.0
-max_health = 2
-attack_damage = 12
+position = Vector2(650, 260)
+speed = 140.0
+max_health = 3
+attack_damage = 16
 windup_duration = 0.25
+detection_radius = 1500.0
 
 [node name="Enemy2" parent="." instance=ExtResource("4_tx72s")]
-position = Vector2(1030, 230)
+position = Vector2(1030, 260)
+speed = 115.0
+max_health = 4
+attack_damage = 22
+windup_duration = 0.35
+detection_radius = 1500.0
 
 [node name="Enemy3" parent="." instance=ExtResource("4_tx72s")]
 position = Vector2(1320, 380)
-speed = 65.0
-max_health = 5
-attack_damage = 25
-windup_duration = 0.6
+speed = 85.0
+max_health = 6
+attack_damage = 28
+windup_duration = 0.55
+detection_radius = 1500.0
 
 [node name="Boss" parent="." instance=ExtResource("boss")]
 position = Vector2(1260, 280)
+speed = 75.0
+recovery_time = 0.9
+
+
+[node name="Enemy4" parent="." instance=ExtResource("4_tx72s")]
+position = Vector2(740, 720)
+speed = 140.0
+max_health = 3
+attack_damage = 16
+windup_duration = 0.25
+detection_radius = 1500.0
+
+[node name="Enemy5" parent="." instance=ExtResource("4_tx72s")]
+position = Vector2(1050, 730)
+speed = 115.0
+max_health = 4
+attack_damage = 22
+windup_duration = 0.35
+detection_radius = 1500.0
+
+[node name="Enemy6" parent="." instance=ExtResource("4_tx72s")]
+position = Vector2(1430, 520)
+speed = 85.0
+max_health = 6
+attack_damage = 28
+windup_duration = 0.55
+detection_radius = 1500.0
+
+[node name="Enemy7" parent="." instance=ExtResource("4_tx72s")]
+position = Vector2(620, 350)
+speed = 140.0
+max_health = 3
+attack_damage = 16
+windup_duration = 0.25
+detection_radius = 1500.0
+
+[node name="Enemy8" parent="." instance=ExtResource("4_tx72s")]
+position = Vector2(900, 650)
+speed = 115.0
+max_health = 4
+attack_damage = 22
+windup_duration = 0.35
+detection_radius = 1500.0
+
+[node name="Enemy9" parent="." instance=ExtResource("4_tx72s")]
+position = Vector2(1400, 260)
+speed = 85.0
+max_health = 6
+attack_damage = 28
+windup_duration = 0.55
+detection_radius = 1500.0
 
 [node name="GameHUD" parent="." instance=ExtResource("hud")]
 
@@ -129,3 +193,14 @@ position = Vector2(1370, 690)
 
 [node name="Paths" type="Node2D" parent="."]
 script = ExtResource("paths")
+
+[node name="Bounds" parent="." instance=ExtResource("bounds")]
+
+[node name="AmmoReserve" parent="." instance=ExtResource("loot_ammo")]
+position = Vector2(970, 740)
+
+[node name="RegimeFlag1" parent="." instance=ExtResource("regime_flag")]
+position = Vector2(1130, 220)
+
+[node name="RegimeFlag2" parent="." instance=ExtResource("regime_flag")]
+position = Vector2(1450, 220)

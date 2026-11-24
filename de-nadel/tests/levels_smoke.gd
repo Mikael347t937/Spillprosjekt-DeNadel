@@ -15,6 +15,9 @@ func check(condition: bool, label: String) -> void:
 
 func run() -> void:
 	root.size = Vector2i(1600, 900)
+	# Level one has two placed guards and five normal guards in its wave.
+	var previous_health = 21
+	var previous_count = 7
 	for number in [2, 3]:
 		change_scene_to_file("res://scenes/level_select.tscn")
 		await process_frame
@@ -26,11 +29,19 @@ func run() -> void:
 		check(current_scene.scene_file_path == path, "selector opens level %d" % number)
 		var player = get_first_node_in_group("player")
 		var enemies = get_nodes_in_group("enemies")
-		check(enemies.size() == number + 1, "level %d has its own enemy layout" % number)
+		check(enemies.size() == (8 if number == 2 else 10), "level %d has its own enemy layout" % number)
 		check(player.health == 100, "level %d starts with full health" % number)
+		var total_health = 0
+		for enemy in enemies: total_health += enemy.max_health
+		check(enemies.size() > previous_count and total_health > previous_health, "later level increases enemy count and total health")
+		previous_count = enemies.size()
+		previous_health = total_health
 		for enemy in enemies:
 			enemy.set_physics_process(false)
 			check(enemy.health == enemy.max_health, "enemy starts with full health")
+			if not enemy.is_in_group("bosses"):
+				check(enemy.speed < player.speed and enemy.windup_duration >= 0.25, "regular guard can be outrun and has a readable attack warning")
+				check(enemy.detection_radius > enemy.position.distance_to(player.position), "guard notices the player from its starting position")
 			check(enemy.position.distance_to(player.position) > 150, "enemy starts away from player")
 		await physics_frame
 		await process_frame
