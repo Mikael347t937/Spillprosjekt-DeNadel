@@ -8,4 +8,4 @@ Use case: stylized-concept. Asset type: full-bleed 16:9 background painting for 
 
 Saved project asset: `assets/art/title_background.png`.
 
-Fonts: Anton and Barlow Condensed, distributed under the SIL Open Font License; license files are in `assets/fonts/`. Ambient drone and click audio were synthesized specifically for this project.
+Fonts: Anton and Barlow Condensed, distributed under the SIL Open Font License; license files are in `assets/fonts/`. The original ambient drone and click were synthesized for the project. On 26 November 2026 they were replaced with Kenney CC0 audio; current sources, original files and licenses are listed in the root README and `assets/audio/sources.json`.

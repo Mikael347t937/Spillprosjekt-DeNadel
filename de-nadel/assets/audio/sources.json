@@ -1,0 +1,103 @@
+{
+  "retrieved": "2026-11-26",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "conversion": "Original OGG decoded with macOS afconvert; PCM samples saved as standard WAV; gain adjusted without generating new sound.",
+  "files": [
+    {
+      "game_file": "menu_click.wav",
+      "author": "Kenney",
+      "pack": "Interface Sounds",
+      "original_file": "Audio/click_001.ogg",
+      "source_url": "https://kenney.nl/assets/interface-sounds",
+      "license": "CC0 1.0",
+      "original_sha256": "ccfb7fa0cccdd9faec0eb16033c732b1e308d139d80f799161495d58f7adcdb9",
+      "wav_sha256": "130a9d7c0938e046ef1c6ae5cd4aa881068db9da7b3a5347192babb988b58c8b",
+      "processing": {
+        "format": "PCM WAV, signed 16-bit",
+        "gain_db": 24.0,
+        "pitch_changed": false,
+        "trimmed": false
+      }
+    },
+    {
+      "game_file": "pickup.wav",
+      "author": "Kenney",
+      "pack": "Interface Sounds",
+      "original_file": "Audio/confirmation_001.ogg",
+      "source_url": "https://kenney.nl/assets/interface-sounds",
+      "license": "CC0 1.0",
+      "original_sha256": "063564703b6094d70718a3e787a55cc9141611e4ecd6b6637f8828f79b4a8c3a",
+      "wav_sha256": "ed5b639c0a4afe68d3fd9d512e784832f1fd2094fb698f91329e66436b3dcac9",
+      "processing": {
+        "format": "PCM WAV, signed 16-bit",
+        "gain_db": -6.0,
+        "pitch_changed": false,
+        "trimmed": false
+      }
+    },
+    {
+      "game_file": "impact.wav",
+      "author": "Kenney",
+      "pack": "Impact Sounds",
+      "original_file": "Audio/impactPunch_medium_000.ogg",
+      "source_url": "https://kenney.nl/assets/impact-sounds",
+      "license": "CC0 1.0",
+      "original_sha256": "486988aa2d6440ffc4c62a0e8ccf3c23673ba84424bd4723378d451b7255eb5c",
+      "wav_sha256": "1fcb3f724b4822f20445b18ab92fc0c9421bb68ab3c1b647e87a608ef99e2fdc",
+      "processing": {
+        "format": "PCM WAV, signed 16-bit",
+        "gain_db": -3.0,
+        "pitch_changed": false,
+        "trimmed": false
+      }
+    },
+    {
+      "game_file": "pistol.wav",
+      "author": "Kenney",
+      "pack": "Sci-fi Sounds",
+      "original_file": "Audio/laserSmall_000.ogg",
+      "source_url": "https://kenney.nl/assets/sci-fi-sounds",
+      "license": "CC0 1.0",
+      "original_sha256": "72b589eadd41781257ac859e4f4d030222e623390e4a1a83f6d05329a6e026f1",
+      "wav_sha256": "55540e85629b63ab77fb4ab5e94787d5fb798ca2712c33ece494b664152a6ad4",
+      "processing": {
+        "format": "PCM WAV, signed 16-bit",
+        "gain_db": 3.0,
+        "pitch_changed": false,
+        "trimmed": false
+      }
+    },
+    {
+      "game_file": "shotgun.wav",
+      "author": "Kenney",
+      "pack": "Sci-fi Sounds",
+      "original_file": "Audio/laserLarge_000.ogg",
+      "source_url": "https://kenney.nl/assets/sci-fi-sounds",
+      "license": "CC0 1.0",
+      "original_sha256": "a56d95794cd732d6c2d66ce488c14cf557fe526c282897c9a77675c2bd9b77e6",
+      "wav_sha256": "05a5dc77a4dd170e00fe226a0a9e5b30865432f518fb0561d40e5e033f21ed5d",
+      "processing": {
+        "format": "PCM WAV, signed 16-bit",
+        "gain_db": 0.0,
+        "pitch_changed": false,
+        "trimmed": false
+      }
+    },
+    {
+      "game_file": "city_drone.wav",
+      "author": "Kenney",
+      "pack": "Sci-fi Sounds",
+      "original_file": "Audio/spaceEngineLow_000.ogg",
+      "source_url": "https://kenney.nl/assets/sci-fi-sounds",
+      "license": "CC0 1.0",
+      "original_sha256": "d7deee8d7217ce63aab802ad7365a59cacfd243392dc1bd03b0a9d454aa494df",
+      "wav_sha256": "0894fc58e1bbeaaeffda5375d9ca32692ea5079585353f77cc323b6128bcf3ed",
+      "processing": {
+        "format": "PCM WAV, signed 16-bit",
+        "gain_db": -10.0,
+        "pitch_changed": false,
+        "trimmed": false
+      }
+    }
+  ]
+}

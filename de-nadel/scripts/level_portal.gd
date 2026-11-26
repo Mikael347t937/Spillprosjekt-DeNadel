@@ -1,3 +1,10 @@
+# Kort forklaring til presentasjonen:
+# Dette skriptet styrer selve portalen. Den er låst når nivået starter.
+# Når level_flow sier at nivået er ferdig, åpner set_unlocked portalen og endrer fargen og teksten.
+# Portalen bruker en Area2D, altså et område som oppdager at spilleren går inn.
+# Hvis portalen er åpen og spilleren er i live, sender den signalet entered til level_flow.
+# Variabelen used hindrer at signalet sendes flere ganger. Det er level_flow som ber om å bytte nivå.
+
 # Використовуємо зону, яка визначає, які фізичні об’єкти перебувають усередині порталу.
 extends Area2D
 

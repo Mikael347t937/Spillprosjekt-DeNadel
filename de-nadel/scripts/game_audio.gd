@@ -1,3 +1,10 @@
+# Kort forklaring til presentasjonen:
+# Dette skriptet spiller av lydene når vi skyter, treffer noe eller plukker opp en gjenstand.
+# Funksjonen play_effect får lyden som skal spilles, og lager en egen lydspiller til den.
+# Derfor kan flere lyder spilles samtidig. Når en lyd er ferdig, fjernes lydspilleren.
+# Når spillet er på pause, starter vi ikke nye lydeffekter, men lyder som allerede spiller får bli ferdige.
+# Bakgrunnslyden i menyen og musikken etter bossen styres andre steder.
+
 # Використовуємо звичайний вузол для керування звуками без графіки та фізики.
 extends Node
 

@@ -1,3 +1,10 @@
+# Kort forklaring til presentasjonen:
+# Dette skriptet passer på når et nivå er ferdig, og når spilleren kan gå videre.
+# Det sjekker om fiendebølgene er ferdige, om alle fiendene er døde og om oppdraget er gjort.
+# På første nivå må vi også finne haglen, og på andre nivå må vi hente lagerlisten.
+# Når alt er klart, åpnes portalen. Når spilleren går inn, lagres våpen, patroner og mynter før vi bytter nivå.
+# På siste nivå åpnes buret før seiersmenyen vises. Variabelen completed hindrer at avslutningen starter flere ganger.
+
 # Скрипт успадковує Node2D і керує завершенням рівня, а не рухом персонажа.
 extends Node2D
 

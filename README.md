@@ -112,14 +112,21 @@ De eldre filene `tanks-simple.png`, `tanks-terrain.png`, `specialBarrel6.png` og
 
 ### Lyd
 
-| Fil under `de-nadel/assets/audio/` | Kilde og bruk |
-| --- | --- |
-| `victory_recording.wav` | Gruppens fil `ZOOM0039_TrLR.WAV`, kopiert uten endring. Spilles når buret åpnes etter siste kamp. Opptaket er omtrent 31 sekunder. Navn på opptaker, eventuell sang og rettighetshaver er ikke oppgitt ennå. |
-| `city_drone.wav` | Syntetisk bakgrunnslyd laget for prosjektet med kode/AI-hjelp. Brukes i hovedmenyen; ikke hentet fra en ekstern lydpakke. |
-| `menu_click.wav` | Syntetisk klikkelyd laget for prosjektet med kode/AI-hjelp. |
-| `pistol.wav`, `shotgun.wav`, `impact.wav`, `pickup.wav` | Korte effekter laget med matematikk og deterministisk støy med kode/AI-hjelp. Ikke opptak av ekte våpen eller nedlastede lydeffekter. |
+Oppdatert 26. november 2026: Vi har erstattet de seks tidligere kodegenererte lydfilene med lyder laget av **Kenney**. De er hentet fra Kenneys originale lydpakker og har lisensen **CC0 1.0**. Dette er eksterne lydressurser, ikke nye lyder laget av Codex. Vi har konvertert OGG til WAV og justert volumet. Filnavnene i spillet er beholdt, slik at scenene fortsatt finner lydene.
 
-Vi trenger altså ikke å oppgi et lydbibliotek for de syntetiske effektene. For opptaket fra gruppen mangler vi fortsatt den opprinnelige lydkilden. Filnavnet alene forteller ikke hvem som har laget innholdet.
+| Fil under `de-nadel/assets/audio/` | Originalfil i lydpakken | Kilde / bruk |
+| --- | --- | --- |
+| `menu_click.wav` | `Audio/click_001.ogg` | [Kenney – Interface Sounds](https://kenney.nl/assets/interface-sounds). Klikk i menyen. |
+| `pickup.wav` | `Audio/confirmation_001.ogg` | [Kenney – Interface Sounds](https://kenney.nl/assets/interface-sounds). Når vi plukker opp noe. |
+| `impact.wav` | `Audio/impactPunch_medium_000.ogg` | [Kenney – Impact Sounds](https://kenney.nl/assets/impact-sounds). Treff og slag. |
+| `pistol.wav` | `Audio/laserSmall_000.ogg` | [Kenney – Sci-fi Sounds](https://kenney.nl/assets/sci-fi-sounds). Kort skuddlyd; dette er en spill-/laserlyd, ikke et opptak av en ekte pistol. |
+| `shotgun.wav` | `Audio/laserLarge_000.ogg` | [Kenney – Sci-fi Sounds](https://kenney.nl/assets/sci-fi-sounds). Kraftigere lyd for haglen. |
+| `city_drone.wav` | `Audio/spaceEngineLow_000.ogg` | [Kenney – Sci-fi Sounds](https://kenney.nl/assets/sci-fi-sounds). Lav motorlyd som bakgrunn i menyen. Navnet i spillet er fra den gamle versjonen. |
+| `victory_recording.wav` | `ZOOM0039_TrLR.WAV` | Fil levert av gruppen. Spilles etter bosskampen når buret åpnes. Opptaket er omtrent 31 sekunder og er ikke endret. Navn på opptaker, eventuell sang og rettighetshaver er ikke oppgitt ennå. |
+
+De seks originale OGG-filene ligger i [assets/audio/sources/kenney](de-nadel/assets/audio/sources/kenney). Lisensfilene fra de tre arkivene følger med i [assets/audio/licenses](de-nadel/assets/audio/licenses). [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) er lisensen som står på Kenneys sider og i arkivene. Vi fører opp Kenney selv om kreditering ikke er påkrevd i disse lisensfilene.
+
+[sources.json](de-nadel/assets/audio/sources.json) viser kilde, originalt filnavn, kontrollsummer og volumendring for hver fil. Vi har ikke endret tonehøyden, klippet lydene eller laget nye lydsignaler. De gamle syntetiserte lydene er erstattet; de var brukt i tidligere versjoner av spillet. For opptaket fra gruppen mangler vi fortsatt den opprinnelige lydkilden.
 
 ### Kode og Godot-dokumentasjon
 
@@ -151,7 +158,7 @@ I den første prosjektloggen lå også [Godotkurs – Instanser](https://ensva00
 
 ### Hjelpemidler
 
-Vi har brukt Godot, GDScript, GitHub og GitHub Desktop. Figurark er levert som Piskel-bilder. Codex/AI er brukt til kodeforslag, tilpasning, feilsøking, tester, kommentarer og deler av dokumentasjonen. Noe grafikk og syntetisk lyd er også laget med AI-hjelp, som beskrevet over. De nye spillfunksjonene er tilpasset dette prosjektet; en dokumentasjonslenke er ikke en påstand om at vi skrev alt uten hjelp.
+Vi har brukt Godot, GDScript, GitHub og GitHub Desktop. Figurark er levert som Piskel-bilder. Codex/AI er brukt til kodeforslag, tilpasning, feilsøking, tester, kommentarer og deler av dokumentasjonen. Noe grafikk er også laget med AI-hjelp, som beskrevet over. De tidligere kodegenererte lydene er nå erstattet med Kenney-ressursene i lydtabellen. De nye spillfunksjonene er tilpasset dette prosjektet; en dokumentasjonslenke er ikke en påstand om at vi skrev alt uten hjelp.
 
 ## Mer om ressursene
 

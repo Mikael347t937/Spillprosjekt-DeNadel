@@ -29,7 +29,7 @@ Vanlige fiender viser **!** før slaget. Du kan gå unna under forvarselet; slag
 
 ## Lyd
 
-`pistol.wav`, `shotgun.wav`, `impact.wav` og `pickup.wav` er korte syntetiske PCM-effekter laget for prosjektet med matematikk og deterministisk støy. Ingen eksterne lydpakker eller talegeneratorer er brukt. De spilles av `GameAudio` og følger **Lydnivå**. Effektene er hoppet over i headless-tester. Treffer, død og rekyl har ikke fått nye visuelle effekter i denne endringen.
+Oppdatert 26. november: `pistol.wav`, `shotgun.wav`, `impact.wav` og `pickup.wav` bruker nå Kenneys eksterne lydpakker Sci-fi Sounds, Impact Sounds og Interface Sounds (CC0). De tidligere kodegenererte effektene er erstattet. Originalfilene og lisensene følger med i `assets/audio/`; [README](../../README.md#lyd) og `assets/audio/sources.json` viser nøyaktig opphav og volumtilpasning. De spilles av `GameAudio` og følger **Lydnivå**. Effektene er hoppet over i headless-tester. Treffer, død og rekyl har ikke fått nye visuelle effekter i denne endringen.
 
 ## Kontroll
 
