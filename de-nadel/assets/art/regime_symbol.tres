@@ -2,5 +2,5 @@
 [ext_resource type="Texture2D" path="res://assets/art/die_nadel_source.png" id="source"]
 [resource]
 atlas = ExtResource("source")
-region = Rect2(0, 30, 315, 320)
+region = Rect2(0, 86, 160, 166)
 filter_clip = true
